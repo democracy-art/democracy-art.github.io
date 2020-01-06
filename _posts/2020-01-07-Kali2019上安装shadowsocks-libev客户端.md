@@ -58,5 +58,6 @@ Open-menu --> Preferences --> General --> Network Settings-->点击 Settings -->
 - HTTP Proxy: 127.0.0.1  Port: 1080
 - [x] Use this proxy server for all protocols
 
+
 点击 `OK` 按钮
 
