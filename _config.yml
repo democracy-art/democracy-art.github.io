@@ -2,7 +2,7 @@
 title: D Blog
 SEOTitle: D | BY Blog
 header-img: img/post-bg-desk.jpg
-email: democracy-art@gmail.com
+email: nonofrist010@gmail.com 
 description: "Just do it."
 keyword: "Kali,shadowsocks-libev"
 url: "http://democracy-art.github.io"          # your host, for absolute URL
@@ -11,8 +11,8 @@ github_repo: "https://github.com/democracy-art/democracy-art.github.io.git" # yo
 
 # Sidebar settings
 sidebar: true                           # whether or not using Sidebar.
-sidebar-about-description: "Goals determine what you going to be!"
-sidebar-avatar: /img/about-BY-gentle.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+sidebar-about-description: "Just do it!"
+sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
 
 
 
