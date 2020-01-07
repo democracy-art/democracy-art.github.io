@@ -1,6 +1,6 @@
 # 一.购买vps,申请域名,使用Cloudfalre的CDN
 
-1.购买vps可以去 [搬瓦工](https://bwh88.net/)
+1.购买vps可以去 [搬瓦工](https://bwh88.net/)<br>
 1.1 设置vps时间(系统 Centos 7 x86_64 bbr)
 
 1.1.1 创建clock文件
