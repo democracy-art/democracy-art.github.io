@@ -1,1 +1,1 @@
-# Just for record fighting for freedom.
+# Just do it.
