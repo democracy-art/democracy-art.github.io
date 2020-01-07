@@ -1,11 +1,3 @@
-- [一.购买vps,申请域名,使用Cloudfalre的CDN](#---vps--------cloudfalre-cdn)
-- [二. nginx 和 v2ray 安装设置](#--nginx---v2ray-----)
-- [三.下载安装 v2ray客户端](#------v2ray---)
-    + [安装](#--)
-    + [配置 v2rayN-Core windows客户端](#---v2rayn-core-windows---)
-- [四 其他配置](#------)
-    + [1. Cloudflare 加速配置](#1-cloudflare-----)
-
 # 一.购买vps,申请域名,使用Cloudfalre的CDN
 
 1.购买vps可以去 [搬瓦工](https://bwh88.net/)
