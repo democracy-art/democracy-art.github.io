@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Kali2019上安装shadowsocks-libev客户端
-subtitle:   Kali2019上安装shadowsocks-libev客户端
+subtitle:   
 date:       2020-01-07
 author:     D
 header-img: 

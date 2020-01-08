@@ -1,3 +1,15 @@
+---
+layout:     post
+title:      v2ray利用Websocket+TLS+Ngin+CDN实现流量伪装     
+subtitle:   
+date:       2020-01-07
+author:     D
+header-img: 
+catalog: true
+tags:
+    - v2ray 
+---
+
 # 一.购买vps,申请域名,使用Cloudfalre的CDN
 
 1.购买vps可以去 [搬瓦工](https://bwh88.net/)<br>
