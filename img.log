@@ -1,0 +1,8 @@
+offline.html:4:header-img: "img/404-bg.jpg"
+Binary file .git/index matches
+Binary file .git/objects/pack/pack-934ccc8fbd2570a2e78660a987de06a7fc1149c7.pack matches
+_config.yml:4:header-img: img/post-bg-desk.jpg
+_config.yml:15:sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in both `/` and `/about/`
+tags.html:5:header-img: "img/tag-bg.jpg"
+about.html:5:header-img: "img/post-bg-rwd.jpg"
+404.html:4:header-img: "img/404-bg.jpg"
