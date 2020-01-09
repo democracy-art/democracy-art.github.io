@@ -11,7 +11,7 @@ tags:
     - IDOR 
 ---
 
-OWASP已经把IDOR归属为Broken Access control.
+OWASP已经把 `IDOR` 归属为 `Broken Access control`.
 
 ### 什么是IDOR？
 IDOR 全称是Insecure Direct Object Reference(不安全的直接对象引用).
@@ -40,9 +40,7 @@ Upgrade-Insecure-Requests: 1
 Content-Type: application/x-www-form-urlencoded
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
-Accept:
-text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng
-,*/*;q=0.8
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
 Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.9
 Cookie: JSESSIONID=3214536754363414df3142gf2341
@@ -54,21 +52,19 @@ acID=4321&action=Delete
 ### GUID based IDOR
 你注册且登录 account 1 会有如下链接
 ```javascript
-https://www.acme.com/changepw/id?=13d573
-e8-5210-408a-aa77-6e2e9993d264
+https://www.acme.com/changepw/id?=13d573e8-5210-408a-aa77-6e2e9993d264
 ```
 你注册且登录 account 2 会有如下链接
 ```javascript
-https://www.acme.com/changepw/id?=cec4d0
-ff-f133-4ffd-9ed9-3e0d0c5a3990
+https://www.acme.com/changepw/id?=cec4d0ff-f133-4ffd-9ed9-3e0d0c5a3990
 ```
 这种情况如果你想要形成`IDOR`要先找到另外一个用户的 `GUID`.
 要枚举`guid`或**不可枚举的帐户ID**，请查找可能**返回此数据**的其他`端点`或`web服务`。
 在您的**代理历史**中快速搜索您的ID应该是您首先检查的请求，并**尝试篡改**以获得其他ID(**有时这本身就是一个漏洞**)。
 
+**GUID 是微软对UUID这个标准的实现。UUID是由开放软件基金会（OSF）定义的。UUID还有其它各种实现，不止GUID一种.**
 
 ### GUID based IDOR (cont.)
-**GUID 是微软对UUID这个标准的实现。UUID是由开放软件基金会（OSF）定义的。UUID还有其它各种实现，不止GUID一种.**
 
 ```javascript
 GET /api/data/admin@acme.com HTTP/1.1
@@ -111,9 +107,7 @@ Upgrade-Insecure-Requests: 1
 Content-Type: application/x-www-form-urlencoded
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
-Accept:
-text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng
-,*/*;q=0.8
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
 Accept-Encoding: gzip, deflate
 Accept-Language: en-US,en;q=0.9
 Cookie: JSESSIONID=3214536754363414df3142gf2341
