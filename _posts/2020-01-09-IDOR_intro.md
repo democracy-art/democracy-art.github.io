@@ -1,15 +1,14 @@
 ---
 layout:     post
-title:      vulnerabilities Broken Access Control
-subtitle:   IDOR 介绍
+title:      IDOR intro
+subtitle:   IDOR intro
 date:       2020-01-09
 author:     D
 header-img: 
 catalog: true
 tags:
-	- vulnerabilities
-	- Broken Access Control
-	- IDOR 
+    - Broken Access Control
+    - IDOR 
 ---
 
 OWASP已经把IDOR归属为Broken Access control.
