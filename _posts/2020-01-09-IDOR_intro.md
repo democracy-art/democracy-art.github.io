@@ -115,3 +115,23 @@ Cookie: JSESSIONID=3214536754363414df3142gf2341
 userid=912134131a7b11f2dfee0b92bf6b0eed&action=updatepasswd
 ```
 
+### Likely parameters/keyword to check for IDOR
+统计表明，下面这些是非常常见的参数，REST路径名，关键字和关联IDOR和MFLAC的函数。
+
+REST数值路径中小于10的参数:
+|id|user|
+|-|-|
+|account|number|
+|order|no|
+
+Functions:
+Change email,Change password, Upgrade/downgrade user role
+Create/remove/update/delete context specific app data
+Shipping,invoices, and document viewing
+|doc|key|
+|-|-|
+|email|group|
+|profile|edit|
+
+
+
