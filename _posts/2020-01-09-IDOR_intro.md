@@ -29,7 +29,7 @@ https://www.abc.com/orders/id?=43975
 
 ### IDOR in POST
 下面的POST请求你可能很容易猜到修改什么地方可能个产生IDOR
-```javascript
+```
 POST /account/deleteaccnt HTTP/1.1
 Host: acme.com
 Connection: close
@@ -96,7 +96,7 @@ Content-Type: text/json; charset=UTF-8
 ### Hash based IDOR
 IDOR函数值可以有多种形式。基于`字符串`、`散列`、`编码`等。本例是MD5散列。
 
-```javascript
+```
 POST /account/updatepasswd HTTP/1.1
 Host: acme.com
 Connection: close
@@ -107,11 +107,11 @@ Upgrade-Insecure-Requests: 1
 Content-Type: application/x-www-form-urlencoded
 User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36
 (KHTML, like Gecko) Chrome/67.0.3396.99 Safari/537.36
-Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8<br>
-Accept-Encoding: gzip, deflate<br>
-Accept-Language: en-US,en;q=0.9<br>
-Cookie: JSESSIONID=3214536754363414df3142gf2341<br>
-<br>
+Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8
+Accept-Encoding: gzip, deflate
+Accept-Language: en-US,en;q=0.9
+Cookie: JSESSIONID=3214536754363414df3142gf2341
+
 userid=912134131a7b11f2dfee0b92bf6b0eed&action=updatepasswd
 ```
 
