@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      IDOR intro
-subtitle:   IDOR intro
+subtitle:   
 date:       2020-01-09
 author:     D
 header-img: 
