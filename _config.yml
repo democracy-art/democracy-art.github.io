@@ -1,6 +1,6 @@
 # Site settings
 title: D Blog
-SEOTitle: D | BY Blog
+SEOTitle: D Blog
 header-img: img/post-bg-desk.jpg
 email: nonofrist010@gmail.com 
 description: "Just do it."
@@ -18,9 +18,7 @@ sidebar-avatar: /img/avatar_m.jpg      # use absolute URL, seeing it's used in b
 
 # SNS settings
 RSS: false
-# weibo_username:     democracy-art
-github_username:    democracy-art
-#twitter_username:   democracy-art
+github_username:   dm116 
 
 
 
