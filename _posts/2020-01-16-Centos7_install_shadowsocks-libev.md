@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - shadowsocks-libev
+    - shadowsocks
 ---
 
 转载:[CentOS7下手动编译安装Shadowsocks-libev最新版](https://b.awei.pub/2019/03/shadowsocks-libev/)
