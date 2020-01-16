@@ -114,6 +114,18 @@ systemctl restart shadowsocks-libev
 ```
 
 ### 6. 防火墙设置
+开启/关闭防火墙
+```
+systemctl start firewalld
+```
+查看状态
+```
+systemctl status firewalld
+```
+开机启用
+```
+systemctl enable firewalld
+```
 
 ```
 firewall-cmd --permanent --add-port={PORT/tcp,PORT/udp}
