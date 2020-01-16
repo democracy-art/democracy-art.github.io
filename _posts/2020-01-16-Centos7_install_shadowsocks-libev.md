@@ -114,7 +114,7 @@ systemctl restart shadowsocks-libev
 ```
 
 ### 6. 防火墙设置
-开启/关闭防火墙
+开启防火墙
 ```
 systemctl start firewalld
 ```
@@ -126,11 +126,11 @@ systemctl status firewalld
 ```
 systemctl enable firewalld
 ```
-
+开启端口
 ```
 firewall-cmd --permanent --add-port={PORT/tcp,PORT/udp}
 ```
-PORT/tcp,PORT/udp 中 `PORT` 要替换成自己想要开设的端口号，比如我要开设 tcp 的 80 端口
+其中 PORT/tcp 和 PORT/udp 中 `PORT` 要替换成自己想要开设的端口号，比如我要开设 tcp 的 80 端口
 和 udp 的 443 端口，那么就设置为:
 ```
 firewall-cmd --permanent --add-port={80/tcp, 443/udp}
