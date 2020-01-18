@@ -101,6 +101,6 @@ firewall-cmd --permanent --remove-port=80/tcp
 ```
 
 
-### 7. 客户端连接
+### 6. 客户端连接
 
 在客户端上输入之前设置的IP、密码、等数据，连接服务器
