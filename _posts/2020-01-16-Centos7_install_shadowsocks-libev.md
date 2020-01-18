@@ -13,6 +13,8 @@ tags:
 
 转载:[CentOS7下手动编译安装Shadowsocks-libev最新版](https://b.awei.pub/2019/03/shadowsocks-libev/)
 
+如果想快速安装请直接看第 8 步:
+
 ### 1. 编译环境
 
 ```
@@ -151,9 +153,17 @@ firewall-cmd --permanent --remove-port=80/tcp
 
 在客户端上输入之前设置的IP、密码、等数据，连接服务器
 
+### 8. yum源快速安装(非最新版本shadowsocks-libev)
+
 另外：make安装是相当蛋痛的。可以直接用yum源安装
 Centos7，只要把[yum源](https://copr.fedorainfracloud.org/coprs/librehat/shadowsocks/repo/epel-7/librehat-shadowsocks-epel-7.repo)添加进去，
-yum源:
+
+添加yum源
+```
+vi /etc/yum.repos.d/CentOS-Base.repo
+```
+
+添加内容如下：
 ```
 [copr:copr.fedorainfracloud.org:librehat:shadowsocks]
 name=Copr repo for shadowsocks owned by librehat
@@ -166,11 +176,13 @@ repo_gpgcheck=0
 enabled=1
 enabled_metadata=1
 ```
-然后
+
+安装
 ```
 yum -y install shadowsocks-libev
 ```
-再配置一下/etc/shadowsocks-libev/config.json文件，就万事大吉了。
+然后配置即第4步，如果还想做更多继续做第5,6,7步.
+
 
 
 
