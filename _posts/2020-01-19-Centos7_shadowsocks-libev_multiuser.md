@@ -54,7 +54,7 @@ git submodule update --init --recursive
 yum install gcc gettext autoconf libtool automake make pcre-devel asciidoc xmlto c-ares-devel libev-devel libsodium-devel mbedtls-devel -y
 ```
 
-依赖全部成功安装后，用源码编译安装shadowsocks
+依赖全部成功安装后，用源码编译安装shadowsocks<br>
 **注意当前工作目录应为刚下载的shadowsocks-libev源码目录**
 ```
 ./autogen.sh && ./configure && make
@@ -111,7 +111,7 @@ ss-manager -c /root/ss_managerConfig
 这时我们发现不论是ss-server还是ss-manager都是前台程序，挂在前台执行，监听端口，使用ctrl+c停止后，服务也就停止了。有两个方法使程序运行到后台。
 
 1.程序运行后，我们可以使用ctrl+z键使程序挂起到后台，使用jobs命令查看程序编号，
-若后台无其他程序一般编号为1，再用bg 1命令，使程序在后台运行。
+若后台无其他程序一般编号为1，再用bg 1命令，使程序在后台运行。<br>
 2.也可以在程序运行代码的后面加一个&符号，使程序一开始就在后台运行。<br>
 
 这时看起来一切都没问题了，可是当我们退出登陆我们的vps后，发现服务又出问题了。原因是后台运行的服务程序与登陆账户是相关的，当登陆账户退出时，
@@ -179,5 +179,5 @@ systemctl status ss.service
 ```
 systemctl enable ss.service
 ```
-还可使用systemctl restart ss.service重启服务，使用systemctl stop ss.service停止服务
+还可使用 `systemctl restart ss.service` 重启服务，使用 `systemctl stop ss.service` 停止服务
 
