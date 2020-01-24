@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      kali window10 双系统修改kali grub设置默认启动项
+title:      kali window10 双系统修改kali grub设置默认启动window10为第一项
 subtitle:   
 date:       2020-01-24
 author:     D
@@ -73,7 +73,7 @@ menuentry 'Kali GNU/Linux' --class kali --class gnu-linux --class gnu --class os
 ```
 保存.
 
-### 2.3 重启
+### 3 重启
 ```
 reboot
 ```
