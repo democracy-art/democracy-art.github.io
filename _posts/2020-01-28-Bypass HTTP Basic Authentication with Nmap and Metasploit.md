@@ -104,6 +104,6 @@ run
 
 # hydra暴力破解HTTP身份验证
 ```
-hydra -L users.txt -P pass.txt http-post://pentesteracademylab.appspot.com/lab/webapp/basicauth
+hydra -L /root/demo/users.txt -P /root/demo/pass.txt http-post://pentesteracademylab.appspot.com/lab/webapp/basicauth
 ```
 hydra使用参考 [hydra使用介绍](https://dm116.github.io/2020/01/27/hydra/)
