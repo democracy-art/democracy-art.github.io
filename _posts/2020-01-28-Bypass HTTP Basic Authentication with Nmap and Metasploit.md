@@ -103,5 +103,7 @@ run
 如果在不知道 USERNAME 的情况下需要设置 `USER_FILE`, 上面 `set USER_FILE ''`是设置为空的意思.<br>
 
 # hydra暴力破解HTTP身份验证
-
-链接 [hydra暴力破解HTTP身份验证](https://dm116.github.io/2020/01/27/hydra/)
+```
+hydra -L users.txt -P pass.txt http-post://pentesteracademylab.appspot.com/lab/webapp/basicauth
+```
+hydra使用参考 [hydra使用介绍](https://dm116.github.io/2020/01/27/hydra/)
