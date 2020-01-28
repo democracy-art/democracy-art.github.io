@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      用Nmap或Metasploit绕过HTTP身份验证
+title:      暴力破解HTTP身份验证
 subtitle:   
 date:       2020-01-28
 author:     D
@@ -101,3 +101,7 @@ run
 ```
 运行命令后，几分钟内您将获得密码aaddd。<br>
 如果在不知道 USERNAME 的情况下需要设置 `USER_FILE`, 上面 `set USER_FILE ''`是设置为空的意思.<br>
+
+# hydra暴力破解HTTP身份验证
+
+链接 [hydra暴力破解HTTP身份验证](https://dm116.github.io/2020/01/27/hydra/)
