@@ -132,5 +132,5 @@ sudo vi /etc/shadowsocks-libev/config.json
 sudo systemctl restart shadowsocks-libev
 ```
 # 三、开启 Google BBR
-[Google BBR](https://www.24kplus.com/linux/150.html)
+[Google BBR](https://dm116.github.io/2020/01/31/%E5%BC%80%E5%90%AF-Google-BBR/)
 优化到此基本完成。
