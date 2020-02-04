@@ -11,7 +11,11 @@ tags:
     - methodology
 ---
 
+# Web黑客方法论框架
+
 Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Handbook*
+
+一般步骤如下:
 
 ![methodology](/img/web_application_hacker_methodology.PNG)
 
@@ -30,4 +34,13 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 |%|%25|在URL编码方案中用作前缀|
 |null|%00||
 |换行|%0a||
+
+# 1.映射应用程序的内容(Map the Application's Content)
+|链接内容|其他内容|非标准的访问方法|
+|-|-|-|
+|1.1 探索可见的内容|1.3 发现隐藏的内容|1.5 标识特殊函数|
+|1.2 查阅公共资源|1.4 发现默认的内容|1.6 调试参数|
+## 1.1 探索可见的内容(Explore Visible Content)
+
+
 
