@@ -74,5 +74,10 @@ Review 被动抓取所生成的`site map`，并确定您没有使`用浏览器�
 使用Internet`搜索引擎`和归档(如[Wayback Machine](http://web.archive.org/))来识别它们为您的目标应用程序`索引`和`存储`了什么内容。<br>
 
 1.2.2<br>
+使用`高级搜索选项`来提高你的研究效率.比如,在Google你可以用 `site:` 去检索目标站点的所有内容;还有 `link:` 检索链接到它的其他站点.
+如果您的搜索标识了应用程序中不再存在的内容，您仍然可能从`搜索引擎`的`缓存`中查看这些内容。此旧内容可能包含指向尚`未删除`的其他资源的链接。<br>
+[谷歌搜索操作符:完整列表(42个高级操作符)](https://ahrefs.com/blog/google-advanced-search-operators/#find-link-prospects)<br>
+
+1.2.3<br>
 
 
