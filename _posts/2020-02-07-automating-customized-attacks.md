@@ -187,6 +187,7 @@ Cookie: SessionId=0947F6DC9A66D29F15362D031B337797
 >任何探测安全缺陷应用程序的严重攻击都需要使用许多其他攻击字符串来识别其他弱点和前面提到的缺陷的其他变体
 
 首先利用 Java 写好 Payload.下一个任务是手动检查JAttack的输出，并尝试识别任何可能表明存在漏洞的异常结果:
+
 |param|payload|status|length||
 |-|-|-|-|-|
 |SessionId|`'`|302|502||
