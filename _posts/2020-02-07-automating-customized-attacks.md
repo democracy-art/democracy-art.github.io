@@ -11,8 +11,6 @@ tags:
     - web hacking
 ---
 
-[toc]
-
 参考:*The Web Application Hacker's Handbook* 
 Chapter 14 Automating Customized Attacks
 
