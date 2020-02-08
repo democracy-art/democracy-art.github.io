@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - Freedom and Democracy
+    - Freedom
 ---
 
 中共两大武器:<br>
