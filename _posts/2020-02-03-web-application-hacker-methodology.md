@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - methodology
+    - web hacking
 ---
 
 # Web黑客方法论框架
