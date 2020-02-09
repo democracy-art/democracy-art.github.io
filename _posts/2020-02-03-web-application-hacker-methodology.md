@@ -140,3 +140,5 @@ or `file download`。
 1.6.3<br>
 检查应用程序的响应，看看是否有异常表明添加的参数对应用程序的处理有影响。
 
+[Web应用程序黑客的方法论(2)](https://dm116.github.io/2020/02/09/web-application-hacker-methodology_2/)
+
