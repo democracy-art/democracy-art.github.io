@@ -13,6 +13,8 @@ tags:
 
 Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Handbook*
 
+[Web应用程序黑客的方法论(1)](https://dm116.github.io/2020/02/03/web-application-hacker-methodology/)
+
 # 分析应用程序(analyze the application)
 
 ![analyzing the application](/img/analyzing-the-application.png)
