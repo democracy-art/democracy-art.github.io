@@ -78,11 +78,13 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 - `.class`, `.jar`: `Java`
 - `.swf`:`Flash`
 - `.xap`:`Silverlight`
-您还可以在应用程序页面的HTML源代码中查找applet标记.比如:
+
+您还可以在应用程序页面的HTML源代码中查找applet标记.比如:<br>
 ```
 <applet code="input.class" id="TheApplet" codebase="/scripts/"></
 applet>
 ```
+
 3.3.2.2<br>
 检查调用HTML中对applet方法的所有调用,并确定从applet返回的数据是否提交到服务器.如果该数据是不透明的(也就是说,是模糊的或加密的),为了修改它,您可能需要对applet进行反编译以获得其源代码.
 
@@ -91,15 +93,19 @@ applet>
 
 3.3.2.4<br>
 使用合适的工具将字节码反编译为源代码.比如:<br>
+
 ```
 C:\>jad.exe input.class
 Parsing input.class... Generating input.jad
 ```
-下面是一些适合反编译不同浏览器扩展组件的工具:
+
+下面是一些适合反编译不同浏览器扩展组件的工具:<br>
+
 - Java -- Jad
 - Flash -- SWFScan, Flasm/Flare
 - Silverlight -- .NET Reflector
-如果applet被打包到JAR、XAP或SWF文件中，则可以使用标准的存档阅读器(如WinRar或WinZip)将其解压.
+<br>
+如果applet被打包到JAR、XAP或SWF文件中，则可以使用标准的存档阅读器(如WinRar或WinZip)将其解压.<br>
 
 3.3.2.5<br>
 检查相关的源代码(从返回不透明数据的方法的实现开始),以了解正在执行什么处理.
@@ -122,6 +128,7 @@ Parsing input.class... Generating input.jad
 
 3.3.4.1<br>
 识别应用程序使用的任何ActiveX控件.查找通过拦截代理请求的任何`.cab`文件类型,或者在应用程序页面的HTML源代码中查找对象标记.比如:<br>
+
 ```
 <OBJECT
     classid="CLSID:4F878398-E58A-11D3-BEE9-00C04FA0D6BA"
