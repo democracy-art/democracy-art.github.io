@@ -55,7 +55,7 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 能绕过客户端验证并不一定代表任何漏洞.然而,您应该仔细检查正在执行的验证.确认应用程序是否依赖于客户端控件来保护自己免受格式错误的输入.还确认是否存在任何可利用的条件，可以由这样的输入触发.
 
 3.2.4<br>
-检查每个HTML表单，以识别任何禁用的元素，比如灰色的提交按钮.比如:
+检查每个HTML表单，以识别任何禁用的元素，比如灰色的提交按钮.比如:<br>
 ```
 <input disabled="true" name="product">
 ```
@@ -90,7 +90,7 @@ applet>
 通过在浏览器中输入URL下载applet字节码，并在本地保存文件.字节码文件的名称在applet标记的代码属性中指定.如果存在,文件将位于codebase属性中指定的目录中.否则,它将位于与applet标记所在的页面相同的目录中.
 
 3.3.2.4<br>
-使用合适的工具将字节码反编译为源代码.比如:
+使用合适的工具将字节码反编译为源代码.比如:<br>
 ```
 C:\>jad.exe input.class
 Parsing input.class... Generating input.jad
@@ -121,7 +121,7 @@ Parsing input.class... Generating input.jad
 ### 3.3.4 测试ActiveX控件(Test ActiveX controls)
 
 3.3.4.1<br>
-识别应用程序使用的任何ActiveX控件.查找通过拦截代理请求的任何`.cab`文件类型,或者在应用程序页面的HTML源代码中查找对象标记.比如:
+识别应用程序使用的任何ActiveX控件.查找通过拦截代理请求的任何`.cab`文件类型,或者在应用程序页面的HTML源代码中查找对象标记.比如:<br>
 ```
 <OBJECT
     classid="CLSID:4F878398-E58A-11D3-BEE9-00C04FA0D6BA"
