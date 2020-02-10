@@ -73,4 +73,5 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 2.4.3<br>
 制定一个攻击计划，优先考虑最有趣的功能和与之相关的最严重的潜在漏洞.使用您的计划来指导您在此方法的每个剩余领域中所投入的时间和精力.
 
-[Web应用程序黑客的方法论(1)](https://dm116.github.io/2020/02/03/web-application-hacker-methodology/)
+[Web应用程序黑客的方法论(1)](https://dm116.github.io/2020/02/03/web-application-hacker-methodology/)<br>
+[Web应用程序黑客的方法论(3)](https://dm116.github.io/2020/02/03/web-application-hacker-methodology_3/)
