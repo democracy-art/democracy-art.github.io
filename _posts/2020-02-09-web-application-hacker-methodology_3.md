@@ -150,4 +150,5 @@ Parsing input.class... Generating input.jad
 测试任何ActiveX控件的漏洞,这些漏洞可能被用来攻击应用程序的其他用户.您可以修改用于调用控件的HTML，以便将任意数据传递给它的方法并监视结果.寻找名称听起来很危险的方法，比如`LaunchExe`您还可以用COMRaider对ActiveX控件执行一些基本的模糊测试，以识别缓冲区溢出等缺陷.
 
 
-[Web应用程序黑客的方法论(2)](https://dm116.github.io/2020/02/09/web-application-hacker-methodology_2/)
+[Web应用程序黑客的方法论(2)](https://dm116.github.io/2020/02/09/web-application-hacker-methodology_2/)<br>
+[Web应用程序黑客的方法论(4)](https://dm116.github.io/2020/02/11/web-application-hacker-methodology_4/)
