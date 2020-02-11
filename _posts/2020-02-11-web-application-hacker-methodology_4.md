@@ -246,7 +246,8 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 使用Chapter 14中描述的技术，使尽可能多的工作自动化，并最大化您的攻击的速度和有效性.
 <br>
 
-[Web应用程序黑客的方法论(3)](https://dm116.github.io/2020/02/09/web-application-hacker-methodology_3/)
+[Web应用程序黑客的方法论(3)](https://dm116.github.io/2020/02/09/web-application-hacker-methodology_3/)<br>
+[Web应用程序黑客的方法论(5)](https://dm116.github.io/2020/02/11/web-application-hacker-methodology_5/)<br>
 
 
 
