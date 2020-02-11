@@ -50,6 +50,6 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 使用能使服务器返回新令牌的请求(例如，一个成功的登录请求)，生成并连续捕获大量会话令牌.
 
 <br>
-[Web应用程序黑客的方法论(4)](https://dm116.github.io/2020/02/11/web-application-hacker-methodology_4/)<br>
+[Web应用程序黑客的方法论(4)](https://dm116.github.io/2020/02/11/web-application-hacker-methodology_4/) <br>
 
 
