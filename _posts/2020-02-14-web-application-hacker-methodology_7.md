@@ -2,7 +2,7 @@
 layout:     post
 title:      Web应用程序黑客的方法论(7) --Test for Input-Based Vulnerabilities
 subtitle:
-date:       2020-02-13
+date:       2020-02-14
 author:     D
 header-img: 
 catalog: true
