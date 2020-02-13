@@ -167,7 +167,6 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 识别将接收应用程序发出的cookie的所有可能的域名和路径。确定是否可以通过这些域名或路径访问任何其他Web应用程序，您可以利用它们来捕获发布给目标应用程序用户的cookie。
 
 
-<br>
 [Web应用程序黑客的方法论(4)](https://dm116.github.io/2020/02/11/web-application-hacker-methodology_4/)<br>
 [Web应用程序黑客的方法论(6)](https://dm116.github.io/2020/02/13/web-application-hacker-methodology_6/)<br>
 
