@@ -14,7 +14,7 @@ tags:
 Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Handbook*
 
 
-![Testing the management mechanism](/img/test-the-management-mechanism.png)
+![Testing the management mechanism](/img/testing-the-session-management-mechanism.png)
 
 # 5.1 理解机制(Understand the Mechanism)
 
