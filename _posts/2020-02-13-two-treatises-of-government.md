@@ -20,8 +20,15 @@ tags:
 
 [政府论.pdf](/assests/TwoTreatisesOfGovernment.pdf)<br>
 
+使用浏览器查看  **政府论.pdf** 请点击下面的链接:<br>
+
 https://dm116.github.io/assests/TwoTreatisesOfGovernment.pdf
 
-[政府论.pdf](dm116.github.io/assests/TwoTreatisesOfGovernment.pdf)
+
+在浏览器新窗口查看 **政府论.pdf** 请点击下面的链接:<br>
+  
+  
+< a href="dm116.github.io/assests/TwoTreatisesOfGovernment.pdf" target="_blank">政府论.PDF</a>  
+
 
 
