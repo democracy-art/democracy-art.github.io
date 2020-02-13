@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Web应用程序黑客的方法论(1)
+title:      Web应用程序黑客的方法论(1)--Map the Application's Content
 subtitle:   
 date:       2020-02-03
 author:     D

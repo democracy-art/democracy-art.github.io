@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Web应用程序黑客的方法论(2)
+title:      Web应用程序黑客的方法论(2)--Analyze the Application
 subtitle:   
 date:       2020-02-09
 author:     D

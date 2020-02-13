@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Web应用程序黑客的方法论(5)
+title:      Web应用程序黑客的方法论(5)--Test the Session Management Mechanism
 subtitle:   
 date:       2020-02-11
 author:     D

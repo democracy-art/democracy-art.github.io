@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Web应用程序黑客的方法论(6)
-subtitle:   
+title:      Web应用程序黑客的方法论(6) --Test Access Controls
+subtitle:
 date:       2020-02-13
 author:     D
 header-img: 
