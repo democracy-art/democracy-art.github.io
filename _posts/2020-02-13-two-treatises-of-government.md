@@ -18,6 +18,6 @@ tags:
 <br>
 
 
-[政府论.pdf](https://github.com/dm116/dm116.github.io/blob/master/assests/TwoTreatisesOfGovernment.pdf)
+[政府论.pdf](/assests/TwoTreatisesOfGovernment.pdf)
 
 
