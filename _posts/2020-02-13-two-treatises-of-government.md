@@ -21,7 +21,7 @@ tags:
 [下载:政府论.pdf](https://github.com/dm116/dm116.github.io/blob/master/assests/TwoTreatisesOfGovernment.pdf)<br>
 
   
-<a href="https://dm116.github.io/assests/TwoTreatisesOfGovernment.pdf" target="_blank">浏览器查看:政府论.pd://github.com/dm116/dm116.github.io/blob/master/assests/TwoTreatisesOfGovernment.pdff</a>  
+<a href="https://dm116.github.io/assests/TwoTreatisesOfGovernment.pdf" target="_blank">浏览器查看:政府论.pdf</a>  
 
 
 
