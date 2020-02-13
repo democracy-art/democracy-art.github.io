@@ -48,6 +48,7 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 
 5.3.1<br>
 使用能使服务器返回新令牌的请求(例如，一个成功的登录请求)，生成并连续捕获大量会话令牌.
+<<<<<<< HEAD
 
 5.3.2<br>
 尝试确定令牌样本中的任何模式.在所有情况下，您都应该使用Burp `Sequencer`(如第7章所述)来执行应用程序令牌随机性的详细统计测试.根据结果，执行以下手工分析可能也很有用:<br>
@@ -59,6 +60,9 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 
 5.3.3<br>
 如果您发现任何模式，请使用其他IP地址和用户名捕获第二个令牌样本.
+=======
+<br>
+>>>>>>> 5d94689246238cfe8270ee42e7833e693f7f7668
 
 [Web应用程序黑客的方法论(4)](https://dm116.github.io/2020/02/11/web-application-hacker-methodology_4/)<br>
 [Web应用程序黑客的方法论(6)](https://dm116.github.io/2020/02/13/web-application-hacker-methodology_6/)<br>
