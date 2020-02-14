@@ -165,3 +165,6 @@ sudo ufw enable
 sudo ufw allow 10086/tcp
 ```
 
+**到这里为止,v2ray已经可以用了,如果还要加上 CDN 请往下看.** 
+
+
