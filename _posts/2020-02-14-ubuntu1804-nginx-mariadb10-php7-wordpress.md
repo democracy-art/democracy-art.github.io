@@ -51,3 +51,83 @@ server {
     }
 }
 ```
+保存文件并退出。 然后启用该站点:
+```
+sudo ln -s /etc/nginx/sites-available/wordpress.conf  /etc/nginx/sites-enabled/
+```
+然后重新加载nginx:
+```
+sudo systemctl reload nginx
+```
+
+# 3.在Ubuntu 18.04上安装MariaDB 10
+我们将使用MariaDB作为我们的WordPress数据库。 要安装MariaDB，请运行以下命令:
+```
+sudo apt install mariadb-server mariadb-client
+```
+安装完成后，我们将启动它并将其配置为在系统引导时自动启动:
+```
+sudo systemctl start mariadb.service
+sudo systemctl enable mariadb.service
+```
+接下来，通过运行以下命令来保护MariaDB安装:
+```
+sudo mysql_secure_installation
+```
+只需在提示中回答问题即可完成任务。
+
+# 4.为网站创建WordPress数据库
+
+之后，我们将为该用户准备数据库，数据库用户和密码。<br>
+它们将由我们的WordPress应用程序使用，因此它可以连接到MySQL服务器。<br>
+```
+sudo mysql -u root -p
+```
+使用下面的命令，我们将首先创建数据库，然后创建数据库用户及其密码。<br>
+然后我们将授予用户对该数据库的权限。<br>
+```
+CREATE DATABASE wordpress;
+CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'secure_password';
+GRANT ALL ON wordpress.* TO 'wp_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+# 5.在Ubuntu 18.04上安装PHP 7
+
+由于WordPress是用PHP编写的应用程序，<br>
+我们将安装PHP和运行WordPress所需的PHP包，使用以下命令:<br>
+```
+sudo apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+```
+安装完成后,启动php-fpm服务器:
+```
+sudo systemctl start php7.2-fpm
+sudo systemctl enable php7.2-fpm
+```
+
+# 6.在Ubuntu 18.04上安装WordPress 5
+
+使用以下wget命令下载最新的WordPress包:
+```
+cd /tmp && wget http://wordpress.org/latest.tar.gz
+```
+然后用以下内容提取存档:
+```
+sudo tar -xvzf latest.tar.gz -C /var/www/html
+```
+以上将创建我们在vhost中设置的文档根目录,即`/var/www/html/wordpress`然后,<br>
+我们需要更改该目录中文件和文件夹的所有权:<br>
+```
+sudo chown www-data: /var/www/html/wordpress/ -R
+```
+现在我们准备运行WordPress的安装.如果您使用了未注册或不存在的域,<br>
+则可以使用以下记录配置hosts `/etc/hosts` 文件:<br>
+```
+192.168.1.100 example.com
+```
+假设您的服务器的IP地址是192.168.1.100，并且您使用的域是example.com，<br>
+那么您的计算机将在给定的IP地址上解析example.com <br>
+
+
+
