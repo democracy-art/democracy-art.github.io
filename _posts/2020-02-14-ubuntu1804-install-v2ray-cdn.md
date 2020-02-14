@@ -160,6 +160,7 @@ sudo systemctl enable v2ray && sudo systemctl start v2ray
 ## 1.6 设置防火墙
 请根据情况调整端口号:<br>
 ```
+sudo apt-get install ufw
 sudo ufw enable
 sudo ufw allow 10086/tcp
 ```
