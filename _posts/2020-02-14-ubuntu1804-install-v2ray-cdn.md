@@ -281,12 +281,45 @@ git clone https://github.com/dm116/sCalc.git
 cd /root
 ```
 # 6.获取HTTPS证书
-acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书:
+
+6.1 acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书:
 ```
 curl  https://get.acme.sh | sh
 ```
-使生效:
+6.2 使生效:
 ```
 source ~/.bashrc
+```
+6.3 Key和Email<br>
+```
+登录Cloudflare主页
+->最右上角小用户头像
+->MyProfile
+->API Tokens
+->API Keys里Global API Key的View
+->输入Cloudflarez密码和验证码
+->复制Key
+```
+假设得到的Key为:
+```
+9m15DA8R!rkmHN4MHdDjb772F$#aGR$1YXZ1M
+```
+则:
+```
+export CF_Key="9m15DA8R!rkmHN4MHdDjb772F$#aGR$1YXZ1M"
+```
+邮箱就是注册Cloudflare的邮箱
+```
+export CF_Email="xyz@test.com"
+```
+6.4 利用脚本`acme.sh`配置<br>
+```
+~/.acme.sh/acme.sh --issue --dns dns_cf -d xxx.tk -d *.xxx.tk -k ec-256
+~/.acme.sh/acme.sh --installcert -d xxx.tk -d *.xxx.tk --fullchainpath /etc/v2ray/xxx.tk.crt --keypath /etc/v2ray/xxx.tk.key --ecc
+```
+
+6.5 设置定期自动更新
+```
+~/.acme.sh/acme.sh --upgrade --auto-upgrade
 ```
 
