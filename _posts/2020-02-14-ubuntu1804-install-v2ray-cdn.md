@@ -416,3 +416,35 @@ server {
  return 301 https://xxx.tk$request_uri;
 }
 ```
+# 9.TLS优化
+
+9.1 TLS开启OCSP
+```
+openssl s_client -connect xxx.tk:443 -status -tlsextdebug < /dev/null 2>&1 | grep -i "OCSP response"
+```
+9.2 开启TCP fastopen
+```
+echo 3 > /proc/sys/net/ipv4/tcp_fastopen
+```
+9.3 使能优化<br>
+重启Nginx和v2ray:
+```
+sudo systemctl restart nginx
+sudo systemctl restart v2ray
+```
+# 10.设置代理和TLS
+Proxy:
+```
+登录Cloudflare
+->点击域名 xxx.tk 
+->DNS 
+->点击两条记录的灰色小云朵,变为橘黄
+```
+TLS:
+```
+登录Cloudflare
+->点击域名 xxx.tk 
+->SSL/TLS 
+->Full strict
+```
+
