@@ -322,4 +322,97 @@ export CF_Email="xyz@test.com"
 ```
 ~/.acme.sh/acme.sh --upgrade --auto-upgrade
 ```
+# 7.再配置v2ray
+```
+sudo vi /etc/v2ray/config.json
+```
+配置如下:
+```
+{
+  "inbounds": [
+    {
+      "port": 10086,//端口保持跟nginx的default.conf里面端口一致
+      "listen": "127.0.0.1",
+      "tag": "vmess-in",
+      "protocol": "vmess",
+      "settings": {
+        "clients": [
+          {
+            "id": "0e658508-bbf1-4655-995f-2c00543ce3d4",
+            "alterId": 64
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "wsSettings": {
+          "path": "/yf321" //保持跟nginx的default.conf里面location一致
+        }
+      }
+    }
+  ],
+  "outbounds": [
+    {
+      "protocol": "freedom",
+      "settings": {},
+      "tag": "direct"
+    },
+    {
+      "protocol": "blackhole",
+      "settings": {},
+      "tag": "blocked"
+    }
+  ],
+  "routing": {
+    "domainStrategy": "AsIs",
+    "rules": [
+      {
+        "type": "field",
+        "inboundTag": [
+          "vmess-in"
+        ],
+        "outboundTag": "direct"
+      }
+    ]
+  }
+}
+```
 
+# 8 Nginx配置文件
+```
+sudo vi /etc/nginx/conf.d/default.conf
+```
+配置如下:
+```
+server {
+ listen 443 ssl;
+ ssl on;
+ ssl_certificate       /etc/v2ray/xxx.tk.crt;
+ ssl_certificate_key   /etc/v2ray/xxx.tk.key;
+ ssl_protocols         TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; 
+ ssl_ciphers           HIGH:!aNULL:!MD5;
+ ssl_prefer_server_ciphers on;
+ ssl_session_cache shared:SSL:10m;
+ ssl_session_timeout 10m;
+ server_name www.xxx.tk;
+ index index.html index.htm;
+ root  /home/wwwroot/sCalc;
+ error_page 400 = /400.html ;
+ location /yf321  #保持跟v2ray的config.json里面path一致
+ { 
+     proxy_redirect off;
+     proxy_pass http://127.0.0.1:10086; #保持跟v2ray的config.json里面port一致
+     proxy_http_version 1.1;
+     proxy_set_header Upgrade $http_upgrade;
+     proxy_set_header Connection "upgrade";
+     proxy_set_header Host $http_host;
+ }
+ add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
+}
+# 配置 80 重定向 443 强制 SSL
+server {
+ listen 80;
+ server_name xxx.tk;
+ return 301 https://xxx.tk$request_uri;
+}
+```
