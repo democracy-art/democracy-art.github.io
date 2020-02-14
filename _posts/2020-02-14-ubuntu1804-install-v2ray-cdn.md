@@ -447,4 +447,17 @@ TLS:
 ->SSL/TLS 
 ->Full strict
 ```
+# 11.v2rayN Windows客户端
+配置如下:
 
+- 地址(address):www.xxx.tk //这里写你申请的域名
+- 端口(port):443
+- 用户(ID): 0e658508-bbf1-4655-995f-2c00543ce3d4 //客户端生成,拷贝到服务端,保存两边一致
+- 额外ID(alterId):64 //不能大于服务器上面的alterId的值
+- 加密方式(security):auto
+- 传输协议(network):ws
+- 别名(remarks): 随便填都行
+- 伪装域名(host):不需要填
+- 路径(path):`/yf321` //与服务器保持一致
+- 底层传输安全:tls
+- allowInsecure:false
