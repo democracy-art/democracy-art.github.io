@@ -17,7 +17,7 @@ tags:
 
 1.1.1 更新 apt
 ```
-sudo apt update && sudo apt-y upgrade
+sudo apt update && sudo apt -y upgrade
 ```
 
 1.1.2 设定时区(v2ray 必须将时间误差控制在 `90` 秒以內)
