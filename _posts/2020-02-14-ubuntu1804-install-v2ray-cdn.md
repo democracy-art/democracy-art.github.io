@@ -250,3 +250,43 @@ Cloudflare主页,标签 Caching -> Browser Cache TTL -> 1 year <br>
 
 ## 3.3 查看DNS更新是否成功
 登录cloudflare主页 你会看到你的域名 xxx.tk 下面的 ACTIVE 打勾 说明成功了
+
+# 4.安装 Nginx
+
+安装:
+```
+sudo apt install nginx
+```
+设置开机启动且启动Nginx服务:
+```
+sudo systemctl start nginx.service
+sudo systemctl enable nginx.service
+```
+# 5.创建伪站点
+
+5.1 创建伪站点目录:
+```
+rm -rf /home/wwwroot && mkdir -p /home/wwwroot && cd /home/wwwroot
+```
+5.2 安装git:
+```
+sudo apt install git
+```
+5.3 获取伪站点:
+```
+git clone https://github.com/dm116/sCalc.git
+```
+5.4 返回 `/root` 目录
+```
+cd /root
+```
+# 6.获取HTTPS证书
+acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书:
+```
+curl  https://get.acme.sh | sh
+```
+使生效:
+```
+source ~/.bashrc
+```
+
