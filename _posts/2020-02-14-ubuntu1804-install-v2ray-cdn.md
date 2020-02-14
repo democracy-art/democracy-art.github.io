@@ -11,6 +11,8 @@ tags:
     - v2ray
 ---
 
+参考:[Project V](v2ray.com)
+
 # 1. v2ray
 
 ## 1.1 配置Linux环境
@@ -164,6 +166,12 @@ sudo apt-get install ufw
 sudo ufw enable
 sudo ufw allow 10086/tcp
 ```
+## 1.7 v2ray客户端
+
+- [v2rayN](https://github.com/2dust/v2rayN)是一个基于 V2Ray 内核的 Windows 客户端。
+- Pepi 是一个兼容 V2Ray 的 iOS 应用，它可以创建基于 VMess 的 VPN 连接，并与 V2Ray 服务器通信。
+- [BifrostV](https://play.google.com/store/apps/details?id=com.github.dawndiy.bifrostv)是一个基于 V2Ray 内核的 Android 应用，它支持 VMess、Shadowsocks、Socks 协议。
+- [V2RayNG](https://github.com/2dust/v2rayNG)是一个基于 V2Ray 内核的 Android 应用，它可以创建基于 VMess 的 VPN 连接。
 
 **到这里为止,v2ray已经可以用了,如果还要加上 CDN 请往下看.** 
 
