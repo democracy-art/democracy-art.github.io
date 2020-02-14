@@ -31,6 +31,10 @@ sudo su
 ```
 
 ## 1.3 安装v2ray
+安装curl:<br>
+```
+sudo apt install curl
+```
 apt-get 可用的情况下，此脚本会自动安装 unzip 和 daemon。这两个组件是安装 V2Ray 的必要组件。<br>
 如果你使用的系统不支持 yum 或 apt-get，请自行安装 unzip 和 daemon.<br>
 ```
