@@ -237,7 +237,7 @@ Nameserver 2: yyy.ns.cloudflare.com 然后点击 Change Nameservers
 点击域名 xxx.tk -> SSL/TLS -> Flexible <br>
 **当nginx设置好且申请了证书后,把Flexible设置为Full或Full strict**
 
-3.2.3 设置缓存加速:
+3.2.3 设置缓存加速:<br>
 Cloudflare主页,标签 Caching -> Browser Cache TTL -> 1 year <br>
 
 ## 3.3 查看DNS更新是否成功
