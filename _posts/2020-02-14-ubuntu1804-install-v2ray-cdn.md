@@ -167,4 +167,78 @@ sudo ufw allow 10086/tcp
 
 **到这里为止,v2ray已经可以用了,如果还要加上 CDN 请往下看.** 
 
+# 2.注册域名
 
+申请域名注册可以去 `freenom` 网站(有`免费试用1年`的域名).<br>
+注册 freenom 账号,然后注册域名.步骤如下:<br>
+```
+登录freenom主页
+->Services标签
+->Register a New Domain
+-> 在输入框(显示Find your new Domain的输入框)中输入域名(自己喜欢的随意几个字符) 
+->点击Check Availability(查看域名是否可用)
+->如果域名可用它会出现 .tk, .ml, .ga, .cf, .gq 结尾的5个免费的域名在最上面5行,选一个喜欢的点击 Get it now 
+->它会跳转到另一个页面,在 Period 下面,点击下拉框 选择 12 Months@FREE(12个月免费) 
+->点击 Continue(继续)
+->Review & Checkout页面 输入一个有效的邮箱用来接收信息 
+->Your Details 页面,填写信息随便填就好,只要能通过,只要上一步的邮箱是有效的就行,填完同意协议,点击 Complete Order 
+->完成后注意查收邮件,它会通知你的域名是否生效,或者登录freenom来到主页面,点击 Services标签
+->My Domains 
+->看到刚注册的域名 Status是 ACTIVE 说明注册成功
+```
+
+# 3.设置DNS
+
+freenom申请的域名默认使用freenom的DNS解析,现在要将其改为 Cloudflare 的 DNS.<br>
+
+
+## 3.1 获取Cloudflare的DNS
+
+注册 Cloudflare 账号,登录 Cloudflare.进行如下步骤:<br>
+```
+登录 Cloudflare主页
+->点击 +Add site 标签
+->输入你在freenom注册的域名
+->来到另一个页面 显示We're querying your DNS records 点击 Next
+->来到另一个页面 Select a Plan 选择 FREE $0/month 点击 Confire Plan
+-> Add more DNS records for xxx.kt 
+(这里假设你申请的域名为 xxx.tk ) 假设你的域名是 xxx.tk 下面都以它为例子 
+添加记录如下: A www xxx.tk AutomaticTTL 
+点击 Add Record A @ xxx.tk AutomaticTTL 点击 Add Record
+-> 点击刚添加的两条记录的橘黄小云朵的,点击之后它会变为灰色
+-> 点击”Continue”继续
+-> 然后会来的一个页面显示你当前域名使用的DNS服务器和Cloudflare要你使用的它的DNS服务器 
+复制且保存 Replace with Cloudflare’s nameservers:
+下面的两条记录 Nameserver 1 和 Nameserver 2 一般形式是:
+xxx.ns.cloudflare.com
+yyy.ns.cloudflare.com
+->复制保存好后 点击 Done,check nameservers
+```
+
+## 3.2 设置解析域名的DNS
+
+3.2.1 将原来freenom提供的DNS服务器替换为Cloudflare的DNS服务器<br>
+```
+登录freenom主页
+->Services标签
+->My Domains
+->Manage Domain
+->Management Tools
+->Nameservers 
+->Use custom nameservers (enter below)粘贴你保存的两个cloudflare的DNS地址即,
+Nameserver 1: xxx.ns.cloudflare.com 
+Nameserver 2: yyy.ns.cloudflare.com 然后点击 Change Nameservers 
+->这样之后它会在24小时之内帮你跟新好DNS服务器,一般用不到24小时,大概10分钟左右可以了
+之后你登录 Cloudflare 就可以看到 DNS 更新了为 xxx.ns.cloudflare.com 和 yyy.ns.cloudflare.com 
+同时它也会发送邮件跟你说.
+```
+
+3.2.2 设置SSL/TLS:<br>
+点击域名 xxx.tk -> SSL/TLS -> Flexible <br>
+**当nginx设置好且申请了证书后,把Flexible设置为Full或Full strict**
+
+3.2.3 设置缓存加速:
+Cloudflare主页,标签 Caching -> Browser Cache TTL -> 1 year <br>
+
+## 3.3 查看DNS更新是否成功
+登录cloudflare主页 你会看到你的域名 xxx.tk 下面的 ACTIVE 打勾 说明成功了
