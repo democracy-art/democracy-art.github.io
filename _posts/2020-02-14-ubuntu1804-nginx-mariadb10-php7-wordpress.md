@@ -31,4 +31,23 @@ sudo vi /etc/nginx/sites-available/wordpress.conf
 ```
 在下面的示例中，使用您要使用的域更改`example.com`: 
 ```
+server {
+    listen 80;
+    listen [::]:80;
+    root /var/www/html/wordpress;
+    index  index.php index.html index.htm;
+    server_name example.com www.example.com;
+
+     client_max_body_size 100M;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;        
+    }
+
+    location ~ \.php$ {
+    include snippets/fastcgi-php.conf;
+    fastcgi_pass             unix:/var/run/php/php7.2-fpm.sock;
+    fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
+    }
+}
 ```
