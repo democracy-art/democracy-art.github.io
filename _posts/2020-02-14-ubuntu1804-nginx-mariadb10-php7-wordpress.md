@@ -129,5 +129,5 @@ sudo chown www-data: /var/www/html/wordpress/ -R
 假设您的服务器的IP地址是192.168.1.100，并且您使用的域是example.com，<br>
 那么您的计算机将在给定的IP地址上解析example.com <br>
 
-
+... 未完待续...
 
