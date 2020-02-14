@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - Freedom
+    - v2ray
 ---
 
 # 1. v2ray
