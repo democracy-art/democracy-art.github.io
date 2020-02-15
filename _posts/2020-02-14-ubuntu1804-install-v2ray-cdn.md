@@ -464,7 +464,7 @@ TLS:
 
 # 12.v2rayy速度优化
 
-12.1 可以产生使用全局代理<br>
+12.1 可用全局代理<br>
 
 12.2 设置Cloudflare防火墙参考:[websocket+tls+nginx+cdn断流严重 #1742](https://github.com/v2ray/v2ray-core/issues/1742)<br>
  
