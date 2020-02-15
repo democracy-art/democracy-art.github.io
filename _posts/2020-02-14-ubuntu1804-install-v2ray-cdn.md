@@ -461,3 +461,17 @@ TLS:
 - 路径(path):`/yf321` //与服务器保持一致
 - 底层传输安全:`tls`
 - allowInsecure:`false`
+
+# 12.v2rayy速度优化
+
+12.1 可以产生使用全局代理<br>
+
+12.2 设置Cloudflare防火墙参考:[websocket+tls+nginx+cdn断流严重 #1742](https://github.com/v2ray/v2ray-core/issues/1742)<br>
+ 
+Firewall -> Firewall Rules -> Create a Firewall rule:<br>
+- Field:`URI Path`, Operator:`equals`, Value:`/yf321`(与v2ray服务的Path一致)
+- Firewall rules里面添加一条Action为Allow规则, Field选IP(填你自己的IP),**只适合固定IP**
+- 在Tools里面的IP Access Rules添加一条你自己的IP选Whitelist,**只适合固定IP**
+- 还可以直接把settings里面的Security Level调成Essentially Off,这样会有**被墙**的风险,不建议
+
+
