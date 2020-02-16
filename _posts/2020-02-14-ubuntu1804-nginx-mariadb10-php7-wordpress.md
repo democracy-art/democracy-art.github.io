@@ -11,6 +11,7 @@ tags:
     - linux_basic
 ---
 
+参考:[英文原版:Install WordPress with Nginx, MariaDB 10 and PHP 7 on Ubuntu 18.04](https://www.tecmint.com/install-wordpress-with-nginx-mariadb-php-on-ubuntu-18-04/)<br>
 参考:[在Ubuntu 18.04上安装带有Nginx，MariaDB 10和PHP 7的WordPress](https://www.howtoing.com/install-wordpress-with-nginx-mariadb-php-on-ubuntu-18-04)
 
 # 1.在Ubuntu 18.04上安装Nginx Web Server
@@ -129,5 +130,26 @@ sudo chown www-data: /var/www/html/wordpress/ -R
 假设您的服务器的IP地址是192.168.1.100，并且您使用的域是example.com，<br>
 那么您的计算机将在给定的IP地址上解析example.com <br>
 
-... 未完待续...
+现在将您的域加载到浏览器中，您应该看到WordPress安装页面：<br>
+
+![Select-WordPress-Install-Language](/img/Select-WordPress-Install-Language.png)<br>
+
+选择WordPress安装语言
+
+在下一页上输入我们之前设置的数据库凭据：<br>
+
+![WordPress-Database-Settings](/img/WordPress-Database-Settings.png)<br>
+
+WordPress数据库设置
+
+提交表单，然后在下一个屏幕上配置您的网站标题，管理员用户和电子邮件：<br>
+
+![WordPress-Website-Setup](/img/WordPress-Website-Setup.png)<br>
+
+WordPress网站设置
+
+您的安装现已完成，您可以开始管理您的WordPress网站。 您可以先安装一些全新的主题或通过插件扩展网站功能。
+
+结论:
+就是这样。 在Ubuntu 18.04上设置自己的WordPress安装的过程。 我希望这个过程简单明了。
 
