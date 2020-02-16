@@ -348,6 +348,6 @@ system('ping%20127.0.0.1')
 
 
 [Web应用程序黑客的方法论(6)](https://dm116.github.io/2020/02/13/web-application-hacker-methodology_6/)<br>
-[Web应用程序黑客的方法论(8)](https://dm116.github.io/2020/02/14/web-application-hacker-methodology_8/)<br>
+[Web应用程序黑客的方法论(8)](https://dm116.github.io/2020/02/16/web-application-hacker-methodology_8/)<br>
 
 
