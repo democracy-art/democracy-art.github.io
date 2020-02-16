@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Could not get lock `/var/lib/dpkp/lock` Error in Ubuntu Linux
+title:      Could not get lock /var/lib/dpkp/lock Error in Ubuntu Linux
 subtitle:
 date:       2020-02-16
 author:     D
