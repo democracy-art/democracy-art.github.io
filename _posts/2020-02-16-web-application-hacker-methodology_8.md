@@ -15,7 +15,7 @@ Web应用程序黑客的方法论来自书本 *The Web Application Hacker's Hand
 
 除了上一步中针对目标的基于输入的攻击之外，一系列漏洞通常仅在特定种类的功能中表现出来。在继续执行本节中描述的各个步骤之前，您应该查看对应用程序攻击面的评估，以识别可能会出现这些缺陷的特定应用程序功能，并将测试重点放在这些功能上。<br>
 
-![Test for Function-Specific Input Vulnerabilities](/img/Testing for functionality-specific input vulnerabilities.png)
+![Test for Function-Specific Input Vulnerabilities](/img/test-for-functionality-specific-input-vulnerabilities.png)
 
 # 8.1 SMTP注入测试(Test for SMTP Injection)
 
