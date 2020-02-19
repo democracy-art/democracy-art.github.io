@@ -135,6 +135,8 @@ sudo chown www-data: /var/www/html/wordpress/ -R
 
 现在将您的域加载到浏览器中，您应该看到WordPress安装页面：<br>
 
+>若输入没出现下图，登录Cloudflare,去DNS,把Proxy status从DNS only改为Proxied试试。
+
 ![Select-WordPress-Install-Language](/img/Select-WordPress-Install-Language.png)<br>
 
 选择WordPress安装语言
