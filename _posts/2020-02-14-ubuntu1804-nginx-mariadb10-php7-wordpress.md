@@ -158,3 +158,8 @@ WordPress网站设置
 结论:
 就是这样。 在Ubuntu 18.04上设置自己的WordPress安装的过程。 我希望这个过程简单明了。
 
+# 7.在wordpress上设置cloudflare ssl
+
+链接:[How to set up Cloudflare SSL on WordPress](https://www.fixrunner.com/how-to-setup-cloudflare-ssl-on-wordpress/)<br>
+
+从这个链接的第二步开始。
