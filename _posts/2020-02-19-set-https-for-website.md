@@ -14,7 +14,9 @@ tags:
 **前提：以下域名全假设为 `xxx.tk`，请将`xxx.tk`改为自己的域名**
 
 # 1.从letsencrypt生成免费的证书
+
 ```
+sudo apt install curl
 curl  https://get.acme.sh | sh
 ```
 使脚本生效:
