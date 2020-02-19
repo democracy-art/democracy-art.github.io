@@ -122,6 +122,9 @@ sudo tar -xvzf latest.tar.gz -C /var/www/html
 ```
 sudo chown www-data: /var/www/html/wordpress/ -R
 ```
+
+在进行下一步之前你需要[绑定域名到IP](https://dm116.github.io/2020/02/19/bind-the-domain-to-ip)<br>
+
 现在我们准备运行WordPress的安装.如果您使用了未注册或不存在的域,<br>
 则可以使用以下记录配置hosts `/etc/hosts` 文件:<br>
 ```

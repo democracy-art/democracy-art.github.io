@@ -57,9 +57,9 @@ export CF_Email="xyz@gmail.com"
 ```
 ~/.acme.sh/acme.sh --upgrade --auto-upgrade
 ```
-# 4.nginx 配置
+# 4.配置修改
 ```
-sudo vi /etc/nginx/conf.d/default.conf
+sudo vi /etc/nginx/sites-available/wordpress.conf
 ```
 ```
 server {
