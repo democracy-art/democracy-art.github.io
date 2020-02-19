@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - linux_basic
+    - website
 ---
 
 参考:[英文原版:Install WordPress with Nginx, MariaDB 10 and PHP 7 on Ubuntu 18.04](https://www.tecmint.com/install-wordpress-with-nginx-mariadb-php-on-ubuntu-18-04/)<br>
