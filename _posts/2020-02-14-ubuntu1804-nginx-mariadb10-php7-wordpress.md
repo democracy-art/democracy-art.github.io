@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - [website,WordPress,Nginx,PHP,MariaDB,Cloudflare]
+    - [website,WordPress,Nginx,PHP,MariaDB,Cloudflare,CDN]
 ---
 
 参考:[How To Setup WordPress With Nginx And Cloudflare CDN / SSL On Ubuntu 16.04 | 18.04](https://websiteforstudents.com/how-to-setup-wordpress-with-nginx-and-cloudflare-cdn-ssl-on-ubuntu-16-04-18-04/)<br>
