@@ -20,14 +20,16 @@ tags:
 
 # 李文亮被迫签下:能,明白
 
-[](/img/liwenliang-neng-mingbai.jpg)
+![李文亮](/img/liwenliang-neng-mingbai.jpg)
+
+![能,明白](/img/nengmingbai.jpg)
 
 # 悼念"造谣者"李文亮
 
-[](/img/zaoyaozhe-liwenliang.jpg)
+!["造谣者"李文亮](/img/zaoyaozhe-liwenliang.jpg)
 
 
-![李文亮](https://www.youtube.com/watch?v=-40FL2QtzKM)
+[李文亮](https://www.youtube.com/watch?v=-40FL2QtzKM)
 
 
 
