@@ -11,6 +11,8 @@ tags:
     - [FastDFS,libfastcommon]
 ---
 
+参考：[happyfish100/fastdfs/INSTALL](https://github.com/happyfish100/fastdfs/blob/master/INSTALL#L113)
+
 # 1.安装依赖环境
 ```
 sudo apt install make
@@ -40,11 +42,34 @@ cd fastdfs
 ```
 
 ## 3.3 编辑或修改 tracker, storage, clien 配置文件
+
 ```
 sudo vi /etc/fdfs/tracker.conf
 sudo vi /etc/fdfs/storage.conf
 sudo vi /etc/fdfs/client.conf
 ```
+请确保防火墙允许 tracker 和 storage 的端口.<br>
+tracker ports:<br>
+- 22122:port
+- 8080：http_server_port
+storage ports:<br>
+- 23000:port
+- 8888:http_server_port
+
+### 3.3.2 修改 storage.conf
+```
+sudo vi /etc/fdfs/storage.conf
+```
+修改：
+- tracker_server
+
+### 3.3.3 修改 client.conf
+```
+sudo vi /etc/fdfs/client.conf
+```
+修改:
+- tracker_server
+
 
 ## 3.4 运行服务器程序
 ### 3.4.1 运行 tracker 服务器
@@ -56,10 +81,12 @@ sudo vi /etc/fdfs/client.conf
 /usr/bin/fdfs_storaged /etc/fdfs/storage.conf restart
 ```
 ### 3.4.3 在Linux中，可以启动fdfs_trackerd和fdfs_storaged作为服务:(可选)
+这一步就不用做了，因为Ubuntu18.04上不存在`/sbin/service`
 ```
-/usr/sbin/service fdfs_trackerd restart
-/usr/sbin/service fdfs_storaged restart
+/sbin/service dfs_trackerd restart
+/sbin/service fdfs_storaged restart
 ```
+
 
 ## 3.5 运行监控程序(可选)
 ```
@@ -77,9 +104,9 @@ sudo vi /etc/fdfs/client.conf
 /usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/include/stdlib.h
 ```
 
-tracker 服务器配置文件例子请查看 `conf/tracker.conf`
-storage 服务器配置文件例子请查看 `conf/storage.conf`
-client 配置文件例子请查看 `conf/client.conf`
+tracker 服务器配置文件例子请查看 `conf/tracker.conf` <br>
+storage 服务器配置文件例子请查看 `conf/storage.conf` <br>
+client 配置文件例子请查看 `conf/client.conf` <br>
 
 ## 3.7 其他
 ### 3.7.1 服务器共同选项
