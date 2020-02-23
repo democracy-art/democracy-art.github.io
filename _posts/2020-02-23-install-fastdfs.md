@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      安装FastDFS
+title:      安装FastDFS on Ubuntu18.04
 subtitle:
 date:       2020-02-23
 author:     D
@@ -57,8 +57,8 @@ sudo vi /etc/fdfs/client.conf
 ```
 ### 3.4.3 在Linux中，可以启动fdfs_trackerd和fdfs_storaged作为服务:(可选)
 ```
-/sbin/service fdfs_trackerd restart
-/sbin/service fdfs_storaged restart
+/usr/sbin/service fdfs_trackerd restart
+/usr/sbin/service fdfs_storaged restart
 ```
 
 ## 3.5 运行监控程序(可选)
