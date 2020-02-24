@@ -14,9 +14,9 @@ tags:
 github:[FastDFS](https://github.com/happyfish100/fastdfs)<br>
 参考：[happyfish100/fastdfs/INSTALL](https://github.com/happyfish100/fastdfs/blob/master/INSTALL#L113)
 
-软件环境:
-- FastDFS V6.06
+环境及版本:
 - Ubuntu18.04
+- FastDFS V6.06
 
 # 1.安装依赖环境
 ```
@@ -151,7 +151,7 @@ tracker 服务器配置文件例子请查看 `conf/tracker.conf` <br>
 storage 服务器配置文件例子请查看 `conf/storage.conf` <br>
 client 配置文件例子请查看 `conf/client.conf` 
 
-## 3.7 其他
+## 3.7 配置选项总览 
 ### 3.7.1 服务器共同选项
 
 |item name|type|default| Must|
