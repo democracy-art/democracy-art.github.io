@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      安装FastDFS on Ubuntu18.04
+title:      Ubuntu18.04上安装FastDFS
 subtitle:
 date:       2020-02-23
 author:     D
@@ -8,10 +8,12 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - [FastDFS,libfastcommon]
+    - [FastDFS]
 ---
 
 参考：[happyfish100/fastdfs/INSTALL](https://github.com/happyfish100/fastdfs/blob/master/INSTALL#L113)
+
+软件版本:FastDFS V6.06
 
 # 1.安装依赖环境
 ```
@@ -43,32 +45,38 @@ cd fastdfs
 
 ## 3.3 编辑或修改 tracker, storage, clien 配置文件
 
+**请确保防火墙允许 tracker 和 storage 的端口.**
+tracker:
+- port:22122
+- http_server_port:8080
+storage:
+- port:23000:
+- http_server_port:8888
+### 3.3.1 修改 tracker.conf
 ```
 sudo vi /etc/fdfs/tracker.conf
-sudo vi /etc/fdfs/storage.conf
-sudo vi /etc/fdfs/client.conf
 ```
-请确保防火墙允许 tracker 和 storage 的端口.<br>
-tracker ports:<br>
-- 22122:port
-- 8080：http_server_port
-storage ports:<br>
-- 23000:port
-- 8888:http_server_port
+- `bind_addr =` 绑定此主机的一个地址,如果留空表示绑定此主机所有地址.
+- `base_path`=`/home/yuqing/fastdfs`修改为自己的文件路径，例如:`base_path`=`/home/xxx/fastdfs`(这里的文件目录如果没有，要自己新建，不然会报错)
+- 其他要求请查看文档根据实际情况配置
 
 ### 3.3.2 修改 storage.conf
 ```
 sudo vi /etc/fdfs/storage.conf
 ```
-修改：
-- tracker_server
 
+- `base_path`=`/home/yuqing/fastdfs`改为自己的文件路径如:`base_path`=`/home/xxx/fastdfs`(这里的文件目录如果没有,要自己新建,不然会报错)
+- `store_path0`=`/home/yuqing/fastdfs`改为自己的文件路径`store_path0=/home/xxx/fastdfs`
+- `tracker_server`:`192.168.1.100:22122` 改为自己的IP
+- `group_name=group1` (因为现在先只是配一个组,所以这里就为group1,多个组存储时才需要改动)
+- 其他要求请查看文档根据实际情况配置
 ### 3.3.3 修改 client.conf
 ```
 sudo vi /etc/fdfs/client.conf
 ```
-修改:
-- tracker_server
+- `base_path`=`/home/yuqing/fastdfs` 这里需要改为自己的文件路径，如：`base_path`=`/home/xxx/fastdfs` (这里的文件目录如果没有，要自己新建，不然会报错)
+- `tracker_server`=`192.168.1.100:22122`改为自己的IP
+- 其他要求请查看文档根据实际情况配置
 
 
 ## 3.4 运行服务器程序
@@ -103,10 +111,42 @@ sudo vi /etc/fdfs/client.conf
 ```
 /usr/bin/fdfs_test /etc/fdfs/client.conf upload /usr/include/stdlib.h
 ```
+成功会返回URL如下:
+```
+This is FastDFS client test program v6.06
+
+Copyright (C) 2008, Happy Fish / YuQing
+
+FastDFS may be copied only under the terms of the GNU General
+Public License V3, which may be found in the FastDFS source kit.
+Please visit the FastDFS Home Page http://www.fastken.com/ 
+for more detail.
+
+[2020-02-24 03:22:16] DEBUG - base_path=/home/yuqing/fastdfs, connect_timeout=5, network_timeout=60, tracker_server_count=1, anti_steal_token=0, anti_steal_secret_key length=0, use_connection_pool=0, g_connection_pool_max_idle_time=3600s, use_storage_id=0, storage server id count: 0
+
+tracker_query_storage_store_list_without_group: 
+	server 1. group_name=, ip_addr=192.168.1.100, port=23000
+
+group_name=group1, ip_addr=192.168.1.100, port=23000
+storage_upload_by_filename
+group_name=group1, remote_filename=M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510.h
+source ip address: 192.168.1.100
+file timestamp=2020-02-24 03:22:16
+file size=35784
+file crc32=439681668
+example file url: http://192.168.1.100/group1/M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510.h
+storage_upload_slave_by_filename
+group_name=group1, remote_filename=M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510_big.h
+source ip address: 192.168.1.100
+file timestamp=2020-02-24 03:22:16
+file size=35784
+file crc32=439681668
+example file url: http://192.168.1.100/group1/M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510_big.h
+```
 
 tracker 服务器配置文件例子请查看 `conf/tracker.conf` <br>
 storage 服务器配置文件例子请查看 `conf/storage.conf` <br>
-client 配置文件例子请查看 `conf/client.conf` <br>
+client 配置文件例子请查看 `conf/client.conf` 
 
 ## 3.7 其他
 ### 3.7.1 服务器共同选项
@@ -165,7 +205,7 @@ allow_hosts=host[01-08,20-25].domain.com
 | download_server       | int    |  0      |  N   |
 | reserved_storage_space| string |  1GB    |  N   |
 
-**备注:**<br>
+**备注:**
 - store_lookup 的值:
 	- 0:循环(默认)
 	- 1:指定group
@@ -204,16 +244,15 @@ allow_hosts=host[01-08,20-25].domain.com
 | keep_alive          | boolean|    0    |  N   |
 | sync_binlog_buff_interval| int |   60s |  N   |
 
-**备注:**<br>
+**备注:**
 - `tracker_server`可以多个,且`tracker_server`格式是`host:port`,主机可以是主机名或ip地址.
 - `store_path#`, `#`是数字,从`0`开始
 - `check_file_duplicate`:设置为`true`时,必须和`FastDHT`服务器一起工作,
-更多的细节请查看INSTALL of FastDHT. FastDHT下载地址:<br>
+更多的细节请查看INSTALL of FastDHT. FastDHT下载地址:
 ```
 http://code.google.com/p/fastdht/downloads/list
 ```
-- key_namespace:当`check_file_duplicate`为真时,FastDHT `key_namespace`不能为空,<br>
-键命名空间应该尽可能`短`.
+- key_namespace:当`check_file_duplicate`为真时,FastDHT `key_namespace`不能为空,键命名空间应该尽可能`短`.
 
 
 
