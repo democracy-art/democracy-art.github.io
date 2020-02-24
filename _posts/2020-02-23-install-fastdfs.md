@@ -11,6 +11,7 @@ tags:
     - [FastDFS]
 ---
 
+github:[FastDFS](https://github.com/happyfish100/fastdfs)<br>
 参考：[happyfish100/fastdfs/INSTALL](https://github.com/happyfish100/fastdfs/blob/master/INSTALL#L113)
 
 软件环境:
