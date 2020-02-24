@@ -147,6 +147,8 @@ file crc32=439681668
 example file url: http://192.168.1.100/group1/M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510_big.h
 ```
 
+**到这里FastDFS安装完成.**
+
 tracker 服务器配置文件例子请查看 `conf/tracker.conf` <br>
 storage 服务器配置文件例子请查看 `conf/storage.conf` <br>
 client 配置文件例子请查看 `conf/client.conf` 
