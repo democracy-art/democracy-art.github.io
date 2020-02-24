@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Ubuntu18.04上安装FastDFS
+title:      FastDFS安装
 subtitle:
 date:       2020-02-23
 author:     D
@@ -13,7 +13,9 @@ tags:
 
 参考：[happyfish100/fastdfs/INSTALL](https://github.com/happyfish100/fastdfs/blob/master/INSTALL#L113)
 
-软件版本:FastDFS V6.06
+软件环境:
+- FastDFS V6.06
+- Ubuntu18.04
 
 # 1.安装依赖环境
 ```
