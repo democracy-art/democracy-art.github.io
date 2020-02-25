@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      ubuntu18.04安装nginx1.16.1(自定义安装)
+title:      ubuntu18.04安装nginx1.16.1(源码编译安装)
 subtitle:   
 date:       2020-02-25
 author:     D
