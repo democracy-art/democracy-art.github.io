@@ -32,14 +32,61 @@ github:[fastdfs-nginx-module](https://github.com/happyfish100/fastdfs-nginx-modu
 apt install git 
 git clone https://github.com/happyfish100/fastdfs-nginx-module.git
 ```
-建议**关闭所有nginx进程**再进行fastdfs-nginx-module安装.<br>
 2.2 给nginx添加fastdfs模块
+原已经安装好的nginx，现在需要添加一个未被编译安装的模块:<br>
+2.2.1 查看原来编译时都带了哪些参数
+```
+/usr/local/nginx/sbin/nginx -V
+```
+假设参数如下:
+```
+nginx version: nginx/1.16.1
+built by gcc 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1) 
+configure arguments: --prefix=/usr/local/nginx --with-http_realip_module --with-http_sub_module --with-http_gzip_static_module --with-http_stub_status_module --with-pcre
+```
+2.2.2 进入nginx源码目录
 ```
 cd nginx-1.16.1
-./configure --add-module=$YOUR_PATH/fastdfs-nginx-module/src   
+```
+2.2.3 添加的新模块参数(记得添加之前已经过的编译模块,不然最后只有新编译模块)
+```
+./configure --prefix=/usr/local/nginx --with-http_realip_module --with-http_sub_module --with-http_gzip_static_module --with-http_stub_status_module --with-pcre --add-module=/root/fastdfs-nginx-module/src
+```
+2.2.4 编译
+注意:**不**要`make install`,否则就是覆盖安装.
+```
 make
 ```
-注意:如果之前**已经**安装过nginx,**不**要`make install`,否则就是覆盖安装.
+make完之后在objs目录下就多了个nginx，这个就是新版本的程序了.<br>
+替换nginx二进制文件.
+```
+cp /usr/local/nginx/sbin/nginx  /usr/local/nginx/sbin/nginx.bak
+/usr/local/nginx/sbin/nginx -s quit
+cp ./objs/nginx /usr/local/nginx/sbin/
+```
+
+2.2.5 测试新的nginx程序是否正确
+```
+/usr/local/nginx/sbin/nginx -t
+```
+```
+nginx: theconfiguration file /usr/local/nginx/conf/nginx.conf syntax is ok
+nginx:configuration file /usr/local/nginx/conf/nginx.conf test issuccessful
+```
+2.2.6 重启nginx
+```
+/usr/local/nginx/sbin/nginx
+```
+2.2.7 查看ngixn版本极其编译参数
+```
+/usr/local/nginx/sbin/nginx -V
+```
+参数与步骤 2.2.3 的一致就 OK.
+```
+nginx version: nginx/1.16.1
+built by gcc 7.4.0 (Ubuntu 7.4.0-1ubuntu1~18.04.1) 
+configure arguments: --prefix=/usr/local/nginx --with-http_realip_module --with-http_sub_module --with-http_gzip_static_module --with-http_stub_status_module --with-pcre --add-module=/root/fastdfs-nginx-module/src
+```
 
 2.3 配置 nginx的配置文件,比如 nginx.conf
 ```
