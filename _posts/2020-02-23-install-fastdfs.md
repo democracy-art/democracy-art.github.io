@@ -26,6 +26,7 @@ sudo apt install gcc
 
 # 2.下载安装FastDFS依赖库libfastcommon
 ```
+sudo apt install git
 sudo git clone https://github.com/happyfish100/libfastcommon.git
 cd libfastcommon
 ./make.sh clean && ./make.sh && ./make.sh install
@@ -35,7 +36,6 @@ cd libfastcommon
 
 ## 3.1 下载安装FastDFS
 ```
-sudo apt install git
 sudo git clone https://github.com/happyfish100/fastdfs.git
 cd fastdfs
 ./make.sh clean && ./make.sh && ./make.sh install
