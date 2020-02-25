@@ -268,7 +268,7 @@ http://code.google.com/p/fastdht/downloads/list
 - key_namespace:当`check_file_duplicate`为真时,FastDHT `key_namespace`不能为空,键命名空间应该尽可能`短`.
 
 
-扩展篇: [FastDFS扩展](https://dm116.github.io/2020/02/24/fastdfs-extension/)
+FastDFS扩展篇: [nginx添加fastdfs模块(非覆盖安装)](https://dm116.github.io/2020/02/24/fastdfs-extension/)
 
 
 
