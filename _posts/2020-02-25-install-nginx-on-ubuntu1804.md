@@ -43,7 +43,7 @@ sudo apt-get install zlib1g-dev
 ```
 zlib库提供了很多种压缩和解压缩的方式,nginx使用zlib对http包的内容进行gzip,所以需要在linux上安装zlib库.
 
-安装SSL依赖库
+1.5 安装SSL依赖库
 ```
 sudo apt-get install openssl
 ```
