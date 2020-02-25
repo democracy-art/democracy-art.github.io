@@ -94,7 +94,7 @@ vi /usr/local/nginx/conf/nginx.conf
 ```
 添加下面这段:
 ```
-location /M00 {
+	location /M00 {
             root /home/yuqing/fastdfs/data;
             ngx_fastdfs_module;
         }
@@ -109,7 +109,7 @@ ln -s /home/yuqing/fastdfs/data  /home/yuqing/fastdfs/data/M00
 2.5 复制源码fastdfs中的`conf/http.conf`和`conf/mime.types`到 `/etc/fdfs`
 假设安装fastdfs时使用的是默认路径,如下:
 ```
-cd fastdfs
+cd $YOUR_PATH/fastdfs
 cp conf/http.conf conf/mime.types /etc/fdfs/
 ```
 
