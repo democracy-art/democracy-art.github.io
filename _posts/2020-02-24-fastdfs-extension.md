@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      FastDFS扩展
-subtitle:   Nginx和fastdfs-nginx-module安装实现HTTP访问
+title:      nginx添加fastdfs模块(非覆盖安装)
+subtitle:   
 date:       2020-02-24
 author:     D
 header-img: 
@@ -19,11 +19,12 @@ tags:
 - nginx(1.16.1)
 - fastdfs-nginx-module V1.22(已通过nginx 1.16.1 测试)
 
-# 1.Nginx安装
+# 1.安装nginx
 
-参考:[ubuntu18.04安装nginx1.16.1(自定义安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)
+[ubuntu18.04安装nginx1.16.1(自定义安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)
 
 # 2.fastdfs-nginx-module安装
+
 github:[fastdfs-nginx-module](https://github.com/happyfish100/fastdfs-nginx-module)
 
 2.1 克隆 fastdfs-nginx-module:
@@ -31,34 +32,16 @@ github:[fastdfs-nginx-module](https://github.com/happyfish100/fastdfs-nginx-modu
 apt install git 
 git clone https://github.com/happyfish100/fastdfs-nginx-module.git
 ```
-建议**关闭所有nginx进程**再进行fastdfs-nginx-module安装:
+建议**关闭所有nginx进程**再进行fastdfs-nginx-module安装.<br>
+2.2 给nginx添加fastdfs模块
 ```
-systemctl stop nginx
-```
-将`$YOUR_PATH`替换成你存放fastdfs-nginx-module的路径
-2.2 依赖安装:
-```
-sudo apt-get update
-sudo apt-get install libpcre3 libpcre3-dev
-apt-get install zlib1g-dev
-```
-若依赖没安装会遇到下面错误提示:
-```
-./configure: error: the HTTP rewrite module requires the PCRE library.
-...
-./configure: error: the HTTP gzip module requires the zlib library.
-...
-```
-2.3 安装 fastdfs-nginix-module
-```
-apt install wget
-wget http://nginx.org/download/nginx-1.16.1.tar.gz
-tar -zxvf nginx-1.16.1.tar.gz
 cd nginx-1.16.1
 ./configure --add-module=$YOUR_PATH/fastdfs-nginx-module/src   
-make && make install
+make
 ```
-2.4 配置 nginx的配置文件,比如 nginx.conf
+注意:如果之前**已经**安装过nginx,**不**要`make install`,否则就是覆盖安装.
+
+2.3 配置 nginx的配置文件,比如 nginx.conf
 ```
 vi /usr/local/nginx/conf/nginx.conf
 ```
@@ -70,22 +53,20 @@ location /M00 {
         }
 ```
 
-2.5 建立一个软链接 `${fastdfs_base_path}/data/M00` 到 `${fastdfs_base_path}/data`
+2.4 建立一个软链接 `${fastdfs_base_path}/data/M00` 到 `${fastdfs_base_path}/data`
 请根据自己文件路径进行相应修改:
 ```
 ln -s /home/yuqing/fastdfs/data  /home/yuqing/fastdfs/data/M00
 ```
 
-2.6 复制源码fastdfs中的`conf/http.conf`和`conf/mime.types`到 `/etc/fdfs`
-假设安装fastdfs时使用的是默认路径,则如下:
+2.5 复制源码fastdfs中的`conf/http.conf`和`conf/mime.types`到 `/etc/fdfs`
+假设安装fastdfs时使用的是默认路径,如下:
 ```
-cd ~
-git clone https://github.com/happyfish100/fastdfs.git
 cd fastdfs
 cp conf/http.conf conf/mime.types /etc/fdfs/
 ```
 
-2.7 复制 `mod_fastdfs.conf` 到 `/etc/fdfs/` 且修改它
+2.6 复制 `mod_fastdfs.conf` 到 `/etc/fdfs/` 且修改它
 ```
 cp $YOUR_PATH/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/
 ```
@@ -93,19 +74,12 @@ cp $YOUR_PATH/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/
 - `tracker_server=tracker:22122` 改为自己的IP
 - `store_path0=/home/yuqing/fastdfs` 跟 storaged 配置要一致.
 
-2.8 从新启动 nginx
+2.7 重启nginx
 ```
-systemctl restart nginx
-```
-查看 nginx 状态
-```
-systemctl status nginx
+/usr/local/nginx/sbin/nginx -s quit
+/usr/local/nginx/sbin/nginx 
 ```
 
-2.9 查看 nginx
-```
-tail -n 100 /usr/local/logs/error.log
-```
-
-
-
+参考:<br>
+[happyfish100/fastdfs-nginx-module/INSTALL](https://github.com/happyfish100/fastdfs-nginx-module/blob/master/INSTALL)<br>
+[nginx添加模块(非覆盖安装)](https://cnblogs.com/chaolinux/p/5473950.html)
