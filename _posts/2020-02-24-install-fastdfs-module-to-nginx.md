@@ -117,7 +117,11 @@ cp conf/http.conf conf/mime.types /etc/fdfs/
 ```
 cp $YOUR_PATH/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/
 ```
-必须改的部分:
+修改`/etc/fdfs/mod_fastdfs.conf`
+```
+vi /etc/fdfs/mod_fastdfs.conf
+```
+
 - `tracker_server=tracker:22122` 改为自己的IP
 - `store_path0=/home/yuqing/fastdfs` 跟 storaged 配置要一致.
 
