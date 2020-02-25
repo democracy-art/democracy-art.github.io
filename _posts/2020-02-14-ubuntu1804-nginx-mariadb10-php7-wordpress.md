@@ -8,24 +8,15 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - [website,WordPress,Nginx,PHP,MariaDB,Cloudflare,CDN]
+    - [wordpress]
 ---
 
 参考:[How To Setup WordPress With Nginx And Cloudflare CDN / SSL On Ubuntu 16.04 | 18.04](https://websiteforstudents.com/how-to-setup-wordpress-with-nginx-and-cloudflare-cdn-ssl-on-ubuntu-16-04-18-04/)<br>
 参考:[英文原版:Install WordPress with Nginx, MariaDB 10 and PHP 7 on Ubuntu 18.04](https://www.tecmint.com/install-wordpress-with-nginx-mariadb-php-on-ubuntu-18-04/)<br>
 参考:[在Ubuntu 18.04上安装带有Nginx，MariaDB 10和PHP 7的WordPress](https://www.howtoing.com/install-wordpress-with-nginx-mariadb-php-on-ubuntu-18-04)
 
-# 1.在Ubuntu 18.04上安装Nginx Web Server
-安装Nginx:<br>
-```
-sudo apt update && sudo apt upgrade
-sudo apt install nginx
-```
-设置开机启动且启动Nginx服务:<br>
-```
-sudo systemctl start nginx.service
-sudo systemctl enable nginx.service
-```
+# 1.安装nginx
+[ubuntu18.04安装nginx1.16.1(自定义安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)
 # 2.在Nginx上为WordPress网站创建Vhost
 
 ```
