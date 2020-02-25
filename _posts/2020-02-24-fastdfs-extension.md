@@ -16,20 +16,13 @@ tags:
 环境及版本:
 - Ubuntu18.04
 - FastDFS V6.06(版本应该 >=6.03)
-- nginx(1.14.0)
+- nginx(1.16.1)
 - fastdfs-nginx-module V1.22(已通过nginx 1.16.1 测试)
 
 # 1.Nginx安装
-安装
-```
- apt install nginx
-```
-设置开机启动及启动Nginx服务
-```
- systemctl enable nginx.service
- systemctl start nginx.service
-```
-Ubuntu18.04安装的nginx版本是1.14.0
+
+参考:[ubuntu18.04安装nginx1.16.1(自定义安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)
+
 # 2.fastdfs-nginx-module安装
 github:[fastdfs-nginx-module](https://github.com/happyfish100/fastdfs-nginx-module)
 
