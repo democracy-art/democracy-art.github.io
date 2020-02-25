@@ -55,6 +55,7 @@ tracker:
 storage:
 - port:23000:
 - http_server_port:8888
+
 ### 3.3.1 修改 tracker.conf
 ```
 sudo vi /etc/fdfs/tracker.conf
@@ -73,6 +74,7 @@ sudo vi /etc/fdfs/storage.conf
 - `tracker_server`:`192.168.1.100:22122` 改为自己的IP
 - `group_name=group1` (因为现在先只是配一个组,所以这里就为group1,多个组存储时才需要改动)
 - 其他要求请查看文档根据实际情况配置
+
 ### 3.3.3 修改 client.conf
 ```
 sudo vi /etc/fdfs/client.conf
