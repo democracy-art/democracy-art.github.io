@@ -56,12 +56,18 @@ storage:
 - port:23000:
 - http_server_port:8888
 
+### 3.3.1 新建存放fastdfs的数据的目录
+```
+sudo mkdir -p /home/yuqing/fastdfs
+```
+你可以改为自己喜欢的路径名.下面我是以此为基础进行配置.
+
 ### 3.3.1 修改 tracker.conf
 ```
 sudo vi /etc/fdfs/tracker.conf
 ```
 - `bind_addr =` 绑定此主机的一个地址,如果留空表示绑定此主机所有地址.
-- `base_path`=`/home/yuqing/fastdfs`修改为自己的文件路径，例如:`base_path`=`/home/xxx/fastdfs`(这里的文件目录如果没有，要自己新建，不然会报错)
+- `base_path`=`/home/yuqing/fastdfs`(此文件目录若没有，要自己新建，不然会报错)
 - 其他要求请查看文档根据实际情况配置
 
 ### 3.3.2 修改 storage.conf
@@ -69,8 +75,8 @@ sudo vi /etc/fdfs/tracker.conf
 sudo vi /etc/fdfs/storage.conf
 ```
 
-- `base_path`=`/home/yuqing/fastdfs`改为自己的文件路径如:`base_path`=`/home/xxx/fastdfs`(这里的文件目录如果没有,要自己新建,不然会报错)
-- `store_path0`=`/home/yuqing/fastdfs`改为自己的文件路径`store_path0=/home/xxx/fastdfs`
+- `base_path`=`/home/yuqing/fastdfs`(此文件目录若没有，要自己新建，不然会报错)
+- `store_path0`=`/home/yuqing/fastdfs`(此文件目录若没有，要自己新建，不然会报错)
 - `tracker_server`:`192.168.1.100:22122` 改为自己的IP
 - `group_name=group1` (因为现在先只是配一个组,所以这里就为group1,多个组存储时才需要改动)
 - 其他要求请查看文档根据实际情况配置
@@ -79,7 +85,7 @@ sudo vi /etc/fdfs/storage.conf
 ```
 sudo vi /etc/fdfs/client.conf
 ```
-- `base_path`=`/home/yuqing/fastdfs` 这里需要改为自己的文件路径，如：`base_path`=`/home/xxx/fastdfs` (这里的文件目录如果没有，要自己新建，不然会报错)
+- `base_path`=`/home/yuqing/fastdfs`(此文件目录若没有，要自己新建，不然会报)
 - `tracker_server`=`192.168.1.100:22122`改为自己的IP
 - 其他要求请查看文档根据实际情况配置
 
