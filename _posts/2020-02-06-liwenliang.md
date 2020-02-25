@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - [李文亮,造谣者李文亮,Freedom of Speech]
+    - [李文亮,freedom]
 ---
 
 # 根源
