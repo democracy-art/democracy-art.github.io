@@ -45,7 +45,7 @@ zlib库提供了很多种压缩和解压缩的方式,nginx使用zlib对http包�
 
 1.5 安装SSL依赖库
 ```
-sudo apt-get install openssl
+sudo apt-get install libssl-dev
 ```
 openssl是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能及SSL协议,并提供丰富的应用程序供测试或其他目的使用.nginx不仅支持http协议,还支持https(即在SSL协议上传输http),所以需要在linux安装openssl库.
 
