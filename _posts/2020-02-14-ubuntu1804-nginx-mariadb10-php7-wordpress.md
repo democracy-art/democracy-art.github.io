@@ -16,7 +16,21 @@ tags:
 参考:[在Ubuntu 18.04上安装带有Nginx，MariaDB 10和PHP 7的WordPress](https://www.howtoing.com/install-wordpress-with-nginx-mariadb-php-on-ubuntu-18-04)
 
 # 1.安装nginx
-[ubuntu18.04安装nginx1.16.1(自定义安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)
+1.1 安装
+```
+sudo apt update && sudo apt upgrade
+sudo apt install nginx
+```
+1.2 设置开机启动nginx且启动nginx
+```
+sudo systemctl stop nginx.service
+sudo systemctl start nginx.service
+sudo systemctl enable nginx.service
+```
+
+如果想源码编译安装请查看:[ubuntu18.04安装nginx1.16.1(源码编译安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)<br>
+**注意:**如果nginx是源码编译安装,那么下面的步骤的内容会不一样.
+
 # 2.在Nginx上为WordPress网站创建Vhost
 
 ```
