@@ -20,8 +20,7 @@ tags:
 - fastdfs-nginx-module V1.22(已通过nginx 1.16.1 测试)
 
 # 1.安装nginx
-
-[ubuntu18.04安装nginx1.16.1(自定义安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)
+[ubuntu18.04安装nginx1.16.1(源码编译安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)
 
 # 2.fastdfs-nginx-module安装
 
