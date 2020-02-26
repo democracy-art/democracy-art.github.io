@@ -83,7 +83,12 @@ sudo -i
 make install
 ```
 # 3.启动nginx
-3.1 测试nginx配置文件
+3.1 检测nginx配置文件语法是否正确<br>
+3.1.1 方式1:指定需要检查的配置文件
+```
+sudo /usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
+```
+3.1.2 方式2:不加`-c`参数,默认检测nginx.conf配置文件
 ```
 sudo /usr/local/nginx/sbin/nginx -t
 ```
@@ -122,16 +127,6 @@ sudo /usr/local/nginx/sbin/nginx
 sudo /usr/local/nginx/sbin/nginx -s reload
 ```
 通常我们使用nginx修改最多的便是其配置文件nginx.conf,修改之后想让配置文件生效而不用重启nginx，便可以使用此命令.
-
-# 6.检测nginx配置文件语法是否正确
-6.1 方式1:指定需要检查的配置文件
-```
-sudo /usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
-```
-6.2 方式2:不加`-c`参数,默认检测nginx.conf配置文件
-```
-sudo /usr/local/nginx/sbin/nginx -t
-```
 
 参考:[nginx详解](https://cnblogs.com/qiulovelinux/p/10417477.html)<br>
 参考:[Nginx（一）------简介与安装](https://www.cnblogs.com/ysocean/p/9384877.html)<br>
