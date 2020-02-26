@@ -11,9 +11,6 @@ tags:
     - [FastDFS]
 ---
 
-github:[FastDFS](https://github.com/happyfish100/fastdfs)<br>
-参考：[happyfish100/fastdfs/INSTALL](https://github.com/happyfish100/fastdfs/blob/master/INSTALL#L113)
-
 环境及版本:
 - Ubuntu18.04
 - FastDFS V6.06
@@ -270,7 +267,7 @@ http://code.google.com/p/fastdht/downloads/list
 
 FastDFS扩展篇: [nginx添加fastdfs模块(非覆盖安装)](https://dm116.github.io/2020/02/24/install-fastdfs-module-to-nginx/)
 
-
-
+github:[FastDFS](https://github.com/happyfish100/fastdfs)<br>
+参考：[happyfish100/fastdfs/INSTALL](https://github.com/happyfish100/fastdfs/blob/master/INSTALL#L113)
 
 
