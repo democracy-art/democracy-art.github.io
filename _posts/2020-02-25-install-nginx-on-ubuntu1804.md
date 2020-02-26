@@ -71,10 +71,6 @@ cd nginx-1.16.1
 --with-http_gunzip_module \
 --with-http_gzip_static_module 
 ```
-上面的这些模块可以自己添加或去掉如果什么模块都不加:
-```
-./configure --prefix=/usr/local/nginx 
-```
 详细请查看官网文档:[Building nginx from Sources](http://nginx.org/en/docs/configure.html)
 
 2.3.2 编译 
@@ -87,13 +83,17 @@ sudo -i
 make install
 ```
 # 3.启动nginx
-3.1 启动nginx
+3.1 测试nginx配置文件
+```
+sudo /usr/local/nginx/sbin/nginx -t
+```
+3.2 启动nginx
 ```
 sudo /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
 ```
 `-c`是指定配置文件路径,不加的话,nginx会自动加载默认路径的配置文件,可通过`-h`查看帮助命令.
 
-3.2 查看nginx进程
+3.3 查看nginx进程
 ```
 ps -ef|grep nginx
 ```
