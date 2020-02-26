@@ -24,7 +24,7 @@ sudo systemctl start nginx.service
 sudo systemctl enable nginx.service
 ```
 
-如果想源码编译安装请查看:[ubuntu18.04安装nginx1.16.1(源码编译安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)<br>
+如果想源码编译安装nginx请查看:[ubuntu18.04安装nginx1.16.1(源码编译安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)<br>
 **注意:**如果nginx是源码编译安装,那么下面的步骤的内容会不一样.
 
 # 2.在Nginx上为WordPress网站创建Vhost
