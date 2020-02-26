@@ -61,13 +61,30 @@ sudo tar -zxvf nginx-1.16.1.tar.gz
 cd nginx-1.16.1
 ```
 2.3 配置且将nginx安装到`/usr/local/nginx`目录
-切换到root
+
+2.3.1 生成Makefile
+```
+./configure --prefix=/usr/local/nginx \
+--with-pcre \
+--with-http_ssl_module \
+--with-http_v2_module \
+--with-http_gunzip_module \
+--with-http_gzip_static_module 
+```
+上面的这些模块可以自己添加或去掉如果什么模块都不加:
+```
+./configure --prefix=/usr/local/nginx 
+```
+详细请查看官网文档:[Building nginx from Sources](http://nginx.org/en/docs/configure.html)
+
+2.3.2 编译 
+```
+make 
+```
+2.3.3 安装(需要root权限)
 ```
 sudo -i  
-```
-```
-./configure --prefix=/usr/local/nginx
-make && make install
+make install
 ```
 # 3.启动nginx
 3.1 启动nginx
