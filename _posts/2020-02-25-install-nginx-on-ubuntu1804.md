@@ -92,6 +92,11 @@ sudo /usr/local/nginx/sbin/nginx -t -c /usr/local/nginx/conf/nginx.conf
 ```
 sudo /usr/local/nginx/sbin/nginx -t
 ```
+检测成功:
+```
+nginx: the configuration file /usr/local/nginx/conf/nginx.conf syntax is ok
+nginx: configuration file /usr/local/nginx/conf/nginx.conf test is successful
+```
 3.2 启动nginx
 ```
 sudo /usr/local/nginx/sbin/nginx -c /usr/local/nginx/conf/nginx.conf
