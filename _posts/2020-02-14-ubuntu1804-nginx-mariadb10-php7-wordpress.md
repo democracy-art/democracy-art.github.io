@@ -112,7 +112,15 @@ sudo systemctl enable mariadb.service
 ```
 sudo mysql_secure_installation
 ```
-只需在提示中回答问题即可完成任务。
+当提示时,按如下指南回答问题：
+- Enter current password for root (enter for none): **按Enter键**
+- Set root password? [Y/n]:**Y**
+- New password: **输入设置密码**
+- Re-enter new password: **再次输入密码**
+- Remove anonymous users? [Y/n]: **Y**
+- Disallow root login remotely? [Y/n]: **Y**
+- Remove test database and access to it? [Y/n]: **Y**
+- Reload privilege tables now? [Y/n]:  **Y**
 
 # 4.为网站创建WordPress数据库
 
