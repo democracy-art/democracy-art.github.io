@@ -36,7 +36,8 @@ VPS 购买:[搬瓦工](https://bwh88.net),也可以选择其他厂商.
 
 # 3.注册Cloudflare且配置
 
-3.1 在这里:[注册CLoudflare](https://dash.cloudflare.com/sign-up)
+3.1 在这里:<br>
+[注册CLoudflare](https://dash.cloudflare.com/sign-up)<br>
 ![sign-up Cloudflare](/img/sign-up-cloudflare.png)
 
 3.2 Add a Site<br>
