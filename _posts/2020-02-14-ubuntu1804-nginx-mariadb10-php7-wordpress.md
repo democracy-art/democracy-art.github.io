@@ -40,42 +40,42 @@ VPS 购买:[搬瓦工](https://bwh88.net),也可以选择其他厂商.
 ![sign-up Cloudflare](/img/sign-up-cloudflare.png)
 
 3.2 Add a Site<br>
-注册完成后点击**Add a Site**
+注册完成后点击**Add a Site**<br>
 ![add-a-site](/img/add-a-site.png)
 
-3.3 输入你已注册的域名
+3.3 输入你已注册的域名<br>
 ![add-your-site](/img/add-your-site.png)
 
-3.4 Cloudflare 查询 DNS
+3.4 Cloudflare 查询 DNS<br>
 ![cloudflare-query-your-dns](/img/cloudflare-query-your-dns.png)
 
-3.5 选择Cloudflare一款套餐
-![select-a-plan-of-cloudflare](/img/select-a-plan-of-cloudflare.png)
-完成和你应该看到Cloudflare给你分配的两个nameservers.
-![change-your-nameservers](/img/change-your-nameservers.png)
+3.5 选择Cloudflare一款套餐<br>
+![select-a-plan-of-cloudflare](/img/select-a-plan-of-cloudflare.png)<br>
+完成和你应该看到Cloudflare给你分配的两个nameservers.<br>
+![change-your-nameservers](/img/change-your-nameservers.png)<br>
 
-3.6 替换为Cloudflare的nameservers.
-![use-custom-name-servers](/img/use-custom-name-servers.png)
+3.6 替换为Cloudflare的nameservers.<br>
+![use-custom-name-servers](/img/use-custom-name-servers.png)<br>
 保存自定义名称服务器更改后，请返回您的Cloudflare帐户并等待Cloudflare看到更改.<br> 
 根据您的域提供商的不同，最多需要一个小时才能看到Cloudflare.<br>
-成功后你将会看到**Active**.
-![active](/img/active.png)
-完成上面的所有东西你再查看你的Cloudflare帐户里的DNS标签如下:
-![done](/img/dong.png)
+成功后你将会看到**Active**.<br>
+![active](/img/active.png)<br>
+完成上面的所有东西你再查看你的Cloudflare帐户里的DNS标签如下:<br>
+![done](/img/dong.png)<br>
 
 3.7 SSL/TLS<br>
-3.7.1 `SSL/TLS`标签下的`Overview`页选择`Full(strict)`
-![full-strict](/img/ssl-tls-tab-overview-full-strict.png)
+3.7.1 `SSL/TLS`标签下的`Overview`页选择`Full(strict)`<br>
+![full-strict](/img/ssl-tls-tab-overview-full-strict.png)<br>
 
-3.7.2 使用Cloudflare签署的免费TLS证书.
-![create-certificate](/img/ssl-tls-tab-origin-server-create-certificate.png)
+3.7.2 使用Cloudflare签署的免费TLS证书.<br>
+![create-certificate](/img/ssl-tls-tab-origin-server-create-certificate.png)<br>
 点击`Create certificate`,出来下面页面:<br>
-选择**Let Cloudflare generate a private key and a CSR**,然后点击<kbd>Next</kbd>.
-![Origin Certificate Installation](/img/Let-Cloudflare-generate-a-private-key-and-a-CSR.png)
+选择**Let Cloudflare generate a private key and a CSR**,然后点击<kbd>Next</kbd>.<br>
+![Origin Certificate Installation](/img/Let-Cloudflare-generate-a-private-key-and-a-CSR.png)<br>
 然后将它们复制粘贴到服务器上的文本文件中.<br>
 
 3.7.3 在Ubuntu上，运行下面的命令来创建密钥、证书和源文件,并保存.<br>
-对于`key file`运行下面命令并复制粘贴:
+对于`key file`运行下面命令并复制粘贴:<br>
 ```
 sudo vi /etc/ssl/private/cloudflare_example.com.pem
 ```
@@ -85,28 +85,28 @@ sudo vi /etc/ssl/certs/cloudflare_example.com.pem
 ```
 你还需要下载Cloudflare `Origin Pull certificate`，可以从下面的链接下载:<br>
 [Origin Pull Certificate](https://support.cloudflare.com/hc/en-us/articles/204899617-Authenticated-Origin-Pulls#section6)<br>
-或者使用下面命令下载:
+或者使用下面命令下载:<br>
 ```
 cd /etc/ssl/certs/
 sudo wget https://support.cloudflare.com/hc/en-us/article_attachments/360044928032/origin-pull-ca.pem
 ```
 
 3.7.4 总是启用HTTPS<br>
-![always-use-https](/img/always-use-https.png)
+![always-use-https](/img/always-use-https.png)<br>
 往下拉还有一个**HTTP Strict Transport Security (HSTS)**可以启用也可以不启用.<br>
 
-往下拉启用 **Opportunistic Encryption** 和 **Automatic HTTPS Rewrites**
-切换到 `Origin Server` 这页启用 **Authenticated Origin Pulls**
+往下拉启用 **Opportunistic Encryption** 和 **Automatic HTTPS Rewrites**<br>
+切换到 `Origin Server` 这页启用 **Authenticated Origin Pulls**<br>
 
 3.8 Speed标签设置(速度优化)<br>
-<kbd>Speed</kbd>标签下面的`Optimization`页的 **Auto Minify** 这栏的3个复选框全勾选.* 
+<kbd>Speed</kbd>标签下面的`Optimization`页的 **Auto Minify** 这栏的3个复选框全勾选.<br>
 * [x] JavaScript
 * [x] CSS
 * [x] HTML
 
 3.9 Page Rules 标签<br>
-来到<kbd>Page Rules</kbd>标签,点击`Create Page Rule`选择**Always Use HTTPS**.
-![page-rules-always-use-https](/img/page-rules-always-use-https.png)
+来到<kbd>Page Rules</kbd>标签,点击`Create Page Rule`选择**Always Use HTTPS**.<br> 
+![page-rules-always-use-https](/img/page-rules-always-use-https.png)<br>
 
 # 1.安装nginx
 1.1 更新apt-get
