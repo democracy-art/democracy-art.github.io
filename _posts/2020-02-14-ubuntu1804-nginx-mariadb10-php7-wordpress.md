@@ -62,7 +62,7 @@ VPS 购买:[搬瓦工](https://bwh88.net),也可以选择其他厂商.
 成功后你将会看到**Active**.<br>
 ![active](/img/active.png)<br>
 完成上面的所有东西你再查看你的Cloudflare帐户里的DNS标签如下:<br>
-![done](/img/dong.png)<br>
+![done](/img/done.png)<br>
 
 3.7 SSL/TLS<br>
 3.7.1 `SSL/TLS`标签下的`Overview`页选择`Full(strict)`<br>
@@ -94,8 +94,7 @@ sudo wget https://support.cloudflare.com/hc/en-us/article_attachments/3600449280
 
 3.7.4 总是启用HTTPS<br>
 ![always-use-https](/img/always-use-https.png)<br>
-往下拉还有一个**HTTP Strict Transport Security (HSTS)**可以启用也可以不启用.<br>
-
+往下拉还有一个 **HTTP Strict Transport Security (HSTS)** 可以启用也可以不启用.<br>
 往下拉启用 **Opportunistic Encryption** 和 **Automatic HTTPS Rewrites**<br>
 切换到 `Origin Server` 这页启用 **Authenticated Origin Pulls**<br>
 
