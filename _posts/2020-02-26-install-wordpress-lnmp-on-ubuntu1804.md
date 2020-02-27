@@ -74,5 +74,14 @@ date.timezone = America/Chicago   //时区可改,比如: Asia/Shanghai
 sudo /usr/local/nginx/sbin/nginx -s reload
 ```
 
+3.3 检查php是否安装成功
+```
+sudo vi /usr/local/nginx/html/phpinfo.php
+```
+`phpinfo.php`内容如下:
+```
+<?php phpinfo(); ?>
+```
+
 
 

@@ -12,12 +12,47 @@ tags:
 ---
 
 # 1.安装nginx
-1.1 安装
+1.1 更新apt-get
 ```
-sudo apt update && sudo apt upgrade
-sudo apt install nginx
+sudo apt-get update && sudo apt-get upgrade
 ```
-1.2 设置开机启动nginx且启动nginx
+1.2 安装编译依赖包<br>
+1.2.1 安装build-essential包
+```
+sudo apt-get install build-essential
+```
+该命令安装了一组新的包,包括`gcc`,`g++`,`make`.<br>
+安装nginx需要先将官网下载的源码进行编译,编译依赖gcc环境.
+
+1.2.2 安装libtool
+```
+sudo apt-get install libtool
+```
+GNU libtool是通用库支持脚本.它将共享库的使用隐藏在一个一致的可移植的接口后面.
+
+1.3 安装pcre依赖库
+```
+sudo apt-get install libpcre3 libpcre3-dev
+```
+pcre是一个Perl库,包括perl兼容的正则表达式库.nginx的http模块使用pcre来解析正则表达式,所以需要在linux上安装pcre库.
+
+1.4 安装zlib依赖库
+```
+sudo apt-get install zlib1g-dev
+```
+zlib库提供了很多种压缩和解压缩的方式,nginx使用zlib对http包的内容进行gzip,所以需要在linux上安装zlib库.
+
+1.5 安装SSL依赖库
+```
+sudo apt-get install libssl-dev
+```
+openssl是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能及SSL协议,并提供丰富的应用程序供测试或其他目的使用.nginx不仅支持http协议,还支持https(即在SSL协议上传输http),所以需要在linux安装openssl库.
+
+1.6 安装
+```
+sudo apt-get install nginx
+```
+1.7 设置开机启动nginx且启动nginx
 ```
 sudo systemctl stop nginx.service
 sudo systemctl start nginx.service
