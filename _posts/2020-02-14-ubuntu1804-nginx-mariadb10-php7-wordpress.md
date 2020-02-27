@@ -156,56 +156,26 @@ sudo systemctl start nginx.service
 sudo systemctl enable nginx.service
 ```
 
+4.8 检测nginx是否安装成功<br>
+在浏览器输入你的服务器的IP地址,比如:`192.168.1.100`,出现如下信息说明成功:<br>
+**Welcome to nginx!**<br>
+...<br>
+
 如果想源码编译安装nginx请查看:[ubuntu18.04安装nginx1.16.1(源码编译安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)<br>
 **注意:**如果nginx是源码编译安装,那么下面的步骤的内容会不一样.
 
-# 5.在Nginx上为WordPress网站创建Vhost
-
-```
-sudo vi /etc/nginx/sites-available/wordpress.conf
-```
-在下面的示例中，使用您要使用的域更改`example.com`: 
-```
-server {
-    listen 80;
-    listen [::]:80;
-    root /var/www/html/wordpress;
-    index  index.php index.html index.htm;
-    server_name example.com www.example.com;
-
-     client_max_body_size 100M;
-
-    location / {
-        try_files $uri $uri/ /index.php?$args;        
-    }
-
-    location ~ \.php$ {
-    include snippets/fastcgi-php.conf;
-    fastcgi_pass             unix:/var/run/php/php7.2-fpm.sock;
-    fastcgi_param   SCRIPT_FILENAME $document_root$fastcgi_script_name;
-    }
-}
-```
-保存文件并退出。 然后启用该站点:
-```
-sudo ln -s /etc/nginx/sites-available/wordpress.conf  /etc/nginx/sites-enabled/
-```
-然后重新加载nginx:
-```
-sudo systemctl reload nginx
-```
-
-# 6.在Ubuntu 18.04上安装MariaDB 10
-我们将使用MariaDB作为我们的WordPress数据库。 要安装MariaDB，请运行以下命令:
+# 5.安装MariaDB
+我们将使用MariaDB作为我们的WordPress数据库,要安装MariaDB，请运行以下命令:
 ```
 sudo apt-get install mariadb-server mariadb-client
 ```
 安装完成后，我们将启动它并将其配置为在系统引导时自动启动:
 ```
+sudo systemctl stop mariadb.service
 sudo systemctl start mariadb.service
 sudo systemctl enable mariadb.service
 ```
-接下来，通过运行以下命令来保护MariaDB安装:
+数据库安全配置
 ```
 sudo mysql_secure_installation
 ```
@@ -219,37 +189,38 @@ sudo mysql_secure_installation
 - Remove test database and access to it? [Y/n]: **Y**
 - Reload privilege tables now? [Y/n]:  **Y**
 
-# 7.为网站创建WordPress数据库
-
-之后，我们将为该用户准备数据库，数据库用户和密码。<br>
-它们将由我们的WordPress应用程序使用，因此它可以连接到MySQL服务器。<br>
+检查是否安装成功:
 ```
 sudo mysql -u root -p
 ```
-使用下面的命令，我们将首先创建数据库，然后创建数据库用户及其密码。<br>
-然后我们将授予用户对该数据库的权限。<br>
-创建数据库`wordpress`
-```
-CREATE DATABASE wordpress;
-```
-创建用户.<br>
-注意将下面 `secure_password` 换成你的密码.
-```
-CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'secure_password';
-```
-授权
-```
-GRANT ALL ON wordpress.* TO 'wp_user'@'localhost';
-FLUSH PRIVILEGES;
-EXIT;
-```
+输入密码后看到如下字符串,说明登录成功.<br>
+>MariaDB[(none)]>
 
-# 8.在Ubuntu 18.04上安装PHP 7
+# 6.安装PHP7.2-FPM及相关模块
 
 由于WordPress是用PHP编写的应用程序，<br>
 我们将安装PHP和运行WordPress所需的PHP包，使用以下命令:<br>
 ```
 sudo apt-get install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+```
+安装PHP7.2完成后,打开nginx的PHP默认配置文件,进行如下配置:
+```
+sudo vi /etc/php/7.2/fpm/php.ini
+```
+下面的配置对大多数基于PHP的CMS来说都是好的配置,当然如果自己的需求可自行配置.
+```
+file_uploads = On
+allow_url_fopen = On
+short_open_tag = On
+memory_limit = 256M
+cgi.fix_pathinfo = 0
+upload_max_filesize = 100M
+max_execution_time = 360
+date.timezone = America/Chicago
+```
+重启nginx
+```
+sudo systemctl restart nginx.service
 ```
 安装完成后,启动php-fpm服务器:
 ```
@@ -257,36 +228,90 @@ sudo systemctl start php7.2-fpm
 sudo systemctl enable php7.2-fpm
 ```
 
-# 9.在Ubuntu 18.04上安装WordPress 5
+# 7.创建wordpress数据库
+登录mariadb
+```
+sudo mysql -u root -p
+```
+创建wordpress数据库
+```
+CREATE DATABASE wordpress
+```
+创建wordpress数据库用户(**secure_password**换成自己安全系数高的密码)
+```
+CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'secure_password';
+```
+给用户授权
+```
+GRANT ALL ON wordpress.* TO 'wp_user'@'localhost';
+```
+保存你的更改然后退出.
+```
+FLUSH PRIVILEGES
+EXIT;
+```
 
+# 8.下载wordpress最新的版本
 使用以下wget命令下载最新的WordPress包:
 ```
 cd /tmp && wget http://wordpress.org/latest.tar.gz
 ```
 然后用以下内容提取存档:
 ```
-sudo tar -xvzf latest.tar.gz -C /var/www/html
+sudo tar -xvzf latest.tar.gz
+sudo mv wordpress /var/www/html/example.com
 ```
-以上将创建我们在vhost中设置的文档根目录,即`/var/www/html/wordpress`然后,<br>
-我们需要更改该目录中文件和文件夹的所有权:<br>
+设置wordpress根目录的正确权限并给予nginx控制权.
 ```
-sudo chown www-data: /var/www/html/wordpress/ -R
+sudo chown -R www-data:www-data  /var/www/html/example.com/ 
+sudo chmod -R 755 /var/www/html/example.com/
 ```
 
-在进行下一步之前你需要[绑定域名到IP](https://dm116.github.io/2020/02/19/bind-the-domain-to-ip)<br>
-
-现在我们准备运行WordPress的安装.如果您使用了未注册或不存在的域,<br>
-则可以使用以下记录配置hosts `/etc/hosts` 文件:<br>
+# 9.配置nginx
+创建新的配置文件**example.com**
 ```
-192.168.1.100 example.com
+sudo vi /etc/nginx/sites-available/example.com
 ```
-假设您的服务器的IP地址是192.168.1.100，并且您使用的域是example.com，<br>
-那么您的计算机将在给定的IP地址上解析example.com <br>
+将 **example.com** 替换为自己的域名.
+```
+server {
+    listen 80;
+    listen [::]:80;
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
 
-现在将您的域加载到浏览器中，您应该看到WordPress安装页面：<br>
+    server_name  example.com www.example.com;
+    root   /var/www/html/example.com;
+    index  index.php;
 
->若输入没出现下图，登录Cloudflare,去DNS,把Proxy status从DNS only改为Proxied试试。
+    ssl_certificate /etc/ssl/certs/cloudflare_example.com.pem;
+    ssl_certificate_key /etc/ssl/private/cloudflare_example.com.pem;
+    ssl_client_certificate /etc/ssl/certs/origin-pull-ca.pem;
+    ssl_verify_client on;
 
+    client_max_body_size 100M;
+  
+    autoindex off;
+
+    location / {
+        try_files $uri $uri/ /index.php?$args;
+    }
+
+    location ~ \.php$ {
+         include snippets/fastcgi-php.conf;
+         fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         include fastcgi_params;
+    }
+}
+```
+
+# 10.使能wordpress
+```
+sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+sudo systemctl restart nginx.service
+```
+浏览器输入 **https://example.com/** 会出现下图:
 ![Select-WordPress-Install-Language](/img/Select-WordPress-Install-Language.png)<br>
 
 选择WordPress安装语言
