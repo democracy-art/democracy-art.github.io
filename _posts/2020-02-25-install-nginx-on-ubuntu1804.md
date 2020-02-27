@@ -71,7 +71,18 @@ cd nginx-1.16.1
 --with-http_gunzip_module \
 --with-http_gzip_static_module 
 ```
-详细请查看官网文档:[Building nginx from Sources](http://nginx.org/en/docs/configure.html)
+
+`configure`命令支持的参数及参数的作用:
+
+|参数|作用|
+|-|-|
+|`--prefix`|定义保存nginx的目录|
+|`--with-pcre`|强制使用PCRE库|
+|`--with-http_ssl_module`|支持构建将SSL/TLS协议支持添加到流模块的模块|
+|`--with-http_v2_module`|支持构建支持HTTP2的模块.这个模块默认是不构建的.|
+|`--with-http_gunzip_module`|支持为不支持`gzip`编码方法的客户端构建`ngx_http_gunzip_module`模块，该模块使用` Content-Encoding：gzip`解压缩响应。 默认情况下未构建此模块。|
+|`--with-http_gzip_static_module`|支持构建`ngx_http_gzip_static_module`模块，该模块支持发送扩展名为`.gz`的预压缩文件，而不是常规文件。 默认情况下未构建此模块。|
+|其他参数|官方文档:[Building nginx from Sources](http://nginx.org/en/docs/configure.html)|
 
 2.3.2 编译 
 ```
