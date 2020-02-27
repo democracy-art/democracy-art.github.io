@@ -11,6 +11,103 @@ tags:
     - [wordpress]
 ---
 
+# 1.IP获取(购买VPS)
+
+VPS 购买:[搬瓦工](https://bwh88.net),也可以选择其他厂商.
+
+# 2.域名申请
+
+2.1 注册[freenom](https://freenom.com)帐号
+
+2.2 注册域名(freenom注册的域名可`免费`试用`一年`),步骤:<br>
+- 登录freenom
+- `Services`
+- `Register a New Domain`
+-  在输入框(显示Find your new Domain)中输入域名 
+- 点击`Check Availability`
+- 如果域名`可用`它会出现,选一个喜欢的 点击`Get it now `
+- 跳转到另一页面, `Period` 下面,点下拉框 选 12 Months@FREE(12个月免费) 
+- 点击 `Continue`
+- `Review & Checkout` 输入一个`有效`的邮箱用来接收信息 
+- `Your Details` 页面,填写信息随便填,只要能通过,邮箱`有效`就行,点`Complete Order` 
+- 完成后注意查收邮件,登录freenom,点击 `Services`
+- `My Domains`
+- 看到刚注册的域名 Status是 `ACTIVE` 说明注册成功
+
+# 3.注册Cloudflare且配置
+
+3.1 在这里:[注册CLoudflare](https://dash.cloudflare.com/sign-up)
+![sign-up Cloudflare](/img/sign-up-cloudflare.png)
+
+3.2 Add a Site<br>
+注册完成后点击**Add a Site**
+![add-a-site](/img/add-a-site.png)
+
+3.3 输入你已注册的域名
+![add-your-site](/img/add-your-site.png)
+
+3.4 Cloudflare 查询 DNS
+![cloudflare-query-your-dns](/img/cloudflare-query-your-dns.png)
+
+3.5 选择Cloudflare一款套餐
+![select-a-plan-of-cloudflare](/img/select-a-plan-of-cloudflare.png)
+完成和你应该看到Cloudflare给你分配的两个nameservers.
+![change-your-nameservers](/img/change-your-nameservers.png)
+
+3.6 替换为Cloudflare的nameservers.
+![use-custom-name-servers](/img/use-custom-name-servers.png)
+保存自定义名称服务器更改后，请返回您的Cloudflare帐户并等待Cloudflare看到更改.<br> 
+根据您的域提供商的不同，最多需要一个小时才能看到Cloudflare.<br>
+成功后你将会看到**Active**.
+![active](/img/active.png)
+完成上面的所有东西你再查看你的Cloudflare帐户里的DNS标签如下:
+![done](/img/dong.png)
+
+3.7 SSL/TLS<br>
+3.7.1 `SSL/TLS`标签下的`Overview`页选择`Full(strict)`
+![full-strict](/img/ssl-tls-tab-overview-full-strict.png)
+
+3.7.2 使用Cloudflare签署的免费TLS证书.
+![create-certificate](/img/ssl-tls-tab-origin-server-create-certificate.png)
+点击`Create certificate`,出来下面页面:<br>
+选择**Let Cloudflare generate a private key and a CSR**,然后点击<kbd>Next</kbd>.
+![Origin Certificate Installation](/img/Let-Cloudflare-generate-a-private-key-and-a-CSR.png)
+然后将它们复制粘贴到服务器上的文本文件中.<br>
+
+3.7.3 在Ubuntu上，运行下面的命令来创建密钥、证书和源文件,并保存.<br>
+对于`key file`运行下面命令并复制粘贴:
+```
+sudo vi /etc/ssl/private/cloudflare_example.com.pem
+```
+对于`certificate file`运行下面命令并复制粘贴:
+```
+sudo vi /etc/ssl/certs/cloudflare_example.com.pem
+```
+你还需要下载Cloudflare `Origin Pull certificate`，可以从下面的链接下载:<br>
+[Origin Pull Certificate](https://support.cloudflare.com/hc/en-us/articles/204899617-Authenticated-Origin-Pulls#section6)<br>
+或者使用下面命令下载:
+```
+cd /etc/ssl/certs/
+sudo wget https://support.cloudflare.com/hc/en-us/article_attachments/360044928032/origin-pull-ca.pem
+```
+
+3.7.4 总是启用HTTPS<br>
+![always-use-https](/img/always-use-https.png)
+往下拉还有一个**HTTP Strict Transport Security (HSTS)**可以启用也可以不启用.<br>
+
+往下拉启用 **Opportunistic Encryption** 和 **Automatic HTTPS Rewrites**
+切换到 `Origin Server` 这页启用 **Authenticated Origin Pulls**
+
+3.8 Speed标签设置(速度优化)<br>
+<kbd>Speed</kbd>标签下面的`Optimization`页的 **Auto Minify** 这栏的3个复选框全勾选.* 
+* [x] JavaScript
+* [x] CSS
+* [x] HTML
+
+3.9 Page Rules 标签<br>
+来到<kbd>Page Rules</kbd>标签,点击`Create Page Rule`选择**Always Use HTTPS**.
+![page-rules-always-use-https](/img/page-rules-always-use-https.png)
+
 # 1.安装nginx
 1.1 更新apt-get
 ```
