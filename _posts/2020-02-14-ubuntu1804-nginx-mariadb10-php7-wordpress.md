@@ -131,9 +131,17 @@ sudo mysql -u root -p
 ```
 使用下面的命令，我们将首先创建数据库，然后创建数据库用户及其密码。<br>
 然后我们将授予用户对该数据库的权限。<br>
+创建数据库`wordpress`
 ```
 CREATE DATABASE wordpress;
+```
+创建用户.<br>
+注意将下面 `secure_password` 换成你的密码.
+```
 CREATE USER 'wp_user'@'localhost' IDENTIFIED BY 'secure_password';
+```
+授权
+```
 GRANT ALL ON wordpress.* TO 'wp_user'@'localhost';
 FLUSH PRIVILEGES;
 EXIT;
