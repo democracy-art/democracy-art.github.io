@@ -101,7 +101,7 @@ sudo systemctl reload nginx
 # 3.在Ubuntu 18.04上安装MariaDB 10
 我们将使用MariaDB作为我们的WordPress数据库。 要安装MariaDB，请运行以下命令:
 ```
-sudo apt install mariadb-server mariadb-client
+sudo apt-get install mariadb-server mariadb-client
 ```
 安装完成后，我们将启动它并将其配置为在系统引导时自动启动:
 ```
@@ -136,7 +136,7 @@ EXIT;
 由于WordPress是用PHP编写的应用程序，<br>
 我们将安装PHP和运行WordPress所需的PHP包，使用以下命令:<br>
 ```
-sudo apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+sudo apt-get install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 安装完成后,启动php-fpm服务器:
 ```
