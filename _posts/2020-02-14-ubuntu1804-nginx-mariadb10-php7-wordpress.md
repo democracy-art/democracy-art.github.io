@@ -109,48 +109,48 @@ sudo wget https://support.cloudflare.com/hc/en-us/article_attachments/3600449280
 来到<kbd>Page Rules</kbd>标签,点击`Create Page Rule`选择**Always Use HTTPS**.<br> 
 ![page-rules-always-use-https](/img/page-rules-always-use-https.png)<br>
 
-# 1.安装nginx
-1.1 更新apt-get
+# 4.安装nginx
+4.1 更新apt-get
 ```
 sudo apt-get update && sudo apt-get upgrade
 ```
-1.2 安装编译依赖包<br>
-1.2.1 安装build-essential包
+4.2 安装编译依赖包<br>
+4.2.1 安装build-essential包
 ```
 sudo apt-get install build-essential
 ```
 该命令安装了一组新的包,包括`gcc`,`g++`,`make`.<br>
 安装nginx需要先将官网下载的源码进行编译,编译依赖gcc环境.
 
-1.2.2 安装libtool
+4.2.2 安装libtool
 ```
 sudo apt-get install libtool
 ```
 GNU libtool是通用库支持脚本.它将共享库的使用隐藏在一个一致的可移植的接口后面.
 
-1.3 安装pcre依赖库
+4.3 安装pcre依赖库
 ```
 sudo apt-get install libpcre3 libpcre3-dev
 ```
 pcre是一个Perl库,包括perl兼容的正则表达式库.nginx的http模块使用pcre来解析正则表达式,所以需要在linux上安装pcre库.
 
-1.4 安装zlib依赖库
+4.4 安装zlib依赖库
 ```
 sudo apt-get install zlib1g-dev
 ```
 zlib库提供了很多种压缩和解压缩的方式,nginx使用zlib对http包的内容进行gzip,所以需要在linux上安装zlib库.
 
-1.5 安装SSL依赖库
+4.5 安装SSL依赖库
 ```
 sudo apt-get install libssl-dev
 ```
 openssl是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能及SSL协议,并提供丰富的应用程序供测试或其他目的使用.nginx不仅支持http协议,还支持https(即在SSL协议上传输http),所以需要在linux安装openssl库.
 
-1.6 安装
+4.6 安装
 ```
 sudo apt-get install nginx
 ```
-1.7 设置开机启动nginx且启动nginx
+4.7 设置开机启动nginx且启动nginx
 ```
 sudo systemctl stop nginx.service
 sudo systemctl start nginx.service
@@ -160,7 +160,7 @@ sudo systemctl enable nginx.service
 如果想源码编译安装nginx请查看:[ubuntu18.04安装nginx1.16.1(源码编译安装)](https://dm116.github.io/2020/02/25/install-nginx-on-ubuntu1804/)<br>
 **注意:**如果nginx是源码编译安装,那么下面的步骤的内容会不一样.
 
-# 2.在Nginx上为WordPress网站创建Vhost
+# 5.在Nginx上为WordPress网站创建Vhost
 
 ```
 sudo vi /etc/nginx/sites-available/wordpress.conf
@@ -196,7 +196,7 @@ sudo ln -s /etc/nginx/sites-available/wordpress.conf  /etc/nginx/sites-enabled/
 sudo systemctl reload nginx
 ```
 
-# 3.在Ubuntu 18.04上安装MariaDB 10
+# 6.在Ubuntu 18.04上安装MariaDB 10
 我们将使用MariaDB作为我们的WordPress数据库。 要安装MariaDB，请运行以下命令:
 ```
 sudo apt-get install mariadb-server mariadb-client
@@ -220,7 +220,7 @@ sudo mysql_secure_installation
 - Remove test database and access to it? [Y/n]: **Y**
 - Reload privilege tables now? [Y/n]:  **Y**
 
-# 4.为网站创建WordPress数据库
+# 7.为网站创建WordPress数据库
 
 之后，我们将为该用户准备数据库，数据库用户和密码。<br>
 它们将由我们的WordPress应用程序使用，因此它可以连接到MySQL服务器。<br>
@@ -245,7 +245,7 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
-# 5.在Ubuntu 18.04上安装PHP 7
+# 8.在Ubuntu 18.04上安装PHP 7
 
 由于WordPress是用PHP编写的应用程序，<br>
 我们将安装PHP和运行WordPress所需的PHP包，使用以下命令:<br>
@@ -258,7 +258,7 @@ sudo systemctl start php7.2-fpm
 sudo systemctl enable php7.2-fpm
 ```
 
-# 6.在Ubuntu 18.04上安装WordPress 5
+# 9.在Ubuntu 18.04上安装WordPress 5
 
 使用以下wget命令下载最新的WordPress包:
 ```
