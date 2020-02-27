@@ -144,8 +144,10 @@ sudo /usr/local/nginx/sbin/nginx -s reload
 ```
 通常我们使用nginx修改最多的便是其配置文件nginx.conf,修改之后想让配置文件生效而不用重启nginx，便可以使用此命令.
 
-参考:[nginx详解](https://cnblogs.com/qiulovelinux/p/10417477.html)<br>
-参考:[Nginx（一）------简介与安装](https://www.cnblogs.com/ysocean/p/9384877.html)<br>
-参考:[ubuntu18.04 lnmp编译安装](https://jianshu.com/p/157fb7f28bf7)<br>
+参考:
+官方文档:[Building nginx from Sources](http://nginx.org/en/docs/configure.html)<br>
+[nginx详解](https://cnblogs.com/qiulovelinux/p/10417477.html)<br>
+[Nginx（一）------简介与安装](https://www.cnblogs.com/ysocean/p/9384877.html)<br>
+[ubuntu18.04 lnmp编译安装](https://jianshu.com/p/157fb7f28bf7)<br>
 
 
