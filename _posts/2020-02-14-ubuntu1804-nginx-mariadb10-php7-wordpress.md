@@ -34,6 +34,8 @@ VPS 购买:[搬瓦工](https://bwh88.net),也可以选择其他厂商.
 - `My Domains`
 - 看到刚注册的域名 Status是 `ACTIVE` 说明注册成功
 
+**注意:**下面所有的步骤中涉及到域名 **example.com** 请均改为你自己申请的域名.
+
 # 3.注册Cloudflare且配置
 
 3.1 在这里:<br>
