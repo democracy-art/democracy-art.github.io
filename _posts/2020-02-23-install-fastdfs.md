@@ -16,10 +16,22 @@ tags:
 - FastDFS V6.06
 
 # 1.安装依赖环境
+1.1 更新apt
 ```
-sudo apt install make
-sudo apt install gcc
+sudo apt update && sudo apt upgrade
 ```
+1.2 安装build-essential包
+```
+sudo apt-get install build-essential
+```
+该命令安装一组新的包,包含`gcc`,`g++`,`make`.
+
+1.3 安装libtool
+```
+sudo apt install libtool
+```
+GNU libtool是通用库支持脚本.它将共享库的使用隐藏在一个一致的可移植的接口后面.
+
 
 # 2.下载安装FastDFS依赖库libfastcommon
 ```
