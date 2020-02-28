@@ -186,10 +186,10 @@ include /etc/nginx/sites-enabled/*;
 **example.com**可以是其他名称.<br>
 所以我在 `/etc/nginx/sites-enabled/example.com`添加下面这段:
 ```
-	location /M00 {
-            root /home/yuqing/fastdfs/data;
-            ngx_fastdfs_module;
-        }
+location /M00 {
+	root /home/yuqing/fastdfs/data;
+	ngx_fastdfs_module;
+}
 ```
 
 ## 2.4 建立一个软链接 `${fastdfs_base_path}/data/M00` 到 `${fastdfs_base_path}/data`
