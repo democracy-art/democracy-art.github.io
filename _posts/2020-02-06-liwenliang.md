@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - [李文亮,freedom]
+    - [Freedom]
 ---
 
 # 根源
