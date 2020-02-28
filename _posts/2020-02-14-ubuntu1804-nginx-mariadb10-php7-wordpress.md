@@ -67,6 +67,8 @@ VPS 购买:[搬瓦工](https://bwh88.net),也可以选择其他厂商.
 ![done](/img/done.png)<br>
 
 3.7 SSL/TLS<br>
+如果要额外加V2ray建议使用[Ubuntu18.04安装v2ray(用CDN避免被墙)](https://dm116.github.io/2020/02/14/ubuntu1804-install-v2ray-cdn/)的获取证书的方法.
+
 3.7.1 `SSL/TLS`标签下的`Overview`页选择`Full(strict)`<br>
 ![full-strict](/img/ssl-tls-tab-overview-full-strict.png)<br>
 
