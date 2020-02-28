@@ -160,7 +160,7 @@ nginx:configuration file /usr/local/nginx/conf/nginx.conf test issuccessful
 ```
 systemctl restart nginx
 ```
-### 2.2.7 查看ngixn版本极其编译参数
+### 2.2.7 查看ngixn版本及其编译参数
 ```
 nginx -V
 ```
