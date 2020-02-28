@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Ubuntu18.04安装带有Nginx,MariaDB10和PHP7的WordPress
+title:      Ubuntu18.04安装带有Nginx,MariaDB10和PHP7的WordPress且使用Cloudflare的CDN/SSL
 subtitle:
 date:       2020-02-14
 author:     D
