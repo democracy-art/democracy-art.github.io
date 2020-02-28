@@ -422,6 +422,12 @@ server {
 ```
 openssl s_client -connect xxx.tk:443 -status -tlsextdebug < /dev/null 2>&1 | grep -i "OCSP response"
 ```
+如果优化失败,即出现如下信息:
+```
+OCSP response: no response sent
+```
+请查看这篇博文:[How To enable OCSP stapling for RapidSSL SSL certificate - Nginx](https://knowledge.digicert.com/generalinformation/INFO3463.html)
+
 9.2 开启TCP fastopen
 ```
 echo 3 > /proc/sys/net/ipv4/tcp_fastopen
