@@ -87,6 +87,7 @@ cd nginx-1.14.0
 ### 2.2.3 生成Makefile<br>
 复制步骤 1.2 中`configure arguments:`后面的参数放到,添加在`./configure`后面,<br>
 同时额外**添加** `--add-module=/root/fastdfs-nginx-module/src` <br>
+
 **注意:**把上面的`/root/`替换为你存放`fastdfs-nginx-module`的路径.
 ```
 ./configure --with-cc-opt='-g -O2 -fdebug-prefix-map=/build/nginx-GkiujU/nginx-1.14.0=. -fstack-protector-strong -Wformat -Werror=format-security -fPIC -Wdate-time -D_FORTIFY_SOURCE=2' --with-ld-opt='-Wl,-Bsymbolic-functions -Wl,-z,relro -Wl,-z,now -fPIC' --prefix=/usr/share/nginx --conf-path=/etc/nginx/nginx.conf --http-log-path=/var/log/nginx/access.log --error-log-path=/var/log/nginx/error.log --lock-path=/var/lock/nginx.lock --pid-path=/run/nginx.pid --modules-path=/usr/lib/nginx/modules --http-client-body-temp-path=/var/lib/nginx/body --http-fastcgi-temp-path=/var/lib/nginx/fastcgi --http-proxy-temp-path=/var/lib/nginx/proxy --http-scgi-temp-path=/var/lib/nginx/scgi --http-uwsgi-temp-path=/var/lib/nginx/uwsgi --with-debug --with-pcre-jit --with-http_ssl_module --with-http_stub_status_module --with-http_realip_module --with-http_auth_request_module --with-http_v2_module --with-http_dav_module --with-http_slice_module --with-threads --with-http_addition_module --with-http_geoip_module=dynamic --with-http_gunzip_module --with-http_gzip_static_module --with-http_image_filter_module=dynamic --with-http_sub_module --with-http_xslt_module=dynamic --with-stream=dynamic --with-stream_ssl_module --with-mail=dynamic --with-mail_ssl_module --add-module=/root/fastdfs-nginx-module/src
@@ -176,7 +177,14 @@ configure arguments: --with-cc-opt='-g -O2 -fdebug-prefix-map=/build/nginx-Gkiuj
 ```
 vi /etc/nginx/nginx.conf
 ```
-添加下面这段:
+里面有
+```
+include /etc/nginx/conf.d/*.conf;
+include /etc/nginx/sites-enabled/*;
+```
+我在 `/etc/nginx/sites-enabled/` 目录里面有建立一个`example.com`,<br>
+**example.com**可以是其他名称.<br>
+所以我在 `/etc/nginx/sites-enabled/example.com`添加下面这段:
 ```
 	location /M00 {
             root /home/yuqing/fastdfs/data;
@@ -191,6 +199,7 @@ ln -s /home/yuqing/fastdfs/data  /home/yuqing/fastdfs/data/M00
 ```
 
 ## 2.5 复制源码fastdfs中的`conf/http.conf`和`conf/mime.types`到 `/etc/fdfs`
+把 `$YOUR_PATH` 替换为你自己存放 `fastdfs` 的路径<br>
 假设安装fastdfs时使用的是默认路径,如下:
 ```
 cd $YOUR_PATH/fastdfs
@@ -198,6 +207,7 @@ cp conf/http.conf conf/mime.types /etc/fdfs/
 ```
 
 ## 2.6 复制 `mod_fastdfs.conf` 到 `/etc/fdfs/` 且修改它
+把 `$YOUR_PATH` 替换为你自己存放 `fastdfs-nginx-module` 的路径<br>
 ```
 cp $YOUR_PATH/fastdfs-nginx-module/src/mod_fastdfs.conf  /etc/fdfs/
 ```
@@ -211,8 +221,9 @@ vi /etc/fdfs/mod_fastdfs.conf
 
 ## 2.7 重启nginx
 ```
-/usr/local/nginx/sbin/nginx -s quit
-/usr/local/nginx/sbin/nginx 
+nginx -s quit
+nginx -t
+systemctl restart nginx 
 ```
 
 ## 2.8 检测HTTP访问(浏览访问存储的数据)
@@ -227,6 +238,11 @@ http://192.168.1.100/group1/M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510.h
 浏览器输入下面的URL就可以访问刚上传的 `stdlib.h`数据.
 ```
 http://192.168.1.100/M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510.h
+```
+我已经配置总是使用https且是配置的自己域名,假设域名为`example.com`,<br>
+所以我在浏览器输入的URL链接如下:
+```
+https://example.com/M00/00/00/aIBdvl5Th7iAM1PwAACLyBo1AoQ37510.h
 ```
 
 参考:<br>
