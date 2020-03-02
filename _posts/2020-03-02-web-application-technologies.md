@@ -14,7 +14,7 @@ tags:
 参考:*The Web Application Hacker's Handbook* 
 Chapter 3 Web Application Technologies
 
-关于Web应用程序技术查询建议去[W3C](w3.org).
+关于Web应用程序技术查询建议去[W3C](http://w3.org).
 
 # 1. HTTP协议(The HTTP Protocol)
 
