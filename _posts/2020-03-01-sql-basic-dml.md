@@ -48,4 +48,49 @@ VALUES
 ```
 INSERT INTO dept values(5,'dept5'),(6, 'dept6');
 ```
+# 3. 更新记录
+## 3.1 单表更新
+语法:
+```
+UPDATE tablename SET field1=value1, field2=value2, ..., fieldn=valuen [WHERE CONDITION];
+```
+例子:将表`emp`中`ename`为lisa的薪水(`sal`)从3000更改为4000.
+```
+UPDATE emp SET sal=4000 WHERE ename='lisa';
+```
+## 3.2 多表更新
+语法:
+```
+UPDATE t1,t2,...,tn SET t1.field1=expr1,tn.fieldn=exprn [WHERE CONDITION];
+```
+例子:更新表emp中字段sal和表dept中的字段deptname. (例子中用了表的**别名**) 
+```
+UPDATE emp a, dept b SET a.sal=a.sal*b.deptno, b.deptname=a.ename WHERE a.deptno=b.deptno;
+```
+
+>注意:多表更新的语法更多地用在根据一个表的字段,来动态的更新另外一个表的字段.
+
+# 4. 删除记录
+## 4.1 删除单表记录
+语法:
+```
+DELETE FROM tablename [WHERE CONDITION];
+```
+例子:将表emp中ename为`dony`的记录全部删除.
+```
+DELETE FROM emp WHERE ename='dony';
+```
+## 4.2 删除多表记录
+语法:
+```
+DELETE t1,t2,...,tn FROM t1,t2,...,tn [WHERE CONDITION];
+```
+例子:将表emp和 dept中deptno为3的记录同时都删除.(例子中用了表的**别名**)
+```
+DELETE a, b from emp a, dept b WHERE a.deptno=b.deptno AND a.deptno=3;
+```
+
+>注意:不管是单表还是多表,不加WHERE条件将会把表的所有记录删除,所以操作时一定要小心.
+
 [(My)SQL基础(2)](https://dm116.github.io/2020/03/01/sql-basic-ddl/)<br>
+[(My)SQL基础(4)](https://dm116.github.io/2020/03/02/sql-basic-dql/)<br>
