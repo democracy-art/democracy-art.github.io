@@ -181,3 +181,4 @@ HTTP协议包含自己的使用各种身份验证方案对用户进行身份验�
 - `Digest`:是一种质询响应机制，它使用带有用户凭据的随机数的MD5校验和。
 
 
+[Web应用程序技术 - Chapter 3(2) - Web Functionality and Encoding Schemes](https://dm116.github.io/2020/03/03/web-application-technologies_2)
