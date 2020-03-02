@@ -189,5 +189,5 @@ SELECT deptno FROM emp UNION ALL SELECT deptno FROM dept;
 SELECT deptno FROM emp UNION SELECT deptno FROM dept;
 ```
 
-[(My)SQL基础(3)](https://dm116.github.io/2020/03/01/sql-basic-dml/)<br>
-[(My)SQL基础(5)](https://dm116.github.io/2020/03/02/sql-basic-dcl/)<br>
+[(My)SQL基础(3)-DML](https://dm116.github.io/2020/03/01/sql-basic-dml/)<br>
+[(My)SQL基础(5)-DCL](https://dm116.github.io/2020/03/02/sql-basic-dcl/)<br>

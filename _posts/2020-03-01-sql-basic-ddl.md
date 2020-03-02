@@ -162,4 +162,4 @@ ALTER TABLE emp RENAME emp1;
 ```
 
 [(My)SQL基础](https://dm116.github.io/2020/03/01/sql-basic/)<br>
-[(My)SQL基础(3)](https://dm116.github.io/2020/03/01/sql-basic-dml/)<br>
+[(My)SQL基础(3)-DML](https://dm116.github.io/2020/03/01/sql-basic-dml/)<br>

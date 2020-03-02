@@ -92,5 +92,5 @@ DELETE a, b from emp a, dept b WHERE a.deptno=b.deptno AND a.deptno=3;
 
 >注意:不管是单表还是多表,不加WHERE条件将会把表的所有记录删除,所以操作时一定要小心.
 
-[(My)SQL基础(2)](https://dm116.github.io/2020/03/01/sql-basic-ddl/)<br>
-[(My)SQL基础(4)](https://dm116.github.io/2020/03/02/sql-basic-dql/)<br>
+[(My)SQL基础(2)-DDL](https://dm116.github.io/2020/03/01/sql-basic-ddl/)<br>
+[(My)SQL基础(4)-DQL](https://dm116.github.io/2020/03/02/sql-basic-dql/)<br>
