@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Web应用程序技术 - Chapter 3
+title:      Web应用程序技术 - Chapter 3(1) - HTTP
 subtitle:   
 date:       2020-03-02
 author:     D
