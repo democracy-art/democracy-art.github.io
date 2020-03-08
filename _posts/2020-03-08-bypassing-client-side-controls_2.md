@@ -129,6 +129,5 @@ Quantity: <input type=”text” name=”quantity”> (Maximum quantity is 50)
 - 4.您可以使用Burp Proxy中的HTML修改功能来自动重新启用应用程序中使用的所有禁用字段。
 
 
-[Chapter 5 Bypassing Client-Side Controls(1) - Transmitting Data Via the Client](https://dm116.github.io/2020/03/08/bypassing-client-side-controls/)
-
+[Chapter 5 Bypassing Client-Side Controls(1) - Transmitting Data Via the Client](https://dm116.github.io/2020/03/08/bypassing-client-side-controls/)<br>
 [Chapter 5 Bypassing Client-Side Controls(3) - Capturing User Data: Browser Extensions](https://dm116.github.io/2020/03/08/bypassing-client-side-controls_3/)
