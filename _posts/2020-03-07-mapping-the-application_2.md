@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Web应用程序技术 - Chapter 4 - Mapping the Application(2)
+title:      Mapping the Application(2)(Chapter 4) - Analyzing the Application
 subtitle:   
 date:       2020-03-07
 author:     D
@@ -323,4 +323,4 @@ http://eis/pub/users/1/view
 - 对应用程序进行智能分析，以识别其关键功能，行为，安全性机制和技术
 - 评估应用程序的攻击面，突出显示最有前途的功能和行为，以便更集中地研究可利用的漏洞
 
-[Web应用程序技术 - Chapter 4 - Mapping the Application(1)](https://dm116.github.io/2020/03/03/mapping-the-application)
+[Mapping the Application(1)(Chapter 4) - Enumerating Content and Functionality](https://dm116.github.io/2020/03/03/mapping-the-application)
