@@ -1,4 +1,3 @@
-
 ---
 layout:     post
 title:      Chapter 5 Bypassing Client-Side Controls(3) - Capturing User Data: Browser Extensions
@@ -12,9 +11,7 @@ tags:
     - [web hacking]
 ---
 
-
 参考:*The Web Application Hacker's Handbook* 
-
 
 # 1. 捕获用户数据：浏览器扩展(Capturing User Data: Browser Extensions)
 
@@ -458,6 +455,7 @@ http://firstfloorsoftware.com/SilverlightSpy/
 - *TheIDAProBook:TheUnoffi cialGuidetotheWorld’sMostPopularDisassembler* by Chris Eagle
 - `www.acm.uiuc.edu/sigmil/RevEng`
 - `www.uninformed.org/?v=1&a=7`
+
 
 [Chapter 5 Bypassing Client-Side Controls(2) - Capturing User Data:HTML Forms](https://dm116.github.io/2020/03/08/bypassing-client-side-controls_2/)<br>
 [Chapter 5 Bypassing Client-Side Controls(4) - Handling Client-Side Data Securely](https://dm116.github.io/2020/03/08/bypassing-client-side-controls_4/)<br>
