@@ -1,3 +1,4 @@
+
 ---
 layout:     post
 title:      Chapter 5 Bypassing Client-Side Controls(3) - Capturing User Data: Browser Extensions
@@ -11,7 +12,9 @@ tags:
     - [web hacking]
 ---
 
+
 参考:*The Web Application Hacker's Handbook* 
+
 
 # 1. 捕获用户数据：浏览器扩展(Capturing User Data: Browser Extensions)
 
