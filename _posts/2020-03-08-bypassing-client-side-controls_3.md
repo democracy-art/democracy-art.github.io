@@ -457,4 +457,4 @@ http://firstfloorsoftware.com/SilverlightSpy/
 
 
 [Chapter 5 Bypassing Client-Side Controls(2) - Capturing User Data:HTML Forms](https://dm116.github.io/2020/03/08/bypassing-client-side-controls_2/)<br>
-[Chapter 5 Bypassing Client-Side Controls(4) - Handling Client-Side Data Securely](https://dm116.github.io/2020/03/08/bypassing-client-side-controls_4/)<br>
+[Chapter 5 Bypassing Client-Side Controls(4) - Handling Client-Side Data Securely](https://dm116.github.io/2020/03/09/bypassing-client-side-controls_4/)<br>
