@@ -1,7 +1,7 @@
 ---
 layout:     post
-title:      Chapter 5 Bypassing Client-Side Controls(3) - Capturing User Data: Browser Extensions
-subtitle:   
+title:      Chapter 5 Bypassing Client-Side Controls(3) 
+subtitle:   Capturing User Data: Browser Extensions
 date:       2020-03-08
 author:     D
 header-img: 
