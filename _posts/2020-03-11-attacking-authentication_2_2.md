@@ -2,7 +2,7 @@
 layout:		post
 title:		Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(2)
 subtitle:	
-date:		2020-03-09
+date:		2020-03-11
 author:		D
 header-img:
 catalog:	true
@@ -91,4 +91,4 @@ tags: [web hacking]
 - 6.如果应用程序响应忘记的密码请求而生成包含恢复URL的电子邮件，请获取这些URL的数量，然后尝试识别可能使您能够预测发布给其他用户的URL的任何模式。 采用与分析会话令牌以确保可预测性相同的技术（请参见第7章）。
 
 [Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(1)](https://dm116.github.io/2020/03/09/attacking-authentication_2_1/)<br>
-[Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(3)](https://dm116.github.io/2020/03/12/attacking-authentication_2_3/)
+[Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(3)](https://dm116.github.io/2020/03/11/attacking-authentication_2_3/)
