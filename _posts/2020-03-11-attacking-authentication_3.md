@@ -1,6 +1,6 @@
 ---
 layout:		post
-title:		Chapter 6 Attacking Authentication(2) - Implementation Flaws in Authentication
+title:		Chapter 6 Attacking Authentication(3) - Implementation Flaws in Authentication
 subtitle:	
 date:		2020-03-11
 author:		D
