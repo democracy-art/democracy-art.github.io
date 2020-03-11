@@ -47,4 +47,4 @@ tags: [web hacking]
 
 与身份验证有关的大多数漏洞和攻击都可以应用于所提及的任何技术。 由于基于HTML表单的身份验证的压倒性优势，我们将在这种情况下描述每个特定的漏洞和攻击。 在相关的地方，我们将指出与其他可用技术有关的特定差异和攻击方法。
 
-[Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(1)](https://dm116.github.io/2020/03/09/attacking-authentication_2/)
+[Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(1)](https://dm116.github.io/2020/03/11/attacking-authentication_2_2/)
