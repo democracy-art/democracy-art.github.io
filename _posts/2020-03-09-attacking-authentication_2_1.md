@@ -115,4 +115,4 @@ tags: [web hacking]
 除了登录功能本身之外，还可以使用其他信息来源来获取有效的用户名。 查看在应用程序映射期间发现的所有源代码注释（请参见第4章），以识别任何明显的用户名。 组织中开发人员或其他人员的任何电子邮件地址都可以是有效的用户名，可以是完整的用户名，也可以是用户特定的前缀。 任何可访问的日志记录功能都可能泄露用户名。
 
 [Chapter 6 Attacking Authentication(1) - Authentication Technologies](https://dm116.github.io/2020/03/09/attacking-authentication/)<br>
-[Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(2)](https://dm116.github.io/2020/03/09/attacking-authentication_2_2/)
+[Chapter 6 Attacking Authentication(2) - Design Flaws in Authentication Mechanisms(2)](https://dm116.github.io/2020/03/11/attacking-authentication_2_2/)
