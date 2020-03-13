@@ -97,4 +97,4 @@ web应用程序必须采取的防御措施必须采取防止对其会话管理�
 
 
 [Chapter 7 Attacking Session Management(3)-Weakness in Session Token Handling(2)](https://dm116.github.io/2020/03/13/attacking-session_management_3_2/)<br>
-[Chapter 8 Attacking Access Controls-Common Vulnerabilities(1)](https://dm116.github.io/2020/03/13/common-vulnerabilities_1_1/)<br>
+[Chapter 8 Attacking Access Controls-Common Vulnerabilities(1)](https://dm116.github.io/2020/03/13/attacking-access-controls_1_1/)<br>
