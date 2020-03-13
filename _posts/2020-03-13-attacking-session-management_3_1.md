@@ -1,6 +1,6 @@
 ---
 layout:		post
-title:		Chapter 7 Attacking Session Management(2)-Weakness in Session Token Handling(2)
+title:		Chapter 7 Attacking Session Management(3)-Weakness in Session Token Handling(1)
 subtitle:	
 date:		2020-03-12
 author:		D
