@@ -415,4 +415,4 @@ rnd=191432758301;app=eBankProdTC;uid=216;time=6343303;
 - 5.如果您的攻击不成功,但从第一步开始,您控制的变量长输入将被纳入令牌,您应该尝试通过添加一个字符来生成一系列的令牌,至少在使用的块的大小上。对于每个生成的令牌,您应该重新执行步骤2和3。这将增加你需要修改的数据与你的攻击成功的界限。
 
 [Chapter 7 Attacking Session Management(1)-The Need for State](https://dm116.github.io/2020/03/13/attacking-session_management_1/)<br>
-[Chapter 7 Attacking Session Management(3)-Weakness in Session Token Handling](https://dm116.github.io/2020/03/13/attacking-session_management_3/)<br>
+[Chapter 7 Attacking Session Management(3)-Weakness in Session Token Handling](https://dm116.github.io/2020/03/13/attacking-session_management_3_1/)<br>
