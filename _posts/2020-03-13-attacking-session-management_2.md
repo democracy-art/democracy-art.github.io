@@ -2,7 +2,7 @@
 layout:		post
 title:		Chapter 7 Attacking Session Management(2)-Weaknesses in Token Generation
 subtitle:	
-date:		2020-03-12
+date:		2020-03-13
 author:		D
 header-img:
 catalog:	true
