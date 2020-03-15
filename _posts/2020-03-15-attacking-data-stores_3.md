@@ -70,4 +70,4 @@ JavaScript这样解释各种运算符：
 
 
 [Chapter 9 Attacking Data Stores(2)-Injecting into SQL(5)](https://dm116.github.io/2020/03/15/attacking-data-stores_2_5/)<br>
-[Chapter 9 Attacking Data Stores(3)-Injecting into XPath(1)](https://dm116.github.io/2020/03/16/attacking-data-stores_4_1/)<br>
+[Chapter 9 Attacking Data Stores(4)-Injecting into XPath(1)](https://dm116.github.io/2020/03/16/attacking-data-stores_4_1/)<br>
