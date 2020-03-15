@@ -147,4 +147,4 @@ ORA-01790: expression must have same datatype as corresponding expression
 要从数据库中提取有用的数据，通常您需要知道包含要访问的数据的表和列的名称。 主要企业DBMS包含大量数据库元数据，您可以查询这些数据库元数据以发现数据库中每个表和列的名称。 在每种情况下，提取有用数据的方法都是相同的。 但是，细节在不同的数据库平台上有所不同。
 
 [Chapter 9 Attacking Data Stores(2)-Injecting into SQL(1)](https://dm116.github.io/2020/03/14/attacking-data-stores_2_1/)<br>
-[Chapter 9 Attacking Data Stores(2)-Injecting into SQL(3)](https://dm116.github.io/2020/03/14/attacking-data-stores_2_3/)<br>
+[Chapter 9 Attacking Data Stores(2)-Injecting into SQL(3)](https://dm116.github.io/2020/03/15/attacking-data-stores_2_3/)<br>
