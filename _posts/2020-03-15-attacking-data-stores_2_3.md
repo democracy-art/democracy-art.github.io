@@ -184,4 +184,4 @@ the varchar value ‘fme69’ to a column of data type int.
 攻击者已成功绕过了旨在阻止SQL注入攻击的输入验证。 现在，他可以在数据库内执行任意查询并检索结果。
 
 [Chapter 9 Attacking Data Stores(2)-Injecting into SQL(1)](https://dm116.github.io/2020/03/14/attacking-data-stores_2_2/)<br>
-[Chapter 9 Attacking Data Stores(2)-Injecting into SQL(3)](https://dm116.github.io/2020/03/15/attacking-data-stores_2_4/)<br>
+[Chapter 9 Attacking Data Stores(2)-Injecting into SQL(4)](https://dm116.github.io/2020/03/15/attacking-data-stores_2_4/)<br>
