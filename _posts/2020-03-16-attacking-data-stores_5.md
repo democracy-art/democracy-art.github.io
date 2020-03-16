@@ -121,4 +121,4 @@ tags: [web hacking]
 
 
 [Chapter 9 Attacking Data Stores(4)-Injecting into XPath](https://dm116.github.io/2020/03/15/attacking-data-stores_4/)<br>
-[Chapter 10 Attacking Back-End Components(1)-Injecting OS Commands(1)](https://dm116.github.io/2020/03/15/attacking-back-end-components_1_1/)<br>
+[Chapter 10 Attacking Back-End Components(1)-Injecting OS Commands(1)](https://dm116.github.io/2020/03/16/attacking-back-end-components_1_1/)<br>
