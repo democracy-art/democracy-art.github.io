@@ -143,4 +143,4 @@ XSS漏洞有时可能与其他漏洞连锁在一起，造成毁灭性影响。 �
 
 
 [Chapter 12 Attacking Users: Cross-Site Scripting(1) - Varieties of XSS](https://dm116.github.io/2020/03/17/attacking-users-cross-site-scripting_1/)<br>
-[Chapter 12 Attacking Users: Cross-Site Scripting(3) - Finding and Exploiting XSS Attacks](https://dm116.github.io/2020/03/17/attacking-users-cross-site-scripting_3/)<br>
+[Chapter 12 Attacking Users: Cross-Site Scripting(3) - Finding and Exploiting XSS Vulnerabilities](https://dm116.github.io/2020/03/17/attacking-users-cross-site-scripting_3/)<br>
