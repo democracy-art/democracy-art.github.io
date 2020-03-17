@@ -2,7 +2,7 @@
 layout:     post
 title:      Chapter 11 Attacking Application Logic(1)-The Nature of Logic Flaws
 subtitle:   逻辑缺陷的本质
-date:       2020-03-16
+date:       2020-03-17
 author:     D
 header-img: 
 catalog: true
