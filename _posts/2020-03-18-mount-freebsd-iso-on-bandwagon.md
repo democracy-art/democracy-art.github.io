@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Install FreeBSD ISO on Bandwagon
+title:      Mount FreeBSD ISO on Bandwagon
 subtitle:
 date:       2020-03-18
 author:     D
