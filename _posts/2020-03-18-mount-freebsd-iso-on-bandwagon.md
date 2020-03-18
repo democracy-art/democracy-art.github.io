@@ -12,6 +12,6 @@ tags:
 ---
 
 References:
-- 1. [Bandwagon Mount ISO](http://bandwagonhost.net/4023.html)
-- 2. [Install FreeBSD10.2](http://cnblogs.com/brightgalaxy/p/8883024.html)
+- [Bandwagon Mount ISO](http://bandwagonhost.net/4023.html)
+- [Install FreeBSD10.2](http://cnblogs.com/brightgalaxy/p/8883024.html)
 
