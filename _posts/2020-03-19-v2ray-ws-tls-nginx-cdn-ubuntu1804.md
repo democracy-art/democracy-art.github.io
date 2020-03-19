@@ -229,8 +229,6 @@ sudo vi /etc/php/7.2/fpm/php.ini
 ```
 下面的配置对大多数基于PHP的CMS来说都是好的配置,当然如果自己的需求可自行配置.
 ```
-file_uploads = On
-allow_url_fopen = On
 short_open_tag = On
 memory_limit = 256M
 cgi.fix_pathinfo = 0
@@ -255,7 +253,7 @@ sudo mysql -u root -p
 ```
 创建wordpress数据库
 ```
-CREATE DATABASE wordpress
+CREATE DATABASE wordpress;
 ```
 创建wordpress数据库用户(**secure_password**换成自己安全系数高的密码)
 ```
@@ -267,7 +265,7 @@ GRANT ALL ON wordpress.* TO 'wp_user'@'localhost';
 ```
 保存你的更改然后退出.
 ```
-FLUSH PRIVILEGES
+FLUSH PRIVILEGES;
 EXIT;
 ```
 
