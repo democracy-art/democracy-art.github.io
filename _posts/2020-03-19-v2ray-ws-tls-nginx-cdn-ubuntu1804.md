@@ -2,7 +2,7 @@
 layout:     post
 title:      v2ray+ws+tls+nginx+cdn(on ubunt18.04)
 subtitle:
-date:       2020-02-14
+date:       2020-03-19
 author:     D
 header-img: 
 catalog: true
