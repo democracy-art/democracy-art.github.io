@@ -112,13 +112,13 @@ export CF_Email="your_cloudflare@gmail.com"
 ```
 
 3.7.7 总是启用HTTPS<br>
-- 1. Always Use HTTPS
+- 1.Always Use HTTPS
 ![always-use-https](/img/always-use-https.png)<br>
-- 2. 往下拉还有一个 **HTTP Strict Transport Security (HSTS)** 可以启用也可以不启用.
+- 2.往下拉还有一个 **HTTP Strict Transport Security (HSTS)** 可以启用也可以不启用.
 ![figure20200319-7](/img/v2ray/figure20200319-7.jpg)
-- 3. 往下拉启用 **Opportunistic Encryption** 和 **Automatic HTTPS Rewrites**
+- 3.往下拉启用 **Opportunistic Encryption** 和 **Automatic HTTPS Rewrites**
 ![figure20200319-8](/img/v2ray/figure20200319-8.png)
-- 4. 切换到 `Origin Server` 这页启用 **Authenticated Origin Pulls**
+- 4.切换到 `Origin Server` 这页启用 **Authenticated Origin Pulls**
 ![figure20200319-9](/img/v2ray/figure20200319-9.png)
 
 3.8 速度优化<br>
