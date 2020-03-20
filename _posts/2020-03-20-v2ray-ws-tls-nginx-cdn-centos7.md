@@ -70,7 +70,7 @@ VPS 购买:[搬瓦工](https://bwh88.net),也可以选择其他厂商.
 
 3.7.1 acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书
 ```
-apt install curl
+yum install curl
 curl  https://get.acme.sh | sh
 ```
 
@@ -129,51 +129,51 @@ export CF_Email="your_cloudflare@gmail.com"
 ![page-rules-always-use-https](/img/page-rules-always-use-https.png)<br>
 
 # 4.安装nginx
-4.1 更新apt-get
+4.1 更新yum
 ```
-sudo apt-get update && sudo apt-get upgrade
+ yum update &&  yum upgrade
 ```
 4.2 安装编译依赖包<br>
 4.2.1 安装build-essential包
 ```
-sudo apt-get install build-essential
+ yum install build-essential
 ```
 该命令安装了一组新的包,包括`gcc`,`g++`,`make`.<br>
 安装nginx需要先将官网下载的源码进行编译,编译依赖gcc环境.
 
 4.2.2 安装libtool
 ```
-sudo apt-get install libtool
+ yum install libtool
 ```
 GNU libtool是通用库支持脚本.它将共享库的使用隐藏在一个一致的可移植的接口后面.
 
 4.3 安装pcre依赖库
 ```
-sudo apt-get install libpcre3 libpcre3-dev
+ yum install libpcre3 libpcre3-dev
 ```
 pcre是一个Perl库,包括perl兼容的正则表达式库.nginx的http模块使用pcre来解析正则表达式,所以需要在linux上安装pcre库.
 
 4.4 安装zlib依赖库
 ```
-sudo apt-get install zlib1g-dev
+ yum install zlib1g-dev
 ```
 zlib库提供了很多种压缩和解压缩的方式,nginx使用zlib对http包的内容进行gzip,所以需要在linux上安装zlib库.
 
 4.5 安装SSL依赖库
 ```
-sudo apt-get install libssl-dev
+ yum install libssl-dev
 ```
 openssl是一个强大的安全套接字层密码库,囊括主要的密码算法,常用的密钥和证书封装管理功能及SSL协议,并提供丰富的应用程序供测试或其他目的使用.nginx不仅支持http协议,还支持https(即在SSL协议上传输http),所以需要在linux安装openssl库.
 
 4.6 安装
 ```
-sudo apt-get install nginx
+ yum install nginx
 ```
 4.7 设置开机启动nginx且启动nginx
 ```
-sudo systemctl stop nginx.service
-sudo systemctl start nginx.service
-sudo systemctl enable nginx.service
+ systemctl stop nginx.service
+ systemctl start nginx.service
+ systemctl enable nginx.service
 ```
 
 4.8 检测nginx是否安装成功<br>
@@ -187,17 +187,17 @@ sudo systemctl enable nginx.service
 # 5.安装MariaDB
 我们将使用MariaDB作为我们的WordPress数据库,要安装MariaDB，请运行以下命令:
 ```
-sudo apt-get install mariadb-server mariadb-client
+ yum install mariadb-server mariadb-client
 ```
 安装完成后，我们将启动它并将其配置为在系统引导时自动启动:
 ```
-sudo systemctl stop mariadb.service
-sudo systemctl start mariadb.service
-sudo systemctl enable mariadb.service
+ systemctl stop mariadb.service
+ systemctl start mariadb.service
+ systemctl enable mariadb.service
 ```
 数据库安全配置
 ```
-sudo mysql_secure_installation
+ mysql_secure_installation
 ```
 当提示时,按如下指南回答问题：
 - Enter current password for root (enter for none): **按Enter键**
@@ -211,7 +211,7 @@ sudo mysql_secure_installation
 
 检查是否安装成功:
 ```
-sudo mysql -u root -p
+ mysql -u root -p
 ```
 输入密码后看到如下字符串,说明登录成功.<br>
 >MariaDB[(none)]>
@@ -221,11 +221,11 @@ sudo mysql -u root -p
 由于WordPress是用PHP编写的应用程序，<br>
 我们将安装PHP和运行WordPress所需的PHP包，使用以下命令:<br>
 ```
-sudo apt-get install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
+ yum install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-ldap php-zip php-curl
 ```
 安装PHP7.2完成后,打开nginx的PHP默认配置文件,进行如下配置:
 ```
-sudo vi /etc/php/7.2/fpm/php.ini
+ vi /etc/php/7.2/fpm/php.ini
 ```
 下面的配置对大多数基于PHP的CMS来说都是好的配置,当然如果自己的需求可自行配置.
 ```
@@ -238,18 +238,18 @@ date.timezone = America/Chicago
 ```
 重启nginx
 ```
-sudo systemctl restart nginx.service
+ systemctl restart nginx.service
 ```
 安装完成后,启动php-fpm服务器:
 ```
-sudo systemctl start php7.2-fpm
-sudo systemctl enable php7.2-fpm
+ systemctl start php7.2-fpm
+ systemctl enable php7.2-fpm
 ```
 
 # 7.创建wordpress数据库
 登录mariadb
 ```
-sudo mysql -u root -p
+ mysql -u root -p
 ```
 创建wordpress数据库
 ```
@@ -276,19 +276,19 @@ cd /tmp && wget http://wordpress.org/latest.tar.gz
 ```
 然后用以下内容提取存档:
 ```
-sudo tar -xvzf latest.tar.gz
-sudo mv wordpress /var/www/html/example.com
+ tar -xvzf latest.tar.gz
+ mv wordpress /var/www/html/example.com
 ```
 设置wordpress根目录的正确权限并给予nginx控制权.
 ```
-sudo chown -R www-data:www-data  /var/www/html/example.com/ 
-sudo chmod -R 755 /var/www/html/example.com/
+ chown -R www-data:www-data  /var/www/html/example.com/ 
+ chmod -R 755 /var/www/html/example.com/
 ```
 
 # 9.配置nginx
 创建新的配置文件**example.com**
 ```
-sudo vi /etc/nginx/sites-available/example.com
+ vi /etc/nginx/sites-available/example.com
 ```
 将 **example.com** 替换为自己的域名.
 ```
@@ -324,8 +324,8 @@ server {
 
 # 10.使能wordpress
 ```
-sudo ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
-sudo systemctl restart nginx.service
+ ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+ systemctl restart nginx.service
 ```
 浏览器输入 **https://example.com/** 会出现下图:
 ![Select-WordPress-Install-Language](/img/Select-WordPress-Install-Language.png)<br>
