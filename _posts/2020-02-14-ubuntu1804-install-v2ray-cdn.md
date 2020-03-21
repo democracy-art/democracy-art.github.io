@@ -170,6 +170,7 @@ cd /root
 ```
 # 6.获取HTTPS证书
 
+## 方法一
 6.1 acme.sh 实现了 acme 协议, 可以从 letsencrypt 生成免费的证书:
 ```
 curl  https://get.acme.sh | sh
@@ -210,6 +211,8 @@ export CF_Email="xyz@test.com"
 ```
 ~/.acme.sh/acme.sh --upgrade --auto-upgrade
 ```
+## 方法二
+请参考:[How To Setup WordPress With Nginx And Cloudflare CDN / SSL On Ubuntu 16.04 | 18.04](https://websiteforstudents.com/how-to-setup-wordpress-with-nginx-and-cloudflare-cdn-ssl-on-ubuntu-16-04-18-04/)
 # 7.再配置v2ray
 ```
  vi /etc/v2ray/config.json
