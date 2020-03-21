@@ -217,34 +217,31 @@ export CF_Email="xyz@test.com"
 配置如下:
 ```
 {
-  "inbounds": [
-    {
-      "port": 10086,//端口保持跟nginx的default.conf里面端口一致
-      "listen": "127.0.0.1",
-      "tag": "vmess-in",
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "0e658508-bbf1-4655-995f-2c00543ce3d4",
-            "alterId": 64
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/yf321" //保持跟nginx的default.conf里面location一致
+  "inbound": {
+    "port": 9000, //(此端口与nginx配置相关)
+    "listen": "127.0.0.1",
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "eb950add-608e-409d-937f-e797324387093z", //你的UUID， 此ID需与客户端保持一致
+          "level": 1,
+          "alterId": 64 //此ID也需与客户端保持一致
         }
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {},
-      "tag": "direct"
+      ]
     },
+   "streamSettings":{
+      "network": "ws",
+      "wsSettings": {
+           "path": "/yf321" //与nginx配置相关
+      }
+   }
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
+  },
+  "outboundDetour": [
     {
       "protocol": "blackhole",
       "settings": {},
@@ -252,16 +249,32 @@ export CF_Email="xyz@test.com"
     }
   ],
   "routing": {
-    "domainStrategy": "AsIs",
-    "rules": [
-      {
-        "type": "field",
-        "inboundTag": [
-          "vmess-in"
-        ],
-        "outboundTag": "direct"
-      }
-    ]
+    "strategy": "rules",
+    "settings": {
+      "rules": [
+        {
+          "type": "field",
+          "ip": [
+            "0.0.0.0/8",
+            "10.0.0.0/8",
+            "100.64.0.0/10",
+            "127.0.0.0/8",
+            "169.254.0.0/16",
+            "172.16.0.0/12",
+            "192.0.0.0/24",
+            "192.0.2.0/24",
+            "192.168.0.0/16",
+            "198.18.0.0/15",
+            "198.51.100.0/24",
+            "203.0.113.0/24",
+            "::1/128",
+            "fc00::/7",
+            "fe80::/10"
+          ],
+          "outboundTag": "blocked"
+        }
+      ]
+    }
   }
 }
 ```
@@ -273,60 +286,48 @@ export CF_Email="xyz@test.com"
 配置如下:
 ```
 server {
- listen 443 ssl;
- ssl on;
- ssl_certificate       /etc/v2ray/xxx.tk.crt;
- ssl_certificate_key   /etc/v2ray/xxx.tk.key;
- ssl_protocols         TLSv1 TLSv1.1 TLSv1.2 TLSv1.3; 
- ssl_ciphers           HIGH:!aNULL:!MD5;
- ssl_prefer_server_ciphers on;
- ssl_session_cache shared:SSL:10m;
- ssl_session_timeout 10m;
- server_name www.xxx.tk;
- index index.html index.htm;
- root  /home/wwwroot/sCalc;
- error_page 400 = /400.html ;
- location /yf321  #保持跟v2ray的config.json里面path一致
- { 
-     proxy_redirect off;
-     proxy_pass http://127.0.0.1:10086; #保持跟v2ray的config.json里面port一致
-     proxy_http_version 1.1;
-     proxy_set_header Upgrade $http_upgrade;
-     proxy_set_header Connection "upgrade";
-     proxy_set_header Host $http_host;
- }
- add_header Strict-Transport-Security "max-age=31536000; includeSubDomains" always;
-}
-# 配置 80 重定向 443 强制 SSL
-server {
- listen 80;
- server_name xxx.tk;
- return 301 https://xxx.tk$request_uri;
-}
-```
-# 9.TLS优化
+	listen 443 ssl http2 default_server;
+	listen [::]:443 ssl http2 default_server;
 
-9.1 TLS开启OCSP
-```
-openssl s_client -connect xxx.tk:443 -status -tlsextdebug < /dev/null 2>&1 | grep -i "OCSP response"
-```
-如果优化失败,即出现如下信息:
-```
-OCSP response: no response sent
-```
-请查看这篇博文:[How To enable OCSP stapling for RapidSSL SSL certificate - Nginx](https://knowledge.digicert.com/generalinformation/INFO3463.html)
+	server_name your_domain www.your_domain; #你的服务器域名
+	root /var/www/html/your_domain;
+	index index.php index.html index.htm;
 
-9.2 开启TCP fastopen
+	ssl_certificate 	/etc/ssl/certs/cloudflare_your_domain; #你的ssl证书， 如果第一次，可能还需要自签一下，
+	ssl_certificate_key 	/etc/ssl/private/cloudflare_your_domain;  #你的ssl key
+	ssl_protocols		TLSv1 TLSv1.1 TLSv1.2; 	
+	ssl_ciphers		HIGH:!aNULL:!MD5:!EXPORT56:!EXP;
+	ssl_prefer_server_ciphers on;
+	ssl_client_certificate 	/etc/ssl/certs/origin-pull-ca.pem;
+	ssl_verify_client on;
+
+	location / {
+		try_files $uri $uri/ /index.php?$args;
+	}
+	
+	location /yf321 { #  路径需要和v2ray服务器端，客户端保持一致
+		proxy_redirect off;
+		proxy_pass http://127.0.0.1:9000;	
+		proxy_http_version 1.1;
+		proxy_set_header Upgrade $http_upgrade;
+		proxy_set_header Connection "upgrade";
+		proxy_set_header Host $http_host;
+	}
+    
+	location ~ \.php$ {
+		include snippets/fastcgi-php.conf;
+		fastcgi_pass unix:/var/run/php/php7.0-fpm.sock; #根据PHP版本进行相应修改
+		fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+		include fastcgi_params;
+	}
+}
 ```
-echo 3 > /proc/sys/net/ipv4/tcp_fastopen
-```
-9.3 使能优化<br>
 重启Nginx和v2ray:
 ```
  systemctl restart nginx
  systemctl restart v2ray
 ```
-# 10.设置代理和TLS
+# 9.设置代理和TLS
 Proxy:
 ```
 登录Cloudflare
@@ -341,31 +342,20 @@ TLS:
 ->SSL/TLS 
 ->Full strict
 ```
-# 11.v2rayN Windows客户端
+# 10.v2rayN Windows客户端
 配置如下:
 
-- 地址(address):`www.xxx.tk` //这里写你申请的域名
+- 地址(address):`你申请的域名` //这里写你申请的域名
 - 端口(port):`443`
-- 用户(ID): `0e658508-bbf1-4655-995f-2c00543ce3d4` //客户端生成,拷贝到服务端,保存两边一致
+- 用户(ID): `eb950add-608e-409d-937f-e797324387093z` //客户端生成,拷贝到服务端,保存两边一致
 - 额外ID(alterId):`64` //不能大于服务器上面的alterId的值
-- 加密方式(security):`auto`
+- 加密方式(security):一般 `aes-128-gcm`
 - 传输协议(network):`ws`
-- 别名(remarks): 随便填都行
-- 伪装域名(host):不需要填
+- 别名(remarks): v2ray(随便填)
+- 伪装域名(host):留空
 - 路径(path):`/yf321` //与服务器保持一致
 - 底层传输安全:`tls`
-- allowInsecure:`false`
+- allowInsecure:`true`
 
-# 12.v2rayy速度优化
-
-12.1 可用全局代理<br>
-
-12.2 设置Cloudflare防火墙参考:[websocket+tls+nginx+cdn断流严重 #1742](https://github.com/v2ray/v2ray-core/issues/1742)<br>
- 
-Firewall -> Firewall Rules -> Create a Firewall rule:<br>
-- Field:`URI Path`, Operator:`equals`, Value:`/yf321`(与v2ray服务的Path一致)
-- Firewall rules里面添加一条Action为Allow规则, Field选IP(填你自己的IP),**只适合固定IP**
-- 在Tools里面的IP Access Rules添加一条你自己的IP选Whitelist,**只适合固定IP**
-- 还可以直接把settings里面的Security Level调成Essentially Off,这样会有**被墙**的风险,不建议
 
 
