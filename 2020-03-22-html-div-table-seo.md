@@ -1,11 +1,12 @@
 ---
-layout:post
+layout: post
 title: HTML DIV TABLE and SEO
 subtitle:
+date: 2020-03-22
 author: D
 header-img:
-catalog:true
-tags:[web hacking]
+catalog: true
+tags: [web hacking]
 ---
 
 ```
