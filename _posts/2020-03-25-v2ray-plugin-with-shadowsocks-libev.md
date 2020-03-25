@@ -98,3 +98,5 @@ First you should put software `v2ray-plugin` and `shadowsocks` into the same dir
 	"timeout":300
 }
 ```
+References:<br>
+[Use v2ray-plugin after Nginx #48](https://github.com/shadowsocks/v2ray-plugin/issues/48)
