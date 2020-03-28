@@ -1,6 +1,6 @@
 ---
 layout: post
-title: HTML DIV TABLE and SEO
+title: shuangpin
 subtitle:
 date: 2020-03-22
 author: D
@@ -9,7 +9,6 @@ catalog: true
 tags: [web hacking]
 ---
 
-```
 <!DOCTYPE html>
 <html>
 <head>
@@ -257,4 +256,3 @@ tags: [web hacking]
 </style>
 </body>
 </html>
-```
