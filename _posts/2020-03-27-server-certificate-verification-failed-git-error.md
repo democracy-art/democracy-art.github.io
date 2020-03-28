@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: server certificate verification failed. CAfile: none CR Lfile:none
+title: server certificate verification failed. CAfile: none CR Lfile:
 subtitle:
 date: 2020-03-27
 author: D
