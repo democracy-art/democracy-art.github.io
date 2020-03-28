@@ -6,7 +6,7 @@ date: 2020-03-27
 author: D
 header-img:
 catalog: true
-tags: [linux_basic,git]
+tags: [linux_basic, git]
 ---
 
 When you use command `git pull` error message as following:
