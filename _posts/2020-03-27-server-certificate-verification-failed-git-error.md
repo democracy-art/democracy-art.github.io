@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: `server certificate verification failed. CAfile: none CRLfile: none`
+title: server certificate verification failed. CAfile&#58 none CRLfile&#58 none
 subtitle:
 date: 2020-03-27
 author: D
