@@ -1,5 +1,4 @@
-
----
+--- 
 layout: post
 title: `server certificate verification failed. CAfile: none CRLfile: none`
 subtitle:
