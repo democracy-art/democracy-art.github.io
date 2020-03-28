@@ -9,4 +9,4 @@ catalog: true
 tags: [web hacking]
 ---
 
-[sp](/img/sp.PNG)
+![sp](/img/sp.PNG)
