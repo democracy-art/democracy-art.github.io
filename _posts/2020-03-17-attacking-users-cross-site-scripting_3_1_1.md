@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Chapter 12 Attacking Users: Cross-Site Scripting(3) - Finding and Exploiting XSS Vulnerabilities(1_1)
+title:      Chapter 12 Attacking Users&#58 Cross-Site Scripting(3) - Finding and Exploiting XSS Vulnerabilities(1_1)
 subtitle:   查找和利用XSS漏洞(1_1)
 date:       2020-03-17
 author:     D

@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Chapter 12 Attacking Users: Cross-Site Scripting(2) - XSS Attacks in Action
+title:      Chapter 12 Attacking Users&#58 Cross-Site Scripting(2) - XSS Attacks in Action
 subtitle:   XSS实际行动
 date:       2020-03-17
 author:     D

@@ -1,6 +1,6 @@
 ---
 layout:     post
-title:      Chapter 12 Attacking Users: Cross-Site Scripting(1) - Varieties of XSS
+title:      Chapter 12 Attacking Users&#58 Cross-Site Scripting(1) - Varieties of XSS
 subtitle:   各种XSS
 date:       2020-03-17
 author:     D
