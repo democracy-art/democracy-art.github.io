@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: Debian 9 turns on Google BBR
+title: TCP fast open may cause shadowsocks to be found
 subtitle:
 date: 2020-03-30
 author: D
