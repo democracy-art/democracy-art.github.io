@@ -45,4 +45,18 @@ you can modify the rc script(`/usr/local/etc/rc.d/shadowsocks_libev`) manually.
 # modify the following line from "ss-server" to "ss-local"
 command="/usr/local/bin/ss-local"
 ```
+and then run as client:
+```
+service shadowsocks_libev start
+```
+### Stop shadowsocks-libev
+```
+service shadowsocks_libev stop
+```
+### Disable shadowsocks-libev 
+To enable shadowsocks-libev, add the following rc variable to your `/etc/rc.conf` file:
+```
+shadowsocks_libev_enable="NO"
+```
+
 **NOTE:** that is simply a workaround, each time you upgrade the port your changes will be overwitten by the new version.
