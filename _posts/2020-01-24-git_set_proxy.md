@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - linux_basic
+    - git
 ---
 # 设置代理
 ```
