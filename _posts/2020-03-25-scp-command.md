@@ -6,7 +6,7 @@ date: 2020-03-25
 author: D
 header-img:
 catalog: true
-tags: [linux_basic]
+tags: [linux_basic,scp]
 ---
 ### 1. Copy file from remote server to local
 ```
