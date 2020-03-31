@@ -6,7 +6,7 @@ date: 2020-03-31
 author: D
 header-img:
 catalog: true
-tags: [Google Chrome, Kali Linux]
+tags: [Chrome,Kali]
 ---
 
 # Download Google Chrome
@@ -29,4 +29,16 @@ To start Google Chrome, open up a terminal and run google-chrome command:
 google-chrome --no-sandbox
 ```
 But it is not safe to run google-chrome without sandbox.
+
+# Run Google Chrome as standard user
+```
+useradd -m chromeuser
+```
+To run google chrome use command:
+```
+apt install gksu
+```
+```
+gksu -u chromeuser google-chrome
+```
 
