@@ -57,6 +57,6 @@ Run Google Chrome
 ```
 chrome
 ```
-**NOTE:** run Google Chrome in this way that without `--no-sandbox` is **NOT** safe.
+**NOTE:** run Google Chrome in this way that `--no-sandbox` is **NOT** safe.
 
 
