@@ -41,4 +41,22 @@ apt install gksu
 ```
 gksu -u chromeuser google-chrome
 ```
+# Configure Google Chrome to Use a Proxy Server
+```
+vim ~/.bashrc
+```
+Add following Content to `~/.bashrc`
+```
+alias chrome='google-chrome --proxy-server="socks://127.0.0.1:1080" --no-sandbox --user-data-dir'
+```
+Enable the configuration
+```
+source ~/.bashrc
+```
+Run Google Chrome
+```
+chrome
+```
+**NOTE:** run Google Chrome in this way that without `--no-sandbox` is **NOT** safe.
+
 
