@@ -7,7 +7,7 @@ author:		D
 header-img:
 catalog:	true
 mermaid:	true
-tags: [web hacking]:
+tags: [web hacking]
 ---
 
 参考: *The Web Application Hacker's Handbook* Chapter 8
