@@ -1,6 +1,6 @@
 ---
 layout:		post
-title:		Chapter 8 Attacking Access Controls-Common Vulnerabilities(1)
+title:		Chapter 8 Attacking Access Controls &#58 Common Vulnerabilities(1)
 subtitle:	
 date:		2020-03-13
 author:		D
