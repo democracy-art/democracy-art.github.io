@@ -17,6 +17,7 @@ ee /usr/local/etc/pkg/repos/FreeBSD.conf
 ```
 content of FreeBSD.conf
 ```
+FreeBSD: { enabled: no } // disabled file /etc/pkg/FreeBSD.conf
 taiwan:{
 	url: "pkg+http://pkg0.twn.freebsd.org/${ABI}/quarterly",
 	mirror_type: "srv",
@@ -32,15 +33,11 @@ ustc:{
 	enabled: no	
 }
 ```
-# 2. Disable system level pkg repository
-```
-mv /etc/pkg/FreeBSD.conf /etc/pkg/FreeBSD.conf.back
-```
-Then run command:
+# 2. Update pkg
 ```
 pkg update -f
 ```
-to update the index to make it take effect.
+To update the index to make it take effect.
 
 After that you can try to install `axel`.
 ```
