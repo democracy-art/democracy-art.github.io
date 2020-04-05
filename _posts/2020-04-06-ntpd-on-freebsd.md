@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: ntpd on FreeBSD 12.1
+title: NTP on FreeBSD 12.1
 subtitle:
 date: 2020-04-06
 author: D
