@@ -26,3 +26,7 @@ Set `ntpd_enable="YES"` to start ntpd at boot time. Once `ntpd_enable=YES` has b
 service ntpd start
 ```
 Set `ntpd_sync_on_start="YES"` to allow ntpd to step the clock any amount, one time at startup. 
+
+
+Reference:<br>
+[Clock Synchronization with NTP](https://www.freebsd.org/doc/handbook/network-ntp.html)
