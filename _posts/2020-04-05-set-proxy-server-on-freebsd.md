@@ -23,6 +23,13 @@ For `sh`, set proxy in `/etc/profile`:
 export HTTP_PROXY socks5://127.0.0.1:1080
 export HTTPS_PROXY socks5://127.0.0.1:1080
 ```
-References:
+For subversion, etc...<br>
+Add the following to `~/.subversion/servers`
+```
+http-proxy-host = socks5://127.0.0.1
+http-proxy-port = 1080
+```
+
+References:<br>
 [Using FreeBSD inside a controlled network - A required HTTP Proxy and No FTP](https://www.rhyous.com/2012/04/13/using-freebsd-inside-a-controlled-network-a-required-http-proxy-and-no-ftp/)<br>
 [Configure proxy](https://nanxiao.gitbooks.io/freebsd-101-hacks/content/posts/configure-proxy.html)
