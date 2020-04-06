@@ -27,6 +27,5 @@ Set `ntpd_enable="YES"` to start ntpd at boot time. Once `ntpd_enable=YES` has b
 service ntpd start
 ```
 
-
 Reference:<br>
 [Clock Synchronization with NTP](https://www.freebsd.org/doc/handbook/network-ntp.html)
