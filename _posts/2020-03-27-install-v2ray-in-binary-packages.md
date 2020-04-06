@@ -21,12 +21,14 @@ tags: [v2ray]
 命令:
 ```
 mkdir -p  /usr/bin/v2ray/
+mkdir -p /etc/v2ray/
+
 cp v2ray /usr/bin/v2ray/
 cp v2ctl /usr/bin/v2ray/
-mkdir -p /etc/v2ray/
-cp config.json /etc/v2ray/
 cp geoip.dat /usr/bin/v2ray/
 cp geosite.dat /usr/bin/v2ray/
+
+cp config.json /etc/v2ray/
 ```
 运行脚本:
 ```
