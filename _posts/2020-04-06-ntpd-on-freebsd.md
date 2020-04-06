@@ -21,11 +21,11 @@ Add the following to `/etc/rc.conf`
 ntpd_enable="YES"
 ntpd_sync_on_start="YES"
 ```
+Set `ntpd_sync_on_start="YES"` to allow ntpd to step the clock any amount, one time at startup. 
 Set `ntpd_enable="YES"` to start ntpd at boot time. Once `ntpd_enable=YES` has been added to `/etc/rc.conf`, ntpd can be started immediately without rebooting the system by typing:
 ```
 service ntpd start
 ```
-Set `ntpd_sync_on_start="YES"` to allow ntpd to step the clock any amount, one time at startup. 
 
 
 Reference:<br>
