@@ -8,7 +8,7 @@ header-img:
 catalog: true
 mermaid: true
 tags:
-    - cate
+    - food
 ---
 
 # 例1:煮粥
