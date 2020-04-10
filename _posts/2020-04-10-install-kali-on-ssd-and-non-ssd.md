@@ -6,7 +6,7 @@ date: 2020-04-10
 author: D
 header-img:
 catalog: true
-tags: [linux_basic]
+tags: [linux_basic,SSD,HDD]
 ---
 
 想要安装kali linux在自己的台式电脑上，电脑本身有一块固态硬盘(120GB)和一块机械硬盘(1TB).<br>
