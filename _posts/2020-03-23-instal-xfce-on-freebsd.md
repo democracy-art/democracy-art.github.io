@@ -18,7 +18,7 @@ pkg install -y slim
 ```
 # 2.Install
 ```
-pkg install -x xfce
+pkg install -y xfce
 ```
 # 3.Configure
 ### 3.1 add content to file `rc.conf`
