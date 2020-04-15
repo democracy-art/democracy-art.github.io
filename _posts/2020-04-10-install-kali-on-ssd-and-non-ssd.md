@@ -37,7 +37,6 @@ windows系统,然后再在windows里面装一些windows才方便装的软件.
 - `swap`: 分配 **8GB**, 因为我的内存是8GB,那为什么不把swap放在SSD呢？其实放在SSD也行。我说一下我放HDD的理由.早期的SSD写入失败的情况比HDD要多,现在的SSD比以前的好多了，所以我说放在SSD也行。因为,我的内存是8GB，运行程序一般很少用到swap，所以会有点浪费，所以我把swap放在HDD。当然如果你的内存够大，可以只分配1-2GB，swap就够了.  
 - `/tmp`: 分配 **10GB**
 - `/var`: 分配 **32GB**,这里存放log,lib,cache,www,mail,backups需要空间
-- `/home`: 分配 **150GB**,后期安装的软件蛮多都在home目录下面的 
-- `/data`: 分配 HDD余下的空间,可以存放视频，音乐等等.
+- `/home`: 分配 HDD余下的空间
 
 如果显示写入磁盘失败，从新启动再进入.
