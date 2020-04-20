@@ -59,5 +59,7 @@ If you set `iface eth0 inet auto` your nameserver would be **overwitten** very t
 
 # Enable the configuration
 ```
+systemctl restart network-manager.service
+systemctl restart network-online.target
 systemctl restart networking.service
 ```
