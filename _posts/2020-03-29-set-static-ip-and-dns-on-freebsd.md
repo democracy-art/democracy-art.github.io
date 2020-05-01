@@ -11,7 +11,7 @@ tags: [FreeBSD]
 
 # 1.Set IP address and default router
 ```
-vim /etc/rc.conf
+# ee /etc/rc.conf
 ```
 Add content as following into `rc.conf`. 
 ```
@@ -21,9 +21,9 @@ defaultrouter="192.168.1.1"
 
 # 2.Setting up DNS
 ```
-vim /etc/resolv.conf
+# ee /etc/resolv.conf
 ```
-Content of resolv.conf
+add Content as following to resolv.conf
 ```
 nameserver 8.8.8.8
 nameserver 1.1.1.1
@@ -31,6 +31,6 @@ nameserver 1.1.1.1
 
 # 3. Restart network
 ```
-sh /etc/rc
-/etc/netstart
+# sh /etc/rc
+# /etc/netstart
 ```
