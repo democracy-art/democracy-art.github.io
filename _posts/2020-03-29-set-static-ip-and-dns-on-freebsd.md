@@ -13,7 +13,7 @@ tags: [FreeBSD]
 ```
 # ee /etc/rc.conf
 ```
-Add content as following into `rc.conf`. 
+Add content as following into `/etc/rc.conf`. 
 ```
 ifconfig_em0="inet 192.168.1.18 netmask 255.255.255.0"
 defaultrouter="192.168.1.1"
@@ -23,7 +23,7 @@ defaultrouter="192.168.1.1"
 ```
 # ee /etc/resolv.conf
 ```
-add Content as following to resolv.conf
+add Content as following to `/etc/resolv.conf`
 ```
 nameserver 8.8.8.8
 nameserver 1.1.1.1
