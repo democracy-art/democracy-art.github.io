@@ -9,6 +9,8 @@ catalog: true
 tags: [FreeBSD]
 ---
 
+# IP address
+
 Add as following to `/etc/rc.conf`.
 ```
 ifconfig_em0="inet 192.168.1.100 netmask 255.255.255.0"
@@ -16,7 +18,19 @@ defaultrouter="192.168.1.1"
 ```
 Replace `192.168.1.100` with your own ip address.
 
-And reboot.
+# Set up DNS at the same time
+
+```
+ee /etc/resolv.conf
+```
+```
+nameserver 114.114.114.114
+nameserver 8.8.4.4
+nameserver 1.0.0.1
+```
+
+# Reboot
+
 ```
 reboot
 ```
