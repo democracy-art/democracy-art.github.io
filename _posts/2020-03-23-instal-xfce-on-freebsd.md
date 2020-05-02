@@ -6,42 +6,38 @@ date: 2020-03-23
 author: D
 header-img:
 catalog: true
-tags: [FreeBSD]
+tags: [xfce,FreeBSD]
 ---
-
-# 1.Prepare
+# 1.安装依赖及xfce
 ```
-pkg install -y xorg
+# pkg install -y xorg
+# pkg install -y xfce
+# pkg install -y slim
 ```
+# 2.使能xfce
 ```
-pkg install -y slim
+# ee /etc/rc.conf
 ```
-# 2.Install
-```
-pkg install -y xfce
-```
-# 3.Configure
-### 3.1 add content to file `rc.conf`
-```
-vi /etc/rc.conf
-```
-Add the following:
+添加内容如下:
 ```
 moused_enable="YES"
 dbus_enable="YES"
-hald_enable="YES"
 slim_enable="YES"
 ```
-### 3.2 create file `.xinitrc`
+root用户(这一步 **可选**，在handbook上没有,这样就不能用root用户直接界面登录,不知道是不推荐还是忘了，所以这一步可选)
 ```
-cd ~
-vi .xinitrc
+# echo ". /usr/local/etc/xdg/xfce4/xinitrc" > ~/.xinitrc
 ```
-Add the following:
+普通用户
 ```
-exec xfce4-session
+$ echo ". /usr/local/etc/xdg/xfce4/xinitrc" > ~/.xinitrc
 ```
-# 4.Reboot
+# 3.重启
 ```
-reboot
+# reboot
 ```
+
+参考:<br>
+[5.3. Installing Xorg](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-install.html)<br>
+[5.7.3. Xfce](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x11-wm.html)<br>
+
