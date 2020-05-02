@@ -38,6 +38,6 @@ $ echo ". /usr/local/etc/xdg/xfce4/xinitrc" > ~/.xinitrc
 ```
 
 参考:<br>
-[5.3. Installing Xorg](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-install.html)<br>
-[5.7.3. Xfce](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x11-wm.html)<br>
+[FreeBSD Handbook 5.3. Installing Xorg](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x-install.html)<br>
+[FreeBSD Handbook 5.7.3. Xfce](https://www.freebsd.org/doc/en_US.ISO8859-1/books/handbook/x11-wm.html)<br>
 
