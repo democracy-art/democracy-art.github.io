@@ -175,3 +175,4 @@ Terminal type as following:
 ```
 cat subdomains.txt | ./parsub.sh yahoo.com
 ```
+
