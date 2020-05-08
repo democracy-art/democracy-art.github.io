@@ -6,7 +6,7 @@ date: 2020-05-08
 author: D
 header-img:
 catalog: true
-tags: [web hacking]
+tags: [web hacking, mapping the application]
 ---
 
 # 1 Enumerating content and functionality
