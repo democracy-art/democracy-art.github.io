@@ -29,7 +29,7 @@ thumbnail=${prefix}"_"${i}"_thumbnail.jpg"
 img_uri=" "
 thumbnail_uri=" "
 
-echo {
+echo [
 while [ -f "${img}" ]; do
                 img_uri=`./uri.sh ${img}`
                 thumbnail_uri=`./uri.sh ${thumbnail}`
@@ -38,7 +38,7 @@ while [ -f "${img}" ]; do
                 img="${prefix}_${i}.jpg"
                 thumbnail="${prefix}_${i}_thumbnail.jpg"
 done
-echo }
+echo ]
 
 
 ```
