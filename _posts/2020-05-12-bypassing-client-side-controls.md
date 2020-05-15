@@ -205,7 +205,9 @@ of native code components and related topics:
 # 4. Handling Client-Side Data Securely
 
 **4.1 Transmitting Data Via the Client**
+
 **4.2 Validating Client-Generated Data**
+
 **4.3 Logging and Alerting**
 
 # 5. Summary
