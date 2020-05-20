@@ -2,7 +2,7 @@
 layout: post
 title:  Delete Files and Directories Permanently and Securely in Linux
 subtitle:
-date: 2020-03-25
+date: 2020-03-27
 author: D
 header-img:
 catalog: true
@@ -48,3 +48,6 @@ wipe -r /home/user/test/
 ```
 wipe /dev/sdb1
 ```
+
+reference:
+[3 Ways to Permanently and Securely Delete ‘Files and Directories’ in Linux](https://www.tecmint.com/permanently-and-securely-delete-files-directories-linux/)
