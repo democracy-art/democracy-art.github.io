@@ -28,14 +28,14 @@ taiwan:{
 	mirror_type: "srv",
 	signature_type: "fingerprints",
 	fingerprints: "/usr/share/keys/pkg",
-	enabled: no; //表示不启用
+	enabled: yes; //表示启用
 }
 ustc:{
 	url: "pkg+http://mirrors.ustc.edu/cn/freebsd-pkg/${ABI}/quarterly",
 	mirror_type: "srv",
 	signature_type: "fingerprints",
 	fingerprints: "/usr/share/keys/pkg",
-	enabled: yes; //表示启用
+	enabled: no; //表示不启用
 }
 ```
 **1.2 更新源**
@@ -84,7 +84,7 @@ DISABLE_SIZE=yes
 MASTER_SITE_OVERRIDE?=\
 http://mirrors.163.com/freebsd/ports/distfiles/\
 http://mirrors.aliyun.com/freebsd/ports/distfiles/\
-http://ports1.chinafreebsd.cn/distfiles/\
+http://ports1.chinafreebsd.cn/distfiles/
 ```
 **3.2 安装ports升级工具portmaster**
 ```
