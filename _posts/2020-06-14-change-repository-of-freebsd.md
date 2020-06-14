@@ -22,7 +22,7 @@ tags: [FreeBSD]
 ```
 FreeBSD.conf:{ enabled: no } //禁用FreeBSD原本的源
 taiwan:{
-	url: "pkg+http://pkg0.twn.freebsd.org/${ABI}/quarterly",
+	url: "pkg+http://pkg.tw.freebsd.org/${ABI}/quarterly",
 	mirror_type: "srv",
 	signature_type: "fingerprints",
 	fingerprints: "/usr/share/keys/pkg",
@@ -86,3 +86,4 @@ portmaster是ports的升级工具,使用基本上就用:
 # portmaster -a
 ```
 
+Reference:[設定FreeBSD update & ports & package使用local mirror server](https://www.peterdavehello.org/2014/05/config-freebsd-update-ports-package-use-local-mirror-server/)
