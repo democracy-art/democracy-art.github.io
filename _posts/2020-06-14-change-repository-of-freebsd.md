@@ -40,6 +40,7 @@ taiwan:{
 axel是下面修改ports源时会用到的一个多线程下载工具
 
 # 2.修改portsnap源
+**2.1 編輯 `/etc/portsnap.conf`**
 ```
 # ee /etc/portsnap.conf
 ```
@@ -62,6 +63,12 @@ SERVERNAME=portsnap.tw.freebsd.org
 # portsnap fetch update
 ```
 就可以了.
+
+**2.2 編輯`/etc/freebsd-update.con`**
+```
+# ee /etc/freebsd-update.con
+```
+將`ServerName update.FreeBSD.org`改爲`ServerName update.tw.FreeBSD.org`
 
 # 3.修改ports源
 **3.1 编辑`/etc/make.conf`**
