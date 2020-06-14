@@ -1,6 +1,6 @@
 --- 
 layout: post
-title: FreeBSD改国内源或台湾源
+title: FreeBSD改台湾源
 subtitle:
 date: 2020-06-14
 author: D
@@ -8,8 +8,6 @@ header-img:
 catalog: true
 tags: [FreeBSD]
 ---
-
-安装FreeBSD之后的第一件事情就是更换国内源，否则后面安装桌面等，不用国内源下载太慢。
 
 # 1.修改pkg源
 
@@ -30,13 +28,6 @@ taiwan:{
 	fingerprints: "/usr/share/keys/pkg",
 	enabled: yes; //表示启用
 }
-ustc:{
-	url: "pkg+http://mirrors.ustc.edu/cn/freebsd-pkg/${ABI}/quarterly",
-	mirror_type: "srv",
-	signature_type: "fingerprints",
-	fingerprints: "/usr/share/keys/pkg",
-	enabled: no; //表示不启用
-}
 ```
 **1.2 更新源**
 ```
@@ -54,7 +45,7 @@ axel是下面修改ports源时会用到的一个多线程下载工具
 ```
 内容如下
 ```
-SERVERNAME=porsnap.tw.freebsd.org
+SERVERNAME=portsnap.tw.freebsd.org
 ```
 之后运行
 ```
@@ -81,10 +72,9 @@ make.conf内容如下
 ```
 FETCH_CMD=axel -n 30 -a  # -n 30 表示使用30个线程下载
 DISABLE_SIZE=yes
-MASTER_SITE_OVERRIDE?=\
-http://mirrors.163.com/freebsd/ports/distfiles/\
-http://mirrors.aliyun.com/freebsd/ports/distfiles/\
-http://ports1.chinafreebsd.cn/distfiles/
+MASTER_SITE_BACKUP?=\
+http://ftp.tw.freebsd.org/pub/FreeBSD/distfiles/${DIST_SUBDIR}/
+MASTER_SITE_OVERRIDE?=${MASTER_SITE_BACKUP}
 ```
 **3.2 安装ports升级工具portmaster**
 ```
@@ -96,6 +86,3 @@ portmaster是ports的升级工具,使用基本上就用:
 # portmaster -a
 ```
 
-参考:
-[FreeBSD更换国内源...](https://www.cnblogs.com/liujingli1986/p/11774738.html)<br>
-[FreeBSD 12 国内源提速 pkg 和 ports 做个笔记](https://blog.csdn.net/lanzh_syf/article/details/86599445)<br>
