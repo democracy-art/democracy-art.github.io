@@ -9,6 +9,9 @@ catalog: true
 tags: [FreeBSD]
 ---
 
+# 所谓的台湾源，只是中共渗透的源,所以保持原国外的源!!!
+**( 使用所谓的"台湾源"之后shadowsocks-libev都下载不了!!!)**
+
 # 1.修改pkg源
 
 原本源的路径 `/etc/pkg/FreeBSD.conf`
