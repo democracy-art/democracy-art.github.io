@@ -99,295 +99,113 @@ server {
 ```
 # Content of v2ray client's config.json
 ```
-{
-  "log": {
-    "loglevel": "warning"
-  },
-
-  "inbounds": [{
-    "port": 1080,
-    "listen": "127.0.0.1",
-    "tag": "socks-inbound",
-    "protocol": "socks",
-    "settings": {
-      "auth": "noauth",
-      "udp": false,
-      "ip": "127.0.0.1"
-    },
-    "sniffing": {
-      "enabled": true,
-      "destOverride": ["http", "tls"]
+{                                                                                                                                                                                                                                          
+  "log": {                                                                                                                                                                                                                                 
+    "loglevel": "warning",                                                                                                                                                                                                                 
+    "access": "/var/log/v2ray/access.log",                                                                                                                                                                                                  
+    "error": "/var/log/v2ray/error.log"                                                                                                                                                                                                     
+  },                                                                                                                                                                                                                                       
+                                                                                                                                                                                                                                           
+  // in                                                                                                                                                                                                                                    
+  "inbounds": [                                                                                                                                                                                                                            
+    {                                                                                                                                                                                                                                      
+      "port": 1080,                                                                                                                                                                                                                        
+      "listen": "127.0.0.1",                                                                                                                                                                                                               
+      "protocol": "socks",                                                                                                                                                                                                                 
+      "settings": {                                                                                                                                                                                                                        
+        "auth": "noauth",                                                                                                                                                                                                                  
+        "udp": false,                                                                                                                                                                                                                      
+        "ip": "127.0.0.1"                                                                                                                                                                                                                  
+      },                                                                                                                                                                                                                                   
+      "sniffing": {                                                                                                                                                                                                                        
+        "enabled": true,
+        "destOverride": ["http", "tls"]
+      }
     }
-  }],
+  ],
 
-  "outbounds": [{
-    "tag":"proxy",
-    "protocol":"vmess",
-    "settings": {
-      "vnext": [{
-	  "address": "your_domain", // Write your domain here 
-	  "port": 443,
-	  "users": [{
-	      "id": "my clien uuid", // The UUID  Must be the same as the server
-	      "alterId": 64,
-	      "security": "aes-128-gcm" // Must be the same as the server
-	    }
-	  ]
+  // out
+  "outbounds": [
+    {
+      "tag":"proxy",
+      "protocol":"vmess",
+      "settings": {
+        "vnext": [
+          {
+            "address": "yourdomain", // 你自己的域名
+            "port": 443,
+            "users": [
+              {
+                "id": "3ced360a-f524-4119-8d26-84f370034ec0", //ID必须与服务器上面的一致
+                "alterId": 64
+              }
+            ]
+          }
+        ]
+      },
+      "streamSettings": {
+        "network": "ws",
+        "security": "tls",
+        "wsSettings": {
+          "path": "/v2ray" //填自己的路径和服务器的路径一致
         }
-      ],
-      "servers":null,
-      "response":null
-    },
-    "streamSettings": {
-      "network": "ws",
-      "security": "tls",
-      "tlsSettings": {
-        "allowInsecure": true,
-	"serverName": null
       },
-      "tcpSettings": null,
-      "kcpSettings": null,
-      "wsSettings": {
-        "connectionReuse": true,
-	"path": "/v2ray", //The UUID  Must be the same as the server
-	"headers": null
-      },
-      "httpSettings": null,
-      "quicSettings": null
+      "mux": {
+              "enabled": true
+      }
     },
-    "mux": {
-      "enabled": true
+    {
+      "protocol": "freedom",
+      "settings":{},
+      "tag": "direct" //如果要使用路由，这个 tag 是一定要有的，在这里 direct 就是 freedom 的一个标号，在路由中说 direct V2Ray 就知道是这里的 freedom 了    
+    },
+    {
+      "protocol": "blackhole",
+      "settings":{},
+      "tag": "adblock" //同样的，这个 tag 也是要有的，在路由中说 adblock 就知道是这里的 blackhole（黑洞） 了  
     }
-  },
-  {
-    "protocol": "freedom",
-    "settings": {},
-    "tag": "direct"
-  },{
-    "protocol": "blackhole",
-    "settings": {},
-    "tag": "blocked"
-  }],
+  ],
+
+  // route
   "routing": {
-    "domainStrategy": "AsIs",
-    "rules":[
+    "domainStrategy": "IPOnDemand",
+    "rules": [
       {
         "type": "field",
-        "port": null,
-        "inboundTag": null,
-        "outboundTag": "proxy",
-        "ip": null,
+        "outboundTag": "adblock",
         "domain": [
-          "geosite:google",
-          "geosite:youtube",
-          "geosite:github",
-          "geosite:netflix",
-          "geosite:steam",
-          "geosite:telegram",
-          "geosite:speedtest",
-          "domain:bleepingcomputer.com",
-          "domain:freenom.com",
-          "domain:gvt1.com",
-          "domain:github.io",
-          "domain:hackerone.com",
-          "domain:justmysocks.net",
-          "domain:textnow.com",
-          "domain:twitch.tv",
-          "domain:wikileaks.org",
-          "domain:naver.com",
-          "domain:gnews.org",
-          "domain:twitter.com",
-          "domain:youtube.com"
+          "tanx.com",
+          "googeadsserving.cn",
+          "baidu.com"
         ]
       },
       {
         "type": "field",
-        "port": null,
-        "inboundTag": null,
         "outboundTag": "direct",
-        "ip": null,
-        "domain": [
-          "domain:12306.com",
-          "domain:51ym.me",
-          "domain:52pojie.cn",
-          "domain:8686c.com",
-          "domain:abercrombie.com",
-          "domain:adobesc.com",
-          "domain:air-matters.com",
-          "domain:air-matters.io",
-          "domain:airtable.com",
-          "domain:akadns.net",
-          "domain:apache.org",
-          "domain:api.crisp.chat",
-          "domain:api.termius.com",
-          "domain:appshike.com",
-          "domain:appstore.com",
-          "domain:aweme.snssdk.com",
-          "domain:bababian.com",
-          "domain:baidu.com",
-          "domain:battle.net",
-          "domain:beatsbydre.com",
-          "domain:bet365.com",
-          "domain:bilibili.cn",
-          "domain:ccgslb.com",
-          "domain:ccgslb.net",
-          "domain:chinaz.com",
-          "domain:chunbo.com",
-          "domain:chunboimg.com",
-          "domain:clashroyaleapp.com",
-          "domain:cloudsigma.com",
-          "domain:cloudxns.net",
-          "domain:cmfu.com",
-          "domain:cnblogs.com",
-          "domain:csdn.net",
-          "domain:culturedcode.com",
-          "domain:dct-cloud.com",
-          "domain:didialift.com",
-          "domain:douyutv.com",
-          "domain:duokan.com",
-          "domain:dytt8.net",
-          "domain:easou.com",
-          "domain:ecitic.net",
-          "domain:eclipse.org",
-          "domain:eudic.net",
-          "domain:ewqcxz.com",
-          "domain:fir.im",
-          "domain:frdic.com",
-          "domain:fresh-ideas.cc",
-          "domain:freebuf.com",
-          "domain:godic.net",
-          "domain:goodread.com",
-          "domain:haibian.com",
-          "domain:hdslb.net",
-          "domain:hollisterco.com",
-          "domain:hongxiu.com",
-          "domain:hxcdn.net",
-          "domain:images.unsplash.com",
-          "domain:img4me.com",
-          "domain:ipify.org",
-          "domain:ixdzs.com",
-          "domain:jd.hk",
-          "domain:jianshuapi.com",
-          "domain:jomodns.com",
-          "domain:jsboxbbs.com",
-          "domain:knewone.com",
-          "domain:kuaidi100.com",
-          "domain:lemicp.com",
-          "domain:letvcloud.com",
-          "domain:lizhi.io",
-          "domain:localizecdn.com",
-          "domain:lucifr.com",
-          "domain:luoo.net",
-          "domain:mai.tn",
-          "domain:maven.org",
-          "domain:miwifi.com",
-          "domain:moji.com",
-          "domain:moke.com",
-          "domain:mtalk.google.com",
-          "domain:mxhichina.com",
-          "domain:myqcloud.com",
-          "domain:myunlu.com",
-          "domain:netease.com",
-          "domain:nfoservers.com",
-          "domain:nssurge.com",
-          "domain:nuomi.com",
-          "domain:oschina.net",
-          "domain:ourdvs.com",
-          "domain:overcast.fm",
-          "domain:paypal.com",
-          "domain:paypalobjects.com",
-          "domain:pgyer.com",
-          "domain:qdaily.com",
-          "domain:qdmm.com",
-          "domain:qin.io",
-          "domain:qingmang.me",
-          "domain:qingmang.mobi",
-          "domain:qqurl.com",
-          "domain:rarbg.to",
-          "domain:rrmj.tv",
-          "domain:ruguoapp.com",
-          "domain:sm.ms",
-          "domain:snwx.com",
-          "domain:soku.com",
-          "domain:startssl.com",
-          "domain:store.steampowered.com",
-          "domain:symcd.com",
-          "domain:teamviewer.com",
-          "domain:tmzvps.com",
-          "domain:trello.com",
-          "domain:trellocdn.com",
-          "domain:ttmeiju.com",
-          "domain:udache.com",
-          "domain:uxengine.net",
-          "domain:weather.bjango.com",
-          "domain:weather.com",
-          "domain:webqxs.com",
-          "domain:weico.cc",
-          "domain:wenku8.net",
-          "domain:werewolf.53site.com",
-          "domain:windowsupdate.com",
-          "domain:wkcdn.com",
-          "domain:workflowy.com",
-          "domain:xdrig.com",
-          "domain:xiaojukeji.com",
-          "domain:xiaomi.net",
-          "domain:xiaomicp.com",
-          "domain:ximalaya.com",
-          "domain:xitek.com",
-          "domain:xmcdn.com",
-          "domain:xslb.net",
-          "domain:xteko.com",
-          "domain:yach.me",
-          "domain:yixia.com",
-          "domain:yunjiasu-cdn.net",
-          "domain:zealer.com",
-          "domain:zgslb.net",
-          "domain:zimuzu.tv",
-          "domain:zmz002.com",
-          "domain:samsungdm.com"
+        "ip": [
+          "geoip:cn", // 中国大陆的 IP
+          "geoip:private" // 私有地址 IP，如路由器等
         ]
       },
       {
         "type": "field",
-        "ip": ["geoip:private"],
-        "outboundTag": "blocked"
-      }
-      ]
-  },
-  "dns": {
-    "hosts": {
-      "domain:v2ray.com": "www.vicemc.net",
-      "domain:github.io": "pages.github.com",
-      "domain:wikipedia.org": "www.wikimedia.org",
-      "domain:shadowsocks.org": "electronicsrealm.com"
-    },
-    "servers": [
-      "8.8.4.4",
-      {
-        "address": "114.114.114.114",
-        "port": 53,
-        "domains": [
-          "geosite:cn",
-	  "domain:baidu.com"
+        "outboundTag": "direct",
+        "domain": [ 
+          "geosite:cn", // 中国大陆主流网站的域名
+          "domain:baidu.com",
+          "domain:taobao.com",
+          "domain:cnblogs.com",
+          "domain:runoob.com",
+          "domain:freebuf.com",
+          "domain:mozilla.org",
+          "domain:csdn.net",
+          "domain:jd.com"
         ]
-      },
-      "8.8.8.8",
-      "localhost"
-    ]
-  },
-  "policy": {
-    "levels": {
-      "0": {
-        "uplinkOnly": 0,
-        "downlinkOnly": 0
       }
-    },
-    "system": {
-      "statsInboundUplink": false,
-      "statsInboundDownlink": false
-    }
-  },
-  "other": {}
-}
+    ]
+  }
+ }
 ```
+
+reference:[V2Ray 配置指南](https://toutyrater.github.io/)
 
