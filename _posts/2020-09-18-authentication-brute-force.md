@@ -91,7 +91,7 @@ carlos:尝试密码n
 ```
 username=§invalid-username§&password=example&count=§0§
 ```
-**Turbo Intruder**代替Burp Intruder那么有两个参数的Turbo Intruder配置如下：<br>
+**Turbo Intruder**代替Burp Intruder那么有两个参数的Turbo Intruder配置如下：  
 ```
 def queueRequests(target, wordlists):
     engine = RequestEngine(endpoint=target.endpoint,
