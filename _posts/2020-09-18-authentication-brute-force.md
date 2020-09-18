@@ -91,8 +91,7 @@ carlos:尝试密码n
 ```
 username=§invalid-username§&password=example&count=§0§
 ```
-**Turbo Intruder**代替Burp Intruder那么有两个参数的Turbo Intruder配置如下：
-
+**Turbo Intruder**代替Burp Intruder那么有两个参数的Turbo Intruder配置如下：<br>
 ```
 def queueRequests(target, wordlists):
     engine = RequestEngine(endpoint=target.endpoint,
@@ -114,7 +113,6 @@ def handleResponse(req, interesting):
     if 'You have made too many incorrect login attempts' in req.response:
         table.add(req)
 ```
-
 - 3.在<kbd>Payloads</kbd>选项卡上，将用户名列表添加到第一个有效载荷集，并将数字1-5添加为第二个有效载荷集。 这将导致用户名重复5次(假设:有效的用户名尝试5次密码失败就被锁住),然后开始攻击。
 - 4.在结果中，请注意，其中一个用户名的响应比使用其他用户名时的响应**长**。 仔细研究响应，并注意它包含不同的错误消息：**You have made too many incorrect login attempts.**, 记下该用户名。
 - 5.在`POST /login`登录请求上创建新的Burp Intruder攻击，但是这次选择"Sniper"攻击类型。 将`username`参数设置为刚标识的用户名，并将有效负载位置添加到`password`参数。
