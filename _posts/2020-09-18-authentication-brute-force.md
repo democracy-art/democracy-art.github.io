@@ -105,8 +105,8 @@ def queueRequests(target, wordlists):
         engine.queue(target.req, randstr(i), learn=1)
         engine.queue(target.req, target.baseInput, learn=2)
 
-    for firstWord in open('/home/f/username'):
-        for secondWord in open('/home/f/count'):
+    for firstWord in open('/path/to/username'):
+        for secondWord in open('/path/to/count'):
             engine.queue(target.req, [firstWord.rstrip(), secondWord.rstrip()])
 
 
