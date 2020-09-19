@@ -32,9 +32,9 @@ Port 21892
 PasswordAuthentication no
 ```
 
-1.4 啓用pubkey認證登錄
+1.4 **只**啓用pubkey認證登錄,**不**允許密碼登錄
 ```
-PubkeyAuthentication yes
+AuthenticationMethods publickey
 ```
 1.5 重啓ssh
 ```
