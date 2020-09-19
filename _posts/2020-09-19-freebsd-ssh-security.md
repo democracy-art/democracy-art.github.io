@@ -32,7 +32,11 @@ Port 21892
 PasswordAuthentication no
 ```
 
-1.4 重啓ssh
+1.4 啓用pubkey認證登錄
+```
+PubkeyAuthentication yes
+```
+1.5 重啓ssh
 ```
 # service sshd restart
 ```
