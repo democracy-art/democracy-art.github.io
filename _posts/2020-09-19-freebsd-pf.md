@@ -70,8 +70,8 @@ block all
 # max-src-conn : 指定每秒单个主机允许的同時连接数; max-src-conn-rate : 指定每秒从单个主机允许
 # 的"新"连接数如果主机超过了这些限制，则 overload (过载)机制会将源IP添加到 <bruteforce> 表中，
 # 从而将其禁止在服务器中使用。 最后，flush global 选项立即删除连接。
-pass in on $vtnet0 proto tcp to port { 22 } keep state (max-src-conn 5, max-src-conn-rate 1/1,\
-                overload <bruteforce> flush global)
+pass in on $vtnet0 proto tcp to port { 22 } keep state (max-src-conn 5, \
+                max-src-conn-rate 1/1, overload <bruteforce> flush global)
 
 # 保護網站的端口,第一條規則比較嚴格,現在是啓用第二條
 # pass in on $vtnet0 proto tcp to port { 80 433 } keep state (max-src-conn 45, \
