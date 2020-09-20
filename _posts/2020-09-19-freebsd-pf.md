@@ -6,7 +6,7 @@ date: 2020-09-19
 author: D
 header-img:
 catalog: true
-tags: [FreeBSD, PF, Packet Filter, crontab]
+tags: [FreeBSD, PF, Packet Filter, crontab, pfctl, pftop]
 ---
 
 # 1.創建防火牆PF的配置文件
@@ -118,6 +118,7 @@ chmod 755 /usr/local/bin/clear_overload.sh
 # minute    hour    mday    month   wday    command
 *           0       *       *       *       /usr/local/bin/clear_overload.sh
 ```
+
 # 3.使能PF
 ```
 # sysrc pf_enable=yes
@@ -126,4 +127,21 @@ chmod 755 /usr/local/bin/clear_overload.sh
 從新啓動 pf
 ```
 # service pf restart
+```
+
+# 4.分析有關防火牆活動數據
+4.1 利用pfctl分析
+```
+# pfctl -si
+```
+- `-si`:代表 `show info` 即顯示信息的意思.
+
+4.2 pftop 实用程序是用于实时快速查看防火墙活动的工具。 它的名称受著名的Unix top实用程序的影响。
+安裝
+```
+# pkg install pftop
+```
+查看防火牆實時信息
+```
+# pftop
 ```
