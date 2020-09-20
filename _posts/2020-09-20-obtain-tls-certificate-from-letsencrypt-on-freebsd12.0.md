@@ -38,6 +38,7 @@ ECDSA證書
 注意: 將 `example.com` 換成自己的域名.
 
 3.創建目錄用於存儲證書和密鑰. 這裏創建 `/etc/letsencrypt` 目錄來存儲
+
 存儲RSA證書的目錄
 ```
 # mkdir -p /etc/letsencrypt/example.com
@@ -48,6 +49,7 @@ ECDSA證書
 ```
 
 4.安裝且複製證書到目錄`/etc/letsencrypt`
+
 RSA
 ```
 # acme.sh --install-cert -d example.com --cert-file /etc/letsencrypt/example.com/cert.pem --key-file /etc/letsencrypt/example.com/private.key --fullchain-file /etc/letsencrypt/example.com/fullchain.pem
