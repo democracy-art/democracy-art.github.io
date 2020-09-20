@@ -149,3 +149,5 @@ chmod 755 /usr/local/bin/clear_overload.sh
 ```
 # pftop
 ```
+
+參考:[How To Configure Packet Filter (PF) on FreeBSD 12.1](https://www.digitalocean.com/community/tutorials/how-to-configure-packet-filter-pf-on-freebsd-12-1)
