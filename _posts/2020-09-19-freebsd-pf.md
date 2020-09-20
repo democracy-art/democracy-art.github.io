@@ -6,7 +6,7 @@ date: 2020-09-19
 author: D
 header-img:
 catalog: true
-tags: [FreeBSD, PF, Packet Filter]
+tags: [FreeBSD, PF, Packet Filter, crontab]
 ---
 
 # 1.創建防火牆PF的配置文件
