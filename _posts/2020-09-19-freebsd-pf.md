@@ -21,7 +21,8 @@ vtnet0 = "vtnet0"                 # 虛擬網卡接口 vtnet0
 
 # ICMP是联网设备用于各种类型通信的多用途消息传递协议。 例如，ping实用程序使用一种称为
 # 回显请求(echoreq)的消息类型，该消息已添加到icmp_type列表中。
-# 分段的另一个重要方面是称为最大传输单位（MTU）的术语。 TCP / IP协议使设备能够协商用于建立连接的数据包大小。 
+# 分段的另一个重要方面是称为最大传输单位（MTU）的术语。 
+# TCP / IP协议使设备能够协商用于建立连接的数据包大小。 
 # 目标主机使用ICMP消息将其MTU通知源IP，此过程称为MTU路径发现。 特定的ICMP消息类型是目标不可访问。 
 # 您可以通过将未到达消息(unreach)类型添加到icmp_types列表中来启用MTU路径发现。
 icmp_types = "{ echoreq unreach}" # icmp協議(ping命令使用的協議)
@@ -46,7 +47,8 @@ set skip on lo0
 # max-mss 1440 : 该选项表示重新组合的TCP数据包（也称为有效负载）的最大段大小。
 scrub in all fragment reassemble max-mss 1440
 
-# antispoof : 反ip欺骗规则表示，来自vtnet0网络的所有流量只能通过vtnet0接口，否则将使用quick关键字立即将其丢弃。
+# antispoof : 反ip欺骗规则表示，来自vtnet0网络的所有流量只能通过vtnet0接口，
+# 否则将使用quick关键字立即将其丢弃。
 antispoof quick for $vtnet0
 
 # return : 選項是對 block out(阻擋)規則的補充.这将丢弃数据包，
@@ -62,16 +64,18 @@ block return out quick on egress to  <rfc6890>
 # 先阻擋所有流量流入流出，再去精準指定允許流入和流出
 block all
 
-# 使用PF，可以限制单个主机允许的極短時間內(如1秒內)连接尝试次数。如果主机超出这些限制，则连接将被断开，
-# 并且将禁止服务器连接。 为此，您将使用PF的过载机制，该机制维护一个被禁止IP地址的表。
+# 使用PF，可以限制单个主机允许的極短時間內(如1秒內)连接尝试次数。如果主机超出这些限制，则连接
+# 将被断开，并且将禁止服务器连接。 为此，您将使用PF的过载机制，该机制维护一个被禁止IP地址的表。
 # keep state : 该选项允许您定义过载表的状态条件。
-# max-src-conn : 指定每秒单个主机允许的同時连接数; max-src-conn-rate : 指定每秒从单个主机允许的"新"连接数
-# 如果主机超过了这些限制，则 overload (过载)机制会将源IP添加到 <bruteforce> 表中，从而将其禁止在服务器中使用。 
-# 最后，flush global 选项立即删除连接。
-pass in on $vtnet0 proto tcp to port { 22 } keep state (max-src-conn 5, max-src-conn-rate 1/1, overload <bruteforce> flush global)
+# max-src-conn : 指定每秒单个主机允许的同時连接数; max-src-conn-rate : 指定每秒从单个主机允许
+# 的"新"连接数如果主机超过了这些限制，则 overload (过载)机制会将源IP添加到 <bruteforce> 表中，
+# 从而将其禁止在服务器中使用。 最后，flush global 选项立即删除连接。
+pass in on $vtnet0 proto tcp to port { 22 } keep state (max-src-conn 5, max-src-conn-rate 1/1,\
+                overload <bruteforce> flush global)
 
 # 保護網站的端口,第一條規則比較嚴格,現在是啓用第二條
-# pass in on $vtnet0 proto tcp to port { 80 433 } keep state (max-src-conn 45, max-src-conn-rate 9/1, overload <webcrawlers> flush global)
+# pass in on $vtnet0 proto tcp to port { 80 433 } keep state (max-src-conn 45, \
+                max-src-conn-rate 9/1, overload <webcrawlers> flush global)
 pass in on $vtnet0 proto tcp to port { 80 443 }
 
 # 下面兩條規則時允許從服務器往外的流量:
