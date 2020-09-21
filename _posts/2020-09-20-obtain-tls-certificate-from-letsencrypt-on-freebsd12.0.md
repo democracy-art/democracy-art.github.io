@@ -59,4 +59,5 @@ ECC/ECDSA
 # acme.sh --install-cert -d example.com --ecc --cert-file /etc/letsencrypt/example.com_ecc/cert.pem --key-file /etc/letsencrypt/example.com_ecc/private.key --fullchain-file /etc/letsencrypt/example.com_ecc/fullchain.pem
 ```
 
-參考:[How to Enable TLS 1.3 in Nginx on FreeBSD 12](https://www.vultr.com/docs/how-to-enable-tls-13-in-nginx-on-freebsd-12)
+參考:[How to Enable TLS 1.3 in Nginx on FreeBSD 12](https://www.vultr.com/docs/how-to-enable-tls-13-in-nginx-on-freebsd-12)<br>
+參考:[Using acme.sh on FreeBSD 12](https://devopscraft.com/using-acme-sh-on-freebsd-12/)
