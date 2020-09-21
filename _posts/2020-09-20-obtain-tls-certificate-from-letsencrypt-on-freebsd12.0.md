@@ -8,7 +8,7 @@ header-img:
 catalog: true
 tags: [freebsd, acme.sh, let's encrypt, tls]
 ---
-安裝前環境準備
+# 1.安裝前環境準備
 ```
 # freebsd-update fetch install
 # pkg update && pkg upgrade -y
@@ -18,12 +18,12 @@ tags: [freebsd, acme.sh, let's encrypt, tls]
 pkg install -y unzip wget bash socat git
 ```
 
-1.安裝 acme.sh
+# 2.安裝 acme.sh
 ```
 # pkg install -y acme.sh
 ```
 
-2.爲你的域名獲取RSA或者ECDSA證書
+# 3.爲你的域名獲取RSA或者ECDSA證書
 
 注意:證書你只需要選取其中**一種**即可.這裏是爲了完整性所以把兩種都寫下來.
 
@@ -37,7 +37,7 @@ ECDSA證書
 ```
 注意: 將 `example.com` 換成自己的域名.
 
-3.創建目錄用於存儲證書和密鑰. 這裏創建 `/etc/letsencrypt` 目錄來存儲
+# 4.創建目錄用於存儲證書和密鑰. 這裏創建 `/etc/letsencrypt` 目錄來存儲
 
 存儲RSA證書的目錄
 ```
@@ -48,7 +48,7 @@ ECDSA證書
 # mkdir -p /etc/letsencrypt/example.com_ecc
 ```
 
-4.安裝且複製證書到目錄`/etc/letsencrypt`
+# 5.安裝且複製證書到目錄`/etc/letsencrypt`
 
 RSA
 ```
