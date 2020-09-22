@@ -124,5 +124,21 @@ def handleResponse(req, interesting):
       (有时虽然提示已经阻塞的错误信息，但是依然可以发送登录信息).
 - 8.在浏览器中，等待一分钟(有些久的15分钟左右)以重置帐户锁定，然后使用您标识的凭据登录。
 
-### 1.6 Broken brute-force protection, multipe credentials per request
+### 1.6 暴力破解保護,一個請求里面包含多個候選的密碼(Broken brute-force protection, multipe credentials per request)
+
+例子:
+- 1.運行Burp,研究登錄頁面.注意到`POST /login`請求提交登錄憑證是以`JSON`的格式提交的。將該請求發送到Burp Repeater.
+- 2.在Burp Repeater,將password單一的密碼字符串替換爲包含所有候選密碼的數組.如下:
+```
+"username" : "carlos",
+"password" : [
+        "123456",
+        "password",
+        "qwerty",
+        ...
+]
+```
+- 3.發送請求,它將會返回`302`的響應.
+- 4.右鍵點擊該響應且選擇"Show the response in browser".複製URL粘貼到瀏覽器且回車,該頁面會加載且將會以carlos用戶身份登錄.
+
 ### 1.7 Brute-forcing a stay-logged-in cookie
