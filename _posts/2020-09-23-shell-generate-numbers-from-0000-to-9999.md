@@ -10,7 +10,7 @@ tags: [bash, shell編程, 0000-9999]
 ---
 bash文件內容如下
 ```
-#!/usr/bin/bash  #每個系統的bash路徑可能不一樣,可以用vim底行命令模式`:.!which bash`找到
+#!/usr/bin/bash  #每個系統的bash路徑可能不一樣,可以用vim底行命令模式 :.!which bash 找到
 for i in {0..9999}
 do
     if [ $i -lt 10 ]; then
