@@ -1,14 +1,14 @@
 --- 
 layout: post
-title: Authentication--Brute-force(暴力破解用户登录认证)
+title: 基于密码登录中的漏洞(Vulnerabilities in password-based login)
 subtitle:
 date: 2020-09-18
 author: D
 header-img:
 catalog: true
-tags: [authentication,brute-force]
+tags: [authentication,brute-force,password-based]
 ---
-# 1.暴力破解
+
 ### 1.1 通过不同的响应枚举用户名(Username enumeration via different responses)
 比如：
 1.输入错误的用户名，返回`Invalid username`错误信息.可以利用`Invalid username`枚举出正确的用户名.
@@ -140,5 +140,3 @@ def handleResponse(req, interesting):
 ```
 - 3.發送請求,它將會返回`302`的響應.
 - 4.右鍵點擊該響應且選擇"Show the response in browser".複製URL粘貼到瀏覽器且回車,該頁面會加載且將會以carlos用戶身份登錄.
-
-### 1.7 Brute-forcing a stay-logged-in cookie
