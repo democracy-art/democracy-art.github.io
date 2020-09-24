@@ -59,6 +59,11 @@ verification-code=123456
  知道受害者的用戶名,而不用知道受害者的密碼.<br>
 
  例子:<br>
+ ```
+ Your credentials: wiener:peter
+ Victim's username: carlos
+ ```
+
  - 1.運行Burp,登錄你自己的帳號研究網站的2FA驗證過程.注意到在`POST /login2`請求,
  參數`verify`用於決定哪個用戶將被訪問
  - 2.登出你的帳號
