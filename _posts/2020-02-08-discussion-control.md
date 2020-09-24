@@ -11,8 +11,6 @@ tags:
     - Freedom
 ---
 
-参考:[新闻茶座：从李文亮事件看中国的舆论控制术/王剑每日财经观察/20200208](https://www.youtube.com/watch?v=egZ5OJRl12E)<br>
-
 中共两大武器:<br>
 
 ```

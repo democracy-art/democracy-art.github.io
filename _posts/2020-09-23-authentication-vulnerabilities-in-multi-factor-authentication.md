@@ -72,8 +72,29 @@ verification-code=123456
  - 4.去到登錄頁面且輸入你的用戶何密碼.然後提交一個無效的2FAY驗證碼.
  - 5.發送`POST /login2`請求到Burp Intruder或Turbo Intruder.
  - 6.在Burp Intruder或Turbo Intruder,設置`verify`的值爲`carlos`且添加一個payload到`mfa-code`
- 的參數.然後暴力破解驗證碼.
+ 的參數.然後暴力破解驗證碼.驗證碼的生成參考[bash shell編程產數組0000-9999並導入文件code
+](https://dm116.github.io/2020/09/23/shell-generate-numbers-from-0000-to-9999/).
  - 7.加載含有`302`的response頁面到你的瀏覽器.
- - 8.點擊"My account"就完成該實驗了.
+ - 8.點擊"My account"就完成該實驗了. 
 
 # 3. 2FA bypass using a brute-force attack(暴力破解2FA验证码)
+就像密碼一樣,網站需要採取措施來防止2FA的驗證碼被暴力破解.這個非常重要因爲<br>
+驗證碼經常是4到6位的數字.沒有足夠的保護,暴力破解驗證碼就是小事一樁.<br>
+
+一些網站嘗試去防止對驗證碼的暴力破解,通過把嘗試輸入驗證碼錯誤次數超過一定的數量<br>
+的用戶登出.但是這個個防禦措施在現實中是無效的,因爲高級的攻擊者通過Burp Intruder<br>
+創建`macros`或者用Turbo Intruder擴展，能夠將多個步驟的操作自動化.<br>
+
+例子:<br>
+假設你已經有了一個有效的受害者的用戶名和密碼.但是卻沒有該用戶的驗證碼.<br>
+用戶的憑證: `carlos:montoya`<br>
+
+Tip:你需要使用Burp macros結合Burp Intruder來完成這個實驗.更多的關於**macros**信息<br>
+請參考[Burp Suite documentation](https://portswigger.net/burp/documentation/desktop/options/sessions).<br>
+如果你精通Python可能更喜歡用Turbo Intruder.<br>
+
+- 1.運行Burp,登錄carlos帳號且研究網站的2FA的驗證過程.注意到如果你輸入錯誤的驗證碼
+**兩**次的話,你將會被log out(登出).你需要使用Burp會話處理
+
+
+
