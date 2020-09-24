@@ -56,6 +56,19 @@ verification-code=123456
  verification-code=123456
  ```
  這樣子是非常危險的，如果攻擊者可以暴力破解驗證碼,那麼他們可以登錄任何帳號僅僅需要
- 知道受害者的用戶名,而不用知道受害者的密碼.
+ 知道受害者的用戶名,而不用知道受害者的密碼.<br>
+
+ 例子:<br>
+ - 1.運行Burp,登錄你自己的帳號研究網站的2FA驗證過程.注意到在`POST /login2`請求,
+ 參數`verify`用於決定哪個用戶將被訪問
+ - 2.登出你的帳號
+ - 3.發送`GET /login2`請求到Burp Repeate.把`verify`的值改爲受害者`carlos`,然後發送請求.
+ 這樣做是爲了確保受害者帳號`carlos`的臨時的2FA驗證碼會生成.
+ - 4.去到登錄頁面且輸入你的用戶何密碼.然後提交一個無效的2FAY驗證碼.
+ - 5.發送`POST /login2`請求到Burp Intruder或Turbo Intruder.
+ - 6.在Burp Intruder或Turbo Intruder,設置`verify`的值爲`carlos`且添加一個payload到`mfa-code`
+ 的參數.然後暴力破解驗證碼.
+ - 7.加載含有`302`的response頁面到你的瀏覽器.
+ - 8.點擊"My account"就完成該實驗了.
 
 # 3. 2FA bypass using a brute-force attack(暴力破解2FA验证码)
