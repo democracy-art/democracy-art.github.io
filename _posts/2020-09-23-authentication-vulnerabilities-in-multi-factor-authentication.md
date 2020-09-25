@@ -94,7 +94,31 @@ Tip:你需要使用Burp macros結合Burp Intruder來完成這個實驗.更多的
 如果你精通Python可能更喜歡用Turbo Intruder.<br>
 
 - 1.運行Burp,登錄carlos帳號且研究網站的2FA的驗證過程.注意到如果你輸入錯誤的驗證碼
-**兩**次的話,你將會被log out(登出).你需要使用Burp會話處理
+**兩**次的話,你將會被log out(登出).在發送**每一個**request之前你都需要使用Burp session處理
+相關的特性爲了**自動**的登錄回去.
+- 2.去到Burp的"Project options">"Sessions".在"Session Handling Rules"panel,點擊<kbd>Add</kbd>.
+"Session handling rule editor"對話框就會打開.
+- 3.在對話,去到"Scop"標籤.在"URL Scope"下面選擇"Include all URLs"選項.
+- 4.切回到"Details"標籤且在"Rule Actions",下面點擊<kbd>Add</kbd> > "Run a macro".
+- 5.在"Select macro"下面點擊<kbd>Add</kbd>去打開"Macro Recorder".選擇3個requests:
+```
+GET /login
+POST /login
+GET /login2
+```
+然後,點擊<kbd>OK</kbd>.然後"Macro Editor"dialog opens.
+- 6.點擊<kbd>Test macro</kbd>且檢查最後的response包含頁面里面內容是要你提供4位數的
+安全碼.這確定了macro(宏)是正確的工作的.
+- 7.一直點擊<kbd>OK</kbd>直到關掉各種對話框,直到回到Burp的主窗口.macro現在將會**自動**
+地幫你以Carlos的身份登錄回去的在Burp Intruder每一次的發送的request中.
+- 8.發送`POST /login2`request到Burp Intruder.
+- 9.在Burp Intruder,添加一個payload position到`mfa-code`參數.
+- 10.在"Payloads"標籤,選擇"Numbers"payload類型.輸入範圍0-9999且設置步長爲1.
+設置 min/max 整數位數都爲4, 且max的分數位數爲0.這將會爲每一個可能的4位整數創建payload
+且這4位整數不滿4位的，用0在前面補齊,比如99補齊爲0099.
+- 11.在"Options"標籤下,在"Request Engine"下面,把threads設置爲1.
+- 12.開始攻擊.最終,會有一個request將會返回302狀態碼.用右鍵點擊該回應且選擇
+"Show response in browser".複製它的URL到你的瀏覽器且加載.
+- 13.點擊"My account"完成該實驗.
 
-
-
+[Vulnerabilities in multi-factor authentication](https://portswigger.net/web-security/authentication/multi-factor)
