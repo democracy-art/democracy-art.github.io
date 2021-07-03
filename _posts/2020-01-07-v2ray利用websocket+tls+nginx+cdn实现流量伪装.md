@@ -324,13 +324,9 @@ systemctl restart v2ray
 11.2 登录Cloudflare主页-->点击域名 xxx.tk --> SSL/TLS --> Full(strict)<br/>
 
 # 三.下载安装 v2ray客户端
-### 安装
-下载 v2ray windows的客户端可以下载 [v2ray-core](https://github.com/v2ray/v2ray-core/releases) ,
-但是,更建议下载 [v2rayN](https://github.com/2dust/v2rayN/releases) 的 v2rayN-Core.zip,
-因为`v2rayN-Core.zip` 里面即包含了 v2rayN 界面 还包含了v2ray-core,
-即v2rayN只是一个UI界面,需要搭配v2ray-core, 它们搭配起来就组成了v2rayN-Core.zip. 
-安装v2rayN-Core需要安装依赖环境 [.NET Framework 4.6](https://docs.microsoft.com/zh-cn/dotnet/framework/install/guide-for-developers) 或更高版本.
-	
+[神一样的工具们](https://www.v2fly.org/awesome/tools.html)
+>如果爱折腾，个人建议还是用[v2ray-core](https://github.com/v2fly/v2ray-core)的release。
+
 ### 配置 v2rayN-Core windows客户端
 解压v2rayN-Core.zip-->进入v2rayN-Core文件夹-->双击打开v2rayN.exe-->服务器-->添加[VMess]服务器:
 - 地址(address):www.xxx.tk                       //这里写你申请的域名
