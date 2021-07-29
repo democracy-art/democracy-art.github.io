@@ -41,16 +41,19 @@ sudo ss-local -c /etc/shadowsocks-libev/config.json
 ```
 设置开机启动 shadowsocks-libev客户端
 ```
-sudo vi /lib/systemd/system/shadowsocks-libev.service
+sudo cp /lib/systemd/system/shadowsocks-libev-local@.service  /lib/systemd/system/shadowsocks-libev-local.service
+```
+```
+sudo vi /lib/systemd/system/shadowsocks-libev-local.service
 ```
 修改配置如下:
 ```
-#ExecStart=/usr/bin/ss-server -c $CONFFILE $DAEMON_ARGS
+#ExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/%i.json
 ExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/config.json 
 ```
 使能 shadowsocks-libev.service
 ```
-sudo systemctl enable shadowsocks-libev.service
+sudo systemctl enable shadowsocks-libev-local.service
 ```
 重新启动
 ```
@@ -58,7 +61,7 @@ reboot
 ```
 查看是否自动启动shadowsocks-libev
 ```
-sudo systemctl status shadowsocks-libev.service
+sudo systemctl status shadowsocks-libev-local.service
 ```
 >Active: active (running)  正常启动<br>
 Active: inactive (dead)    没有启动
