@@ -55,9 +55,9 @@ ExecStart=/usr/bin/ss-local -c /etc/shadowsocks-libev/config.json
 ```
 sudo systemctl enable shadowsocks-libev-local.service
 ```
-重新启动
+启动shadowsocks-libev客户端
 ```
-reboot
+sudo systemctl start shadowsocks-libev-local.service
 ```
 查看是否自动启动shadowsocks-libev
 ```
