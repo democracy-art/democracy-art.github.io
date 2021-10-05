@@ -23,5 +23,7 @@ tags:
   
 <a href="https://dm116.github.io/assests/TwoTreatisesOfGovernment.pdf" target="_blank">浏览器查看:政府论.pdf</a>  
 
+[政府论(英文版)-Two Treatises of Government](https://www.yorku.ca/comninel/courses/3025pdf/Locke.pdf)
+
 
 
