@@ -6,10 +6,10 @@ date: 2020-03-30
 author: D
 header-img:
 catalog: true
-tags: [FreeBSD,shadowsocks]
+tags: [FreeBSD,shadowsocks,shadowsocks-libev]
 ---
 
-### Install
+# Install
 
 Shadowsocks-libev is available in FreeBSD Ports Collection. You can install it in either way, `pkg` or `ports`.
 
@@ -18,17 +18,29 @@ Shadowsocks-libev is available in FreeBSD Ports Collection. You can install it i
 ```
 pkg install shadowsocks-libev
 ```
-#### ports
-
+# Configuration
+### Edit config.json
 ```
-cd /usr/ports/net/shadowsocks-libev
-make install
+#ee /usr/local/etc/shadowsocks-libev/config.json
 ```
-### Configuration
+```
+{
+    "server":"your_server_ip",
+    "mode":"tcp_and_udp",
+    "server_port":your_server_port,
+    "local_port":1080,
+    "password":"your_server_password",
+    "timeout":300,
+    "method":"your_crypt_method"
+}
+```
 
-Edit your `config.json` file. Be default, it's located int `/usr/local/etc/shadowsocks-libev`.
 
-To enable shadowsocks-libev, add the following rc variable to your `/etc/rc.conf` file:
+### Enable shadowsocks-libev
+```
+# ee /etc/rc.conf
+```
+Add the following code to it.
 ```
 shadowsocks_libev_enable="YES"
 ```
@@ -37,26 +49,26 @@ Start the Shadowsocks server:
 ```
 service shadowsocks_libev start
 ```
-### Run as client
-By default, shadowsocks-libev is running as a server in FreeBSD.<br>
-If you would like to start shadowsocks-libev in client mode,<br> 
-you can modify the rc script(`/usr/local/etc/rc.d/shadowsocks_libev`) manually.
-```
-# modify the following line from "ss-server" to "ss-local"
-command="/usr/local/bin/ss-local"
-```
-and then run as client:
-```
-service shadowsocks_libev start
-```
-### Stop shadowsocks-libev
+Stop shadowsocks-libev
 ```
 service shadowsocks_libev stop
 ```
-### Disable shadowsocks-libev 
-To enable shadowsocks-libev, add the following rc variable to your `/etc/rc.conf` file:
+### Run as client
+By default, shadowsocks-libev is running as a server in FreeBSD. If you would like to start shadowsocks-libev in client mode,
+you need to do as follows.
 ```
-shadowsocks_libev_enable="NO"
+# ee `/usr/local/etc/rc.d/shadowsocks_libev`
 ```
-
-**NOTE:** that is simply a workaround, each time you upgrade the port your changes will be overwitten by the new version.
+Replace `ss-server` with `ss-local`.
+```
+# command="/usr/local/bin/ss-server"
+command="/usr/local/bin/ss-local"
+```
+Start shadowsocks-libev
+```
+service shadowsocks_libev start
+```
+Stop shadowsocks-libev
+```
+service shadowsocks_libev stop
+```
