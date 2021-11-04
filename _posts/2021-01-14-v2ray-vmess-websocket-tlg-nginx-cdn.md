@@ -8,100 +8,72 @@ keywords: [v2ray,vmess,websocket,TLS,nginx,CDN,Cloudflare]
 description : "V2ray使用Vmess+Websocket+TLS+Nginx+CDN(Cloudflare)例子的相关配置.A example how to deplay v2ray with Vmess+Websocket+TLS+Nginx+CDN(Cloudflare) the config of client and server."
 ---
 
-**注意:**　这是一个**隐藏**你的服务器真实IP的配置,如果你追求**安全**这是一种非常好的配置,如果你追求的是**速度**那么这种配置**不**适合你.
-
 # v2ray 客户端配置 
 ```
 {
-        "log": {
-                "loglevel": "warning"
-        },
-
-        "dns": {
-                "hosts":{
-                        "domain:baidu.com":"127.0.0.1" //换成相应的域名的IP
-                },
-                "servers": [
-                        {
-                                "address": "https://1.1.1.1/dns_query", //DNS over HTTPS,防DNS污染
-                                "domains": [
-                                        "domain:google.com",
-                                        "domain:youtube.com",
-                                        "domain:v2fly.org"
-                                ]
-                        },
-                        "8.8.8.8", // 当它的值是一个DNS IP地址时,v2ray会使用此地址的53端口进行查询,这样会被DNS污染
-                        "localhost"//表示本机预设的DNS配置
-                ],
-                "tag": "dns_inbound"
-        },
-
-        "routing": {
-                "domainStrategy": "AsIs", //只使用域名进行路由选择(默认值).
-                "rules": [
-                        {
-                                "type": "field",
-                                "domain": [
-                                        "geosite:cn"                                                                            
-                                ],                                                                                              
-                                "outboundTag": "direct"                                                                         
-                        },
-                        {
-                                "type": "field",
-                                "domain": [
-                                        "domain:google.com",
-                                        "domain:youtube.com",
-                                        "domain:github.com",
-                                        "domain:v2fly.org"
-                                ],
-                                "outboundTag": "proxy"
-                        }
+	"log": {
+		"loglevel": "warning",
+		"access": "/var/log/v2ray/access.log",
+		"error": "/var/log/v2ray/error.log"
+	},
+    "inbounds": [
+        {
+            "port": 1080, // SOCKS 代理端口，在浏览器中需配置代理并指向这个端口
+            "listen": "127.0.0.1",
+            "protocol": "socks",
+            "settings": {
+				"auth":"noauth",
+                "udp": false 
+            },
+			"sniffing": {
+				"enabled": true,
+				"destOverride": ["http", "tls"]
+			}
+        }
+    ],
+    "outbounds": [
+        {
+            "protocol": "vmess",
+            "settings": {
+                "vnext": [
+                    {
+                        "address": "your_domain", // 服务器地址，请修改为你自己的服务器 ip 或域名
+                        "port": 443, // 服务器端口
+                        "users": [
+                            {
+                                "id": "your_id",
+								"alterId": 64 
+                            }
+                        ]
+                    }
                 ]
+            },
+			"streamSettings": {
+				"network":"ws",
+				"security": "tls",
+				"wsSettings" :{
+					"path": "your_path"
+				}
+			}
         },
-
-        "inbounds": [{
-                "port": 1080,
-                "listen": "127.0.0.1",
-                "protocol": "socks",
-                "settings": {
-                        "udp": true
-                },
-                "sniffing": { //防DNS污染
-                        "enabled": true, // 开启流量探测
-                        "destOverride": ["http", "tls"] //将http的目标地址重置为https
-                }
-        }],
-
-        "outbounds": [
-                {
-                        "tag": "proxy",
-                        "protocol":"vmess", //使用VMess协议
-                        "settings": {
-                                "vnext": [{
-                                        "address": "your_domain",  //写你自己的域名
-                                        "port": 443,               //HTTPS使用的端口443
-                                        "users": [{
-                                                "id": "your_uuid", //你自己的UUID
-                                                "security": "aes-128-gcm",//"aes-128-gcm"推荐PC用,"chacha20-poly1305"推荐手机端用
-                                                "alterId": 64      // 值要<或=服务器端的alterId的值
-                                        }]
-                                }]
-                        },
-                        "streamSettings": {
-                                "network": "ws",//传输方式使用WebSocket
-                                "security": "tls",//传输层使用TLS加密
-                                "wsSettings": {
-                                        "path": "/your_nginx_path" //这个路径要与nginx的上配置的路径一致
-                                }
-                        }
-                },
-                {
-                        "protocol": "freedom",
-                        "tag": "direct"     
-                }
+        {
+            "protocol": "freedom",
+            "tag": "direct"
+        }
+    ],
+    "routing": {
+        "domainStrategy": "IPOnDemand",
+        "rules": [
+            {
+                "type": "field",
+                "ip": [
+                    "geoip:private"
+                ],
+                "outboundTag": "direct"
+            }
         ]
- }
-
+    }
+}
 ```
 # v2ray 服务端配置
 ```
