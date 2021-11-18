@@ -57,7 +57,7 @@ service shadowsocks_libev stop
 By default, shadowsocks-libev is running as a server in FreeBSD. If you would like to start shadowsocks-libev in client mode,
 you need to do as follows.
 ```
-# ee `/usr/local/etc/rc.d/shadowsocks_libev`
+# ee /usr/local/etc/rc.d/shadowsocks_libev
 ```
 Replace `ss-server` with `ss-local`.
 ```
