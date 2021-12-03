@@ -34,11 +34,6 @@ sudo vi  /etc/shadowsocks-libev/config.json
     "method":"aes-256-gcm"
 }
 ```
-`server_ip`, `server_port` , `password` 和 `method` 必须和服务端的保持`一致`.
-启动shadowsocks-libev客户端
-```
-sudo ss-local -c /etc/shadowsocks-libev/config.json 
-```
 设置开机启动 shadowsocks-libev客户端
 ```
 sudo cp /lib/systemd/system/shadowsocks-libev-local@.service  /lib/systemd/system/shadowsocks-libev-local.service
