@@ -26,7 +26,7 @@ sudo vi  /etc/shadowsocks-libev/config.json
 ```
 {
     "server":"server_ip",
-    "mode":"tcp_and_udp",
+    "mode":"tcp_only",
     "server_port":8888,
     "local_port":1080,
     "password":"server_password",
